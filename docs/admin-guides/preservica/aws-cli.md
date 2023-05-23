@@ -20,3 +20,7 @@ Upload/copy a local file to s3:
 Upload/copy a local directory to s3:
         
         aws s3 cp --recursive local_directory s3://com.preservica.icaew.put.holding/NewFolder/
+
+List aws folder contents with their etags and size (note this example uses com.preservica.icaew.export):
+
+        aws s3api list-objects --bucket com.preservica.icaew.export
