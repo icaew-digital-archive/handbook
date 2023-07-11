@@ -5,7 +5,6 @@ nav:
     - 'User guides':
         - 'Why digital preservation / web-archiving?': 'user-guides/why-dp-web-archives.md'
         - 'Overview of the ICAEW Digital Archive': 'user-guides/overview.md'
-        - 'Test page!': 'user-guides/test.md'
         - 'Preservica':
             - 'Overview and collections': 'user-guides/preservica/preservica-overview.md'
             - 'Accessing / searching Preservica': 'user-guides/preservica/accessing-preservica.md'
