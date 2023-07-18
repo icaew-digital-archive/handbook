@@ -58,19 +58,19 @@ Run Brunnhilde using the following in cmd:
 * Dublin Core Metadata:
 
 
-| DC Terms    | Description |
-| :---        |    :----:   |
-| Title | The name given to the resource. |
-| Creator | An entity primarily responsible for making the content. |
-| Subject | The topic of the content of the resource. |
-| Subject | Often a resource has multiple topics. |
-| Description | An account of the content of the resource. |
-| Publisher | The entity responsible for making the resource available. |
-| Date | A date associated with an event in the life cycle of the resource. |
-| Type | The nature or genre of the content of the resource. |
-| Format | The physical or digital manifestation of the resource. |
-| Language | A language of the intellectual content of the resource. |
-| Relation | A reference to a related resource. |
+    | DC Terms    | Description |
+    | :---        |    :----:   |
+    | Title | The name given to the resource. |
+    | Creator | An entity primarily responsible for making the content. |
+    | Subject | The topic of the content of the resource. |
+    | Subject | Often a resource has multiple topics. |
+    | Description | An account of the content of the resource. |
+    | Publisher | The entity responsible for making the resource available. |
+    | Date | A date associated with an event in the life cycle of the resource. |
+    | Type | The nature or genre of the content of the resource. |
+    | Format | The physical or digital manifestation of the resource. |
+    | Language | A language of the intellectual content of the resource. |
+    | Relation | A reference to a related resource. |
 
 * Each of these elements are placed in a folder, the fixity and descriptive metadata are nested in an .opex metadata template beside the digital artefact they represent.
 * Each artefact including the folder must have a seperate .opex metadata document.
