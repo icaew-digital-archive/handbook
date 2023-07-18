@@ -46,7 +46,7 @@ Run Brunnhilde using the following in cmd:
 
         exiftool -csv -r -T -Title -Author -Subject -Keywords -Producer -CreateDate -ModifyDate -FileName "input" > "output.csv"
 
-* Example: Quarterly.
+* Example: Quarterly
 
         exiftool -csv -r -T -Title -Author -Subject -Keywords -Producer -CreateDate -ModifyDate -FileName /home/digital-archivist/Desktop/Quarterly_example > Desktop/exiftool_output.csv
 * Quarterly titles were either correct or blank. No need to strip the metadata. 
@@ -88,7 +88,7 @@ We have three seperate fit for purpose tools that achieve the objective of creat
 
 * Tool B: uses the completed .csv to create unique .opex metadata files for each digital artefact in the folder. Including fixity and dublin core metadata. 
 
-        b_csv_to_opex_xml.py csv_file, output_dir
+        b_csv_to_opex_xml.py csv_file output_dir
 
     After this tool has successfully created a .opex metadata file for each digital artefact, move on to Tool C.
 
