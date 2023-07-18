@@ -15,6 +15,6 @@ This guide explains how to convert older WARC files (including those with the .g
 
         wacz create ./combined/combined.warc.gz -o ./combined/combined.wacz --text --detect-pages
 
-    Before running the previous command, create a new Python virtual environment with `python3 -m venv venv` and then activating it with `. ./venv/bin/activate` as usual. Then install the library with `pip install py-wacz`.
+    Before running the previous command, create a new Python virtual environment with `python3 -m venv venv` and then activating it with `. ./venv/bin/activate` as usual. Then install the library with `pip install wacz`.
 
     The `--text` and `--detect-pages` allows for full-text search capability when viewed with webrecorder playback software.
