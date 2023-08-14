@@ -24,6 +24,7 @@ nav:
             - 'Downloading content from the Internet Archive Wayback Machine': 'admin-guides/web-archiving/downloading-content-from-IA.md'
             - 'Downloading videos from YouTube and other sites': 'admin-guides/web-archiving/downloading-videos-from-youtube.md'
             - 'Downloading WARC files from Archive-It': 'admin-guides/web-archiving/downloading-warcs-from-archive-it.md'
+            - 'Monthly web captures': 'admin-guides/web-archiving/monthly-web-captures.md'
             - 'WARC file naming conventions': 'admin-guides/web-archiving/warc-name-conventions.md'
             - 'Web crawl process overview': 'admin-guides/web-archiving/crawl-process-overview.md'
         - 'Digital archiving workstation setup': 'admin-guides/digital-archive-workstation.md'
