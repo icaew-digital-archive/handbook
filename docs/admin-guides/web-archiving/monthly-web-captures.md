@@ -15,8 +15,10 @@ For the monthly web captures we use [ArchiveWeb.page](https://github.com/webreco
 1. Open the ArchiveWeb.page.
 
 2. Create a new Archive, name Archive in line with the warc naming conventions
-    > example: audit-and-beyond-19951012-000-ICAEW
-    > add the additional GMT data when ingesting the crawl in Preservica.
+
+    Example: audit-and-beyond-19951012-000-ICAEW
+    
+    Add the additional GMT data when ingesting the crawl in Preservica.
 
 3. Start crawl from the top three homepages. Start the crawl in preview mode.
 
@@ -29,8 +31,10 @@ For the monthly web captures we use [ArchiveWeb.page](https://github.com/webreco
 7. When crawl has finished and all URL's collected, download the crawl.
 
 8. Ingest crawl into Preservica:
-    > rename the WACZ file to include the GMT time. Example: audit-and-beyond-19951012111005-000-ICAEW
-    > ingest the files into the following folders:
+
+    Rename the WACZ file to include the GMT time. Example: audit-and-beyond-19951012111005-000-ICAEW
+    
+    Ingest the files into the following folders:
         
     - Audit and Beyond: Admin/Private Repository/Web Captures/WACZ/WARC Files/audit-and-beyond-logged-in
     - By All Accounts: Admin/Private Repository/Web Captures/WACZ/WARC Files/by-all-accounts-logged-in
