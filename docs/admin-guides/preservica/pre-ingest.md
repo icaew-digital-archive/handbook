@@ -74,6 +74,26 @@ Run Brunnhilde using the following in cmd:
     | Language | A language of the intellectual content of the resource. |
     | Relation | A reference to a related resource. |
 
+## Auto Classification for DC Metadata
+
+ICAEW has a strict taxonomy that is held in Symphony. We use this resource to auto classify the dublin core subject metadata. The script provides subject classification to a percentage, the decision is to include only subjects with a classification threshold of 90% plus. The second rule is to include only the top 4 subjects classified by Symphony.
+
+Script:
+    java -jar Semaphore-CLSClient-5.6.3.jar --cloud-api-key=q+XmveQ3IDm3UXArcKDQLg== --url=https://cloud.smartlogic.com/svc/138b5bab-8ac4-45e0-b36f-815008f9921d/ input --threshold=90 --csv-output-file output.csv
+
+Things to note:
+
+* threshold=90 is the 90% classification threshold.
+* the output must be a csv.
+
+Process:
+
+* Enter the output csv, apply auto filter.
+* Column C, choose exclusively Generic_UPWARD.
+* From there, copy the top 4 90 + subjects into the dublin core csv SIP creation tool described below. 
+
+## SIP 
+
 * Each of these elements are placed in a folder, the fixity and descriptive metadata are nested in an .opex metadata template beside the digital artefact they represent.
 * Each artefact including the folder must have a seperate .opex metadata document.
 * The folder level .opex metadata document is unique to the other .opex files, its primary role is to include a manifest of the folder: both content and metadata.
