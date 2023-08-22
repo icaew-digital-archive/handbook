@@ -4,6 +4,14 @@ Currently the workstation is setup as dual-boot machine, running Windows and Ubu
 
 Login details for the Windows and Ubuntu/BitCurator can be found on the [Logins page](../logins.md)
 
+## Installation of Ubuntu/BitCurator on a new laptop
+
+1. Download Ubuntu image from [https://ubuntu.com/tutorials/install-ubuntu-desktop](https://ubuntu.com/tutorials/install-ubuntu-desktop).
+2. Create a bootable USB stick. Ubuntu already comes with software called Startup Disk Creator, however [balenaEtcher](https://www.balena.io/etcher/) is a good cross-platform option.
+3. Reboot lap and press F12 at boot to select the boot device. Select the USB stick.
+4. Follow installation process. Selectr "Install Ubuntu alongside Windows Boot Manager".
+5. If BitLocker is enabled, you may need to boot into Windows to disable it. This may require turning it on and off ([https://discourse.ubuntu.com/t/ubuntu-installation-on-computers-running-windows-and-bitlocker-turned-on/15338](  https://discourse.ubuntu.com/t/ubuntu-installation-on-computers-running-windows-and-bitlocker-turned-on/15338)).
+6. Install BitCurator using ther [Saltstack repository](https://github.com/bitcurator/bitcurator-salt).
 
 ## General software
 
@@ -108,6 +116,9 @@ _OCR software. OCRmyPDF adds an OCR text layer to scanned PDF files, allowing th
 
 * [ExifTool](https://github.com/exiftool/exiftool)  
 _ExifTool is a customizable set of Perl modules plus a full-featured command-line application for reading and writing meta information in a wide variety of files._
+
+* [Heritrix](https://github.com/internetarchive/heritrix3)  
+_Heritrix is the Internet Archive's open-source, extensible, web-scale, archival-quality web crawler project._
 
 * [youtube-dl](https://github.com/ytdl-org/youtube-dl)  
 _youtube-dl is a command-line program to download videos from YouTube.com and a few more sites._
