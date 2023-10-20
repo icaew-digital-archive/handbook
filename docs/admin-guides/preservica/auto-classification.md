@@ -1,19 +1,18 @@
 # Auto Classification for DC Metadata
 
-ICAEW has a strict taxonomy that is held in Symphony. We use this resource to auto classify the Dublin Core subject metadata. The script provides subject classification to a percentage, the decision is to include only subjects with a classification threshold of 90% plus. The second rule is to include only the top 4 subjects classified by Symphony.
+ICAEW uses [Smartlogic Semaphore](https://cloud.smartlogic.com/spa/) to auto-classify material using a custom made taxonomy. The _Classification & Language Service Client_ tool provides subject classification for documents stored locally. We have decided to include only subjects with a classification threshold of 48% and above - this matches what is happening on ICAEW.com. Topics can be removed at the descretion of the digital archivist if they feel the document has been assigned too many subjects.
 
 Script:
 
-    java -jar Semaphore-CLSClient-5.6.3.jar --cloud-api-key=q+XmveQ3IDm3UXArcKDQLg== --url=https://cloud.smartlogic.com/svc/138b5bab-8ac4-45e0-b36f-815008f9921d/ --singlearticle --threshold=90 input --csv-output-file subject-terms-output.csv
+    java -jar Semaphore-CLSClient-5.6.3.jar --cloud-api-key=q+XmveQ3IDm3UXArcKDQLg== --url=https://cloud.smartlogic.com/svc/138b5bab-8ac4-45e0-b36f-815008f9921d/ --threshold=48 --csv-output-file subject-terms-output.csv input
 
 
-### Things to note:
+## Things to note:
 
-* threshold=90 is the 90% classification threshold.
-* the output must be a csv.
+- threshold=48 is the 48% classification threshold
+- The output must be a csv
+- We use the terms from the Generic_UPWARD column
 
-### Process:
+## The Classification & Language Service Client
 
-* Enter the output csv, apply auto filter.
-* Column C, choose exclusively Generic_UPWARD.
-* From there, copy the top 4 90 + subjects into the dublin core csv SIP creation tool described below. 
+The _Classification & Language Service Client_ tool can be downloaded from the Smartlogic portal, along with the documentation: [CLS-Client](https://portal.smartlogic.com/docs/5.6/classification_server_-_developers_guide/the_command_line_client)
