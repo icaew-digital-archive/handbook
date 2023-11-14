@@ -13,8 +13,9 @@ nav:
             - 'Accessing / searching the web archives': 'user-guides/web-archiving/accessing-the-web-archives.md'
     - 'Admin guides':
         - 'Preservica':
+            - 'Standard ingest workflow': 'admin-guides/preservica/standard-ingest-workflow.md'
+            - 'Dublin Core': 'admin-guides/preservica/dublin-core.md'
             - 'Auto classification': 'admin-guides/preservica/auto-classification.md'
-            - 'Appraisal and pre-ingest workflow': 'admin-guides/preservica/pre-ingest.md'
             - 'Uploading large files via AWS CLI': 'admin-guides/preservica/aws-cli.md'
             - 'Filename conventions': 'admin-guides/preservica/filename-conventions.md'
             - 'Backing up Preservica locally': 'admin-guides/preservica/backing-up.md'
@@ -39,6 +40,11 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 theme:
   name: material
   palette:
