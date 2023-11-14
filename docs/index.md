@@ -8,7 +8,7 @@ Here you will find both user guides, admin guides, and useful resources for all 
 
 ## Admin guides
 
-* The admin guides are primarily focused on the _processes_ involved in the ingest of material into our digital archiving platform and the capturing of web pages via our web crawlers. These will be mostly of interest to the ICAEW Digital Archive Manager and Digital Archive Assistant.
+* The admin guides are primarily focused on the _processes_ involved in the ingest of material into our digital archiving platform and the capturing of web pages via our web crawlers. These will be mostly of interest to the ICAEW Digital Archive Manager and Digital Archivist.
 
 ## Useful resources
 

@@ -2,7 +2,7 @@
 
 Preservica contains public and restricted collections. To view the restricted collections you must first ensure that you are logged in at the access portal - [https://icaew.access.preservica.com/](https://icaew.access.preservica.com/)
 
-A username and password can be provided on request from the Digital Archive Manager / Digital Archive Assistant.
+A username and password can be provided on request from the Digital Archive Manager / Digital Archivist.
 
 ## Collections overview
 

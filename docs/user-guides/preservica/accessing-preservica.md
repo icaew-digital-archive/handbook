@@ -20,7 +20,7 @@ Before proceeding with either access method you should ensure that you are logge
 
 If you are not logged in, you will either not see the restricted content at all or will be met with a message "You must be logged in to the ICAEW Digital Archive to view this content".
 
-If you do not have a Preservica account, please request one from the Digital Archive Manager / Digital Archive Assistant.
+If you do not have a Preservica account, please request one from the Digital Archive Manager / Digital Archivist.
 
 ## Search
 
@@ -58,7 +58,7 @@ The first step is to click the search icon in the navigation bar. This in effect
 
 ![pres-1](../../assets/images/pres-1.png)
 
-After this you should see that Preservica returned a large number of results (in the example below ~21,000, this includes a number of items only available in the Admin area viewable only by the Digital Archive Manager / Digital Archive Assistant).
+After this you should see that Preservica returned a large number of results (in the example below ~21,000, this includes a number of items only available in the Admin area viewable only by the Digital Archive Manager / Digital Archivist).
 
 ![pres-3](../../assets/images/pres-3.png)
 

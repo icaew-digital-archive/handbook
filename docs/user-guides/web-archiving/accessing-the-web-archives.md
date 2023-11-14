@@ -85,4 +85,4 @@ There may be instances when you are unable to locate what you are looking for. T
 
 - There may have been problem at the time of crawl. For instance, the crawler may have visited a page and received a 404 error, or the crawler didn’t capture a HTML/JavaScript element correctly which has resulted in a non-functional/missing page.
 
-If you are unable to locate what you are looking for, contact the Digital Archive Manager or Digital Archive Assistant. They will be able to look in the restricted capture and/or the Sitecore media library download.
+If you are unable to locate what you are looking for, contact the Digital Archive Manager or Digital Archivist. They will be able to look in the restricted capture and/or the Sitecore media library download.
