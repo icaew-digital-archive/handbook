@@ -1,8 +1,8 @@
-# Re-Classification Workflow
+# Reclassification Workflow
 
-The following document outlines the re-classification workflow.
+The following document outlines the reclassification workflow.
 
-The re-classification workflow downloads assets from the ICAEW Preservica digital archive, using python tools and the sempahore taxonomy each asset is re-classifyed with dublin core metadata. Upon completing the dublin core metadata csv, the existing metadata connected to the asset will be deleted. The new metadata will then be connected to the asset. Four tools are used in the workflow, the workflow has two stages.
+The reclassification workflow downloads assets from the ICAEW Preservica digital archive. Then using Python tools and the Semaphore taxonomy each asset is re-classified with Dublin Core metadata. Upon completing the Dublin Core metadata CSV, the existing metadata connected to the asset will be deleted. The new metadata will then be connected to the asset. Four tools are used in the workflow, the workflow has two stages.
 
 Each of these tools require that the operator is within a virtual environment in the relevant directory.
 
@@ -17,7 +17,7 @@ During this stage, assets and existing metadata will be downloaded from Preservi
 
 ## a_get_metadata.py
 
-The first step is to download the existing metadata for the assets that are to be reclassified. First step is to grab the asset or folder ID from Preservica. Secondly, create a CSV. This will be where the relevant dublin core metadata is added/updated.
+The first step is to download the existing metadata for the assets that are to be reclassified. First step is to grab the asset or folder ID from Preservica. Secondly, create a CSV. This will be where the relevant Dublin Core metadata is added/updated.
 
 ```python3 a_get_metadata.py [preservica reference number] [output.csv] ```
 
@@ -25,7 +25,7 @@ WARNING: The CSV output will require manual column realignment if there are repe
 
 ## semaphore-helper.py
 
-The semaphore-helper script is a multi-part tool that firstly downloads a copy of each required asset from Preservica and then using the ICAEW taxonomy classifies up to ten subject terms for the dublin core subject fields.
+The semaphore-helper script is a multi-part tool that firstly downloads a copy of each required asset from Preservica and then using the ICAEW taxonomy classifies up to ten subject terms for the Dublin Core subject fields.
 
 Semaphore requires a preservica reference number, an area for each asset to be downloaded to and a output preferably CSV.
 
@@ -36,7 +36,7 @@ Semaphore requires a preservica reference number, an area for each asset to be d
 * b_delete_metadata.py
 * c_add_metadata_from_csv.py
 
-During this stage, existing metadata will be deleted from the enclosed Preservica environment. Afterwards the new completed dublin core metadata will be added to the assets.
+During this stage, existing metadata will be deleted from the enclosed Preservica environment. Afterwards the new completed Dublin Core metadata will be added to the assets.
 
 ## b_delete_metadata.py
 
@@ -48,9 +48,9 @@ WARNING: Each times this script is used, a Y/N prompt occurs. After Y the metada
 
 ## c_add_metadata_from_csv.py
 
-Lastly, the c_add_metadata.py tool adds the newly complete dublin core metadata csv to the original assets within Preservica.
+Lastly, the c_add_metadata.py tool adds the newly complete Dublin Core metadata CSV to the original assets within Preservica.
 
 ```python3 c_add_metadata_from_csv.py [csv_location]```
 
-This tool uses the preservica reference numbers in the csv to locate where to add the newly completed dublin core metadata template.
+This tool uses the preservica reference numbers in the CSV to locate where to add the newly completed Dublin Core metadata template.
 

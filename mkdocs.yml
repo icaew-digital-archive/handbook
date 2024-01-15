@@ -19,6 +19,7 @@ nav:
             - 'Post-ingest': 'admin-guides/preservica/post-ingest.md'
             - 'Dublin Core': 'admin-guides/preservica/dublin-core.md'
             - 'Auto classification': 'admin-guides/preservica/auto-classification.md'
+            - 'Reclassification': 'admin-guides/preservica/reclassification.md'
             - 'Uploading large files via AWS CLI': 'admin-guides/preservica/aws-cli.md'
             - 'Filename conventions': 'admin-guides/preservica/filename-conventions.md'
             - 'Backing up Preservica locally': 'admin-guides/preservica/backing-up.md'
