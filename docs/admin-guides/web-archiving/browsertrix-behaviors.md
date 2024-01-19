@@ -1,20 +1,21 @@
 # Browsertrix custom behaviors
 
-This document gives information around the creation of custom browsertrix web crawler behaviors.
+This document gives some brief information around the creation of custom browsertrix web crawler behaviors.
 
 The browsertrix web crawler supports automatically running customized in-browser behaviors. The behaviors auto-play videos (when possible), and auto-fetch content that is not loaded by default, and also run custom behaviors on certain sites.
 
-There is a document in the Digital Archive SharePoint called "Sitecore-templates-for-testing.docx" which outlines the current templates in use on the ICAEW.com website. The URLs listed are to be used for the testing of capture and playback of the web archiving software. Currently there are about 6 JavaScript elements that need custom behaviors written to ensure the highest fidelity capture.
-
-- As part of the pre-crawl work an updated list of templates should be requested from the web team
-- A crawl of these pages should be carried out and the playback reviewed for problematic elements
+- Before writing any custom behaviors, as part of the pre-crawl work an updated list of templates currently in use by ICAEW.com should be requested from the web team.
+- These are to be recorded in a document in the Digital Archive SharePoint called "Sitecore-templates-for-testing.docx". The URLs listed form the basis for the testing of the capture and the playback of the web archiving software. Currently there are about 6 JavaScript elements that need custom behaviors written to ensure the highest fidelity capture. These are also recorded in the above document.
+- A crawl of the pages listed should be carried out to test the crawl and the playback of the capture.
 - Once these problematic elements are identified, custom behaviours need to be written. There is a tutorial found at the [browsertrix-behaviors](https://github.com/webrecorder/browsertrix-behaviors) GitHub page.
 
-For testing, I've found the following command to be useful:
+    For testing, I've found the following command to be useful:
 
-`docker run -p 9037:9037 -v $PWD/crawls:/crawls -v $PWD/custom-behaviors/:/custom-behaviors/ webrecorder/browsertrix-crawler crawl --url [URLS] --customBehaviors /custom-behaviors/ --screencastPort 9037 --scopeType page --behaviors siteSpecific --generateWACZ`
+    `docker run -p 9037:9037 -v $PWD/crawls:/crawls -v $PWD/custom-behaviors/:/custom-behaviors/ webrecorder/browsertrix-crawler crawl --url [URLS] --customBehaviors /custom-behaviors/ --screencastPort 9037 --scopeType page --behaviors siteSpecific --generateWACZ`
 
-The ongoing crawl can be viewed at localhost:9037 so the custom behaviors can be confirmed to be working. The behavior is a .js file located in a "custom-behaviors" folder in the present working directory, i.e. from where the docker command is run. `--url` can accept multiple URLs, which will be the URLs to be tested. The `--scopeType` is set to "page" so only the pages given are crawled. `--behaviors` is set to "siteSpecific" so there is no confusion with the default behavours when testing. `--generateWACZ` is specified so the resulting crawl can easily be tested.
+    The ongoing crawl can be viewed in a web browser at **localhost:9037** so the custom behaviors can be confirmed to be working. The custom behaviors are JavaScript functions in a .js file located in a "custom-behaviors" folder in the present working directory, i.e. from where the docker command is run. `--url` can accept multiple URLs, which will be the URLs to be tested. The `--scopeType` is set to "page" so only the pages given are crawled. `--behaviors` is set to "siteSpecific" so there is no confusion with the default behavours when testing. `--generateWACZ` is specified so the resulting crawl can easily be tested.
+
+- Once the crawl has completed the resulting WACZ file should be tested via ReplayWeb.page
 
 ## Appendix
 
