@@ -1,11 +1,11 @@
-# Browsertrix custom behaviors
+# Browsertrix-crawler custom behaviors
 
 This document gives some brief information around the creation of custom browsertrix web crawler behaviors.
 
 The browsertrix web crawler supports automatically running customized in-browser behaviors. The behaviors auto-play videos (when possible), and auto-fetch content that is not loaded by default, and also run custom behaviors on certain sites.
 
 - Before writing any custom behaviors, as part of the pre-crawl work an updated list of templates currently in use by ICAEW.com should be requested from the web team.
-- These are to be recorded in a document in the Digital Archive SharePoint called "Sitecore-templates-for-testing.docx". The URLs listed form the basis for the testing of the capture and the playback of the web archiving software. Currently there are about 6 JavaScript elements that need custom behaviors written to ensure the highest fidelity capture. These are also recorded in the above document.
+- These are to be recorded in the SharePoint document [Sitecore-templates-for-testing.docx](https://icaew.sharepoint.com/:w:/r/sites/digitalarchive/_layouts/15/Doc.aspx?sourcedoc=%7B6944968F-7BA4-4675-9B26-244DD1030D83%7D&file=Sitecore-templates-for-testing.docx&action=default&mobileredirect=true). The URLs listed form the basis for the testing of the capture and the playback of the web archiving software. Currently there are about 6 JavaScript elements that need custom behaviors written to ensure the highest fidelity capture. These are also recorded in the above document.
 - A crawl of the pages listed should be carried out to test the crawl and the playback of the capture.
 - Once these problematic elements are identified, custom behaviours need to be written. There is a tutorial found at the [browsertrix-behaviors](https://github.com/webrecorder/browsertrix-behaviors) GitHub page.
 
