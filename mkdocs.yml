@@ -26,7 +26,8 @@ nav:
         - 'Web archives / Archive-It':
             - 'Accessing web captures offline': 'admin-guides/web-archiving/accessing-web-captures-offline.md'
             - 'Archiving Twitter': 'admin-guides/web-archiving/archiving-twitter.md'
-            - 'Browsertrix Custom Behaviors': 'admin-guides/web-archiving/browsertrix-behaviors.md'
+            - 'Browsertrix': 'admin-guides/web-archiving/browsertrix.md'
+            - 'Browsertrix custom behaviors': 'admin-guides/web-archiving/browsertrix-behaviors.md'
             - 'Converting WARC to WACZ': 'admin-guides/web-archiving/converting-warc-to-wacz.md'
             - 'Downloading content from the Internet Archive Wayback Machine': 'admin-guides/web-archiving/downloading-content-from-IA.md'
             - 'Downloading videos from YouTube and other sites': 'admin-guides/web-archiving/downloading-videos-from-youtube.md'
@@ -34,6 +35,7 @@ nav:
             - 'Monthly web captures': 'admin-guides/web-archiving/monthly-web-captures.md'
             - 'WARC file naming conventions': 'admin-guides/web-archiving/warc-name-conventions.md'
             - 'Web crawl process overview': 'admin-guides/web-archiving/crawl-process-overview.md'
+            - 'Wget': 'admin-guides/web-archiving/wget.md'
         - 'Digital archiving workstation setup': 'admin-guides/digital-archive-workstation.md'
         - 'Editing the ICAEW Digital Archive Handbook': 'admin-guides/editing-digital-archive-handbook.md'
         - 'Reporting / Statistics': 'admin-guides/reporting.md'
