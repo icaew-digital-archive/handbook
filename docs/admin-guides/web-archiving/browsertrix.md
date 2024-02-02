@@ -42,26 +42,13 @@ YAML file example (ICAEW.com crawl):
         # Crawl specific options
         scopeType: "custom"
         include:
-        - ^(http(s)?:\/\/)?(www\.)?(careers\.|cdn\.|live\.|latest\.)?icaew\.com.*$ # scope in icaew.com, careers.icaew.com, cd.icaew.com, live.icaew.com and latest.icaew.com
+        - ^(http(s)?:\/\/)?(www\.)?(careers\.|cdn\.|live\.|regulation\.)?icaew\.com.*$ # scope in icaew.com, careers.icaew.com, cd.icaew.com, live.icaew.com, and regulation.icaew.com
         - ^(http(s)?:\/\/)?(www\.)?(train|volunteer)\.icaew\.com(\/)?(blog.*)?$ # scope in parent and blog pages only
         exclude:
         - ^.*(l|L)(o|O)(g|G)(o|O)(f|F)(f|F).*$ # block logout URLs
         - ^(http(s)?:\/\/)?(www\.)?icaew\.com\/search.*$ # block search pages (robots.txt)
         - ^(http(s)?:\/\/)?(www\.)?.*\/member(s|ship)\/active-members.*$ # block active-members pages and media files
         - ^(http(s)?:\/\/)?(www\.)?.*sprint-test-pages.*$ # block sprint-test-pages
-        - ^(http(s)?:\/\/)?(www\.)?.*https://www.icaew.com/technical/corporate-governance/new-boardroom-agenda/culture-holds-the-key.*$
-        - ^(http(s)?:\/\/)?(www\.)?.*https://www.icaew.com/technical/tax/tax-faculty/taxline/2023/articles/changes-ahead-for-rd-tax-relief.*$
-        - ^(http(s)?:\/\/)?(www\.)?.*https://www.icaew.com/technical/tax/tax-faculty/taxline/2023/articles/does-a-wayleave-change-a-property-from-residential-to-nonresidential.*$
-        - ^(http(s)?:\/\/)?(www\.)?.*https://www.icaew.com/technical/tax/tax-faculty/taxline/2023/articles/how-employers-can-fund-an-apprenticeship.*$
-        - ^(http(s)?:\/\/)?(www\.)?.*https://www.icaew.com/technical/tax/tax-faculty/taxline/2023/articles/Inheritance-tax-pitfalls-and-planning-points.*$
-        - ^(http(s)?:\/\/)?(www\.)?.*https://www.icaew.com/technical/tax/tax-faculty/taxline/2023/articles/making-the-most-of-capital-losses.*$
-        - ^(http(s)?:\/\/)?(www\.)?.*https://www.icaew.com/technical/tax/tax-faculty/taxline/2023/articles/plastic-packaging-tax-the-lessons-so-far.*$
-        - ^(http(s)?:\/\/)?(www\.)?.*https://www.icaew.com/technical/tax/tax-faculty/taxline/2023/articles/reflections-on-the-mtd-itsa-deferral.*$
-        - ^(http(s)?:\/\/)?(www\.)?.*https://www.icaew.com/technical/tax/tax-faculty/taxline/2023/articles/simplicity-sustainability-and-technology-key-themes-for-VAT-at-50.*$
-        - ^(http(s)?:\/\/)?(www\.)?.*https://www.icaew.com/technical/tax/tax-faculty/taxline/2023/articles/tax-thresholds-in-deep-freeze.*$
-        - ^(http(s)?:\/\/)?(www\.)?.*https://www.icaew.com/technical/tax/tax-faculty/taxline/2023/articles/Understanding-the-statutory-clearance-process.*$
-        - ^(http(s)?:\/\/)?(www\.)?.*https://www.icaew.com/technical/tax/tax-faculty/taxline/2023/articles/vat-50-years-young.*$
-        - ^(http(s)?:\/\/)?(www\.)?.*https://www.icaew.com/technical/tax/tax-faculty/taxline/2023/articles/why-now-is-the-time-to-revisit-company-share-option-plans.*$
 
 
 YAML file example (single page):
