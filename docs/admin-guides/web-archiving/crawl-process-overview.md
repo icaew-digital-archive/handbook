@@ -7,7 +7,7 @@ Generally the workflow will be as follows:
 ```mermaid
 flowchart LR
     id1[Pre-crawl work \n\n Request updated site templates \n Media Library download \n Save a copy of the sitemap] --> id2
-    id2[Crawl/s \n\n wget crawl \n Main crawl via browsertrix-crawler] --> id3[Post-crawl work \n\n Verifying the capture using warc-reader.py \n Adding details to the web-crawl-log]
+    id2[Crawl/s \n\n wget crawl \n Main crawl via browsertrix-crawler] --> id3[Post-crawl work \n\n Adding details to the web-crawl-log]
 ```
 
 ## Pre-crawl work
@@ -37,7 +37,11 @@ You should see the following -
 
 ![media-lib-4](../../assets/images/media-lib-4.png)
 
-Once the download is complete, ingest to Admin/Private Repository/Web Captures/Sitecore Media Library Downloads, following the established naming convention for the file. **LINK TO AWS PAGE**
+Once the download is complete, ingest to Admin/Private Repository/Web Captures/Sitecore Media Library Downloads, following the established naming convention for the file.
+
+Once the crawls have completed, upload to Preservica and check the checksums match with `sha1sum [FILE]` in the local machine and then in Preservica by navigating to Advanced and then the Bitsteam page.
+
+The file will need to be transferred out of the VDI via SharePoint to be uploaded to Preservica via the [AWS client](../preservica/aws-cli.md).
 
 ### Saving a copy of the ICAEW.com sitemap
 
@@ -47,9 +51,9 @@ A copy of the sitemap is saved for multiple reasons:
 - For post-crawl testing, to ensure all URLs have been crawled
 - For future reference, as a record of what the crawls/WARC files contain
 
-The following script can be used to produce the sitemaps in .txt format: [sitemap_xml_to_txt_or_html.py](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/sitemap%20tools/sitemap_xml_to_txt_or_html.py).  
+The following script can be used to produce the sitemaps in .txt format: [sitemap_xml_to_txt_or_html.py](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/sitemap%20tools/sitemap_xml_to_txt_or_html.py).
 
-The script requires the 'requests' library to be install via:  
+The script requires the 'requests' library to be install via:
 
         pip install requests
 
@@ -58,8 +62,6 @@ The script requires the 'requests' library to be install via:
 The following outputs a list of URLs from the sitemap to a text file with pages that contain "sprint-test-pages" or "active-members" exluded:
 
         python3 sitemap_xml_to_txt_or_html.py --to_file 202XXXXX_sitemap.txt https://www.icaew.com/sitemap_corporate.xml https://www.icaew.com/sitemap_careers.xml  --exclude_strings "sprint-test-pages" "active-members"
-
-The .txt file should be ingested into Preservica at Admin/Private Repository/Web Captures/ICAEW-com-sitemaps. **Consider whether this is necessary? WACZ captures already contain a pages.jsonl file**
 
 ## Crawls
 
@@ -71,7 +73,21 @@ Information regarding the use of wget can be found on the [wget](./wget.md) page
 
 Information regarding the setup and use of browsertrix-crawler can be found on the [browsertrix-crawler](./browsertrix.md) page.
 
+Once the crawls have completed, upload to Preservica and check the checksums match with `sha1sum [FILE]` in the local machine and then in Preservica by navigating to Advanced and then the Bitsteam page.
+
+### Public crawls via Archive-It
+
+Ensure that the inclusion/exclusion rules match the browsertrix configuration. Run the crawl for 30 days, using the Standard crawling technology and with a 50 GB data limit. This crawl will not require post-crawl validation work.
+
+
 ## Post-crawl work
+
+### web-crawl-log
+
+Upload the sitemap used for the crawls to Web Crawls/Web Crawl Sitemaps. Fill out the details in web-crawl-log.xlsx in Web Crawls.
+
+
+## Appendix
 
 ### warc-reader.py
 
@@ -87,7 +103,3 @@ The script needs to be edited here:
         CSV_FILENAME = ''
 
 The URL_LIST should point to a .txt file of URLs, i.e. the 202XXXXX_sitemap.txt created earlier in the crawl process. WARC_FOLDER_PATH should point to a folder containing WARC files. CSV_FILENAME is the name of .csv file output.
-
-### web-crawl-log
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse neque lacus, lacinia nec justo ac, mattis semper nisl. Integer scelerisque sem ornare, ornare eros varius, ullamcorper eros. In rhoncus sodales libero sed lacinia. Sed malesuada pretium sem et semper. Pellentesque ultricies sapien justo, ut malesuada eros suscipit ut. Nullam aliquet, ante nec condimentum malesuada, enim mi placerat tortor, sit amet hendrerit enim sem sit amet tellus. Etiam sodales lacus velit, non sollicitudin enim sagittis eget. In hac habitasse platea dictumst. Aliquam semper sodales ante, non ullamcorper sapien hendrerit non. 
