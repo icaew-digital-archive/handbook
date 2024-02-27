@@ -37,6 +37,7 @@ YAML file example (ICAEW.com crawl):
         allowHashUrls: true
         combineWARC: true
         generateWACZ: true
+        text: to-pages
         workers: 8
 
         # Crawl specific options
@@ -56,16 +57,17 @@ YAML file example (single page):
         # For an example of go to Crawling Configuration Options at https://github.com/webrecorder/browsertrix-crawler
 
         # Basic setup
-        profile: /crawls/profiles/profile.tar.gz
-        seedFile: /app/urlSeedFile.txt
-        collection: ia-icaew-co-uk
+        # profile: /crawls/profiles/profile.tar.gz
+        seedFile: /app/seedFile.txt
+        collection: legal_alert
         screencastPort: 9037
 
         # Additional options
         allowHashUrls: true
+        combineWARC: true
         generateWACZ: true
-        workers: 6
-        text: true
+        text: to-pages
+        workers: 8
 
         # Crawl specific options
         scopeType: "page-spa"
