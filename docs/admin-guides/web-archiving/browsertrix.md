@@ -37,7 +37,6 @@ YAML file example (ICAEW.com crawl):
         allowHashUrls: true
         combineWARC: true
         generateWACZ: true
-        text: to-pages
         workers: 8
 
         # Crawl specific options
@@ -61,12 +60,12 @@ YAML file example (single page):
         seedFile: /app/seedFile.txt
         collection: legal_alert
         screencastPort: 9037
+        customBehaviors: /custom-behaviors/
 
         # Additional options
         allowHashUrls: true
         combineWARC: true
         generateWACZ: true
-        text: to-pages
         workers: 8
 
         # Crawl specific options
