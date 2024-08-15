@@ -23,6 +23,7 @@ nav:
             - 'Uploading large files via AWS CLI': 'admin-guides/preservica/aws-cli.md'
             - 'Filename conventions': 'admin-guides/preservica/filename-conventions.md'
             - 'Backing up Preservica locally': 'admin-guides/preservica/backing-up.md'
+            - 'Downloading StreamAMG videos': 'admin-guides/preservica/downloading-streamamg-videos.md'
         - 'Web archives / Archive-It':
             - 'Web crawl process overview': 'admin-guides/web-archiving/crawl-process-overview.md'
             - 'Accessing web captures offline': 'admin-guides/web-archiving/accessing-web-captures-offline.md'
