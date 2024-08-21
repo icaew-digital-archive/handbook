@@ -35,6 +35,7 @@ nav:
             - 'Downloading videos from YouTube and other sites': 'admin-guides/web-archiving/downloading-videos-from-youtube.md'
             - 'Downloading WARC files from Archive-It': 'admin-guides/web-archiving/downloading-warcs-from-archive-it.md'
             - 'Monthly web captures': 'admin-guides/web-archiving/monthly-web-captures.md'
+            - 'Scrapy': 'admin-guides/web-archiving/scrapy.md'
             - 'WARC file naming conventions': 'admin-guides/web-archiving/warc-name-conventions.md'
             - 'Wget': 'admin-guides/web-archiving/wget.md'
         - 'Digital archiving workstation setup': 'admin-guides/digital-archive-workstation.md'
