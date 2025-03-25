@@ -1,4 +1,4 @@
-# Accessing  / searching Preservica
+# Accessing  and Searching Preservica
 
 ## Access
 
@@ -6,8 +6,8 @@
 
 There are two methods of accessing / searching Preservica:
 
+- Preservica user access portal: [https://icaew.access.preservica.com/](https://icaew.access.preservica.com/).
 - Links from the library catalogue
-- Preservica web portal - [https://icaew.access.preservica.com/](https://icaew.access.preservica.com/).
 
 An example from the library catalogue - [http://libcat.icaew.com/uhtbin/cgisirsi/x/0/0/57/5/0?searchdata1=102535%7BCKEY%7D&searchfield1=GENERAL%5ESUBJECT%5EGENERAL%5E%5E&user_id=WEBSERVER](http://libcat.icaew.com/uhtbin/cgisirsi/x/0/0/57/5/0?searchdata1=102535%7BCKEY%7D&searchfield1=GENERAL%5ESUBJECT%5EGENERAL%5E%5E&user_id=WEBSERVER); the Preservica link links directly to the document from the Electronic Access (856) field.
 

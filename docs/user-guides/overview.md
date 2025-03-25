@@ -1,29 +1,21 @@
 # Overview of the ICAEW Digital Archive
 
-The ICAEW Digital Archive comprises of two completely seperate facets: a **digital preservation platform** (Preservica) and a **web archive platform** (Archive-It and other tools).
-
-The differences between the two are explained below:
+The ICAEW Digital Archive consists of two main components: a **digital preservation platform** ([Preservica](https://icaew.access.preservica.com/)) and **web archive collections** (hosted on both [Preservica](https://icaew.access.preservica.com/) and [Archive-It](https://archive-it.org/organizations/1613)).
 
 ## Preservica
 
-Preservica is a digital preservation system that is used by organizations around the world to manage and preserve their digital content over the long term. It is a cloud-based platform that provides a range of digital preservation tools and services, including ingest, storage, metadata management, preservation planning, and access.
+Preservica is a cloud-based digital preservation platform used globally by organisations to manage and preserve digital content for the long term. It provides tools for ingest, storage, metadata management, preservation planning, and access, ensuring the ongoing availability, authenticity, and usability of digital content across changing hardware, software, and file formats. Preservica supports a wide range of content types, including documents, images, audio, video, and web content, preserving these assets throughout their lifecycle.
 
-Preservica is designed to help organizations ensure the ongoing availability, authenticity, and usability of their digital content, even as hardware, software, and file formats evolve and change over time. The platform supports a wide range of digital content types, including documents, images, audio, video, and web content, and provides tools for managing and preserving this content throughout its lifecycle.
+### How ICAEW Uses Preservica
 
-### How it used by ICAEW 
+ICAEW primarily uses Preservica for preserving documents (PDFs, DOCs), images, audio (e.g., podcasts), and video (e.g., webinars, YouTube content). Unlike web archives, the content in Preservica is more _curated_, organised into a hierarchical folder structure with detailed metadata to support search and retrieval. Additionally, Preservica is used to host some of our web collections, alongside Archive-It.
 
-ICAEW's main use for Preservica is for documents (PDFs, DOCs etc.), images, audio (podcasts etc.) and video (webinars and YouTube content etc.). The content on Preservica is far more _curated_ than the web-crawls - having been gathered together into a hierarchical folder structure with application of detailed metadata to aid with search and retrieval. The collections are also far more likely to be complete as items have been sourced from other places other than the website.
+**Note**: Logged-in captures of ICAEW.com can be found in Preservica but not on Archive-It.
 
-**_If you are after a document, image, audio, or video file - Preservica should be your first port of call_.**
+## Web Archive Collections
 
-## Web archives / Archive-It
+A web archive is a collection of preserved web pages and digital content, enabling access to historical versions of websites. Web archiving involves capturing web pages and associated metadata (e.g., URLs, timestamps, file formats) using specialised software to ensure long-term availability and accessibility.
 
-A web archive is a collection of web pages and other digital content that has been preserved over time, allowing users to access and view historical versions of websites and web pages.
+### How ICAEW Uses Web Archives
 
-Web archiving involves capturing and preserving web pages and associated metadata, such as URLs, timestamps, and file formats, in a way that ensures their long-term availability and accessibility. This is typically done using specialized software tools that crawl the web, capturing and archiving pages as they are discovered.
-
-### How it used by ICAEW 
-
-ICAEW's main use for web archives / Archive-It is to make periodic captures of various websites, most notably ICAEW.com. Web archives are _not curated_ in any way - no metadata has been applied to aid search and therefore searching them can often be more cumbersome and tricky.    
-
-**_If you are after an archived webpage - Archive-It (and other tools) should be your first port of call_.**
+ICAEW primarily uses web archiving to periodically capture websites, most notably ICAEW.com. Unlike content in Preservica, web archives are _not curated_—they lack metadata to aid search, making them more challenging to search and navigate.

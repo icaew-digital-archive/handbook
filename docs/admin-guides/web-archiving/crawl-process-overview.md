@@ -10,6 +10,19 @@ flowchart LR
     id2[Crawl/s \n\n wget crawl \n Main crawl via browsertrix-crawler] --> id3[Post-crawl work \n\n Adding details to the web-crawl-log]
 ```
 
+## ICAEW.com full capture
+
+A full capture of the ICAEW.com consists of the following:
+
+- A public capture in that is hosted by Archive-It (WARC/Web Archive format). Accessible to the public and staff.
+
+- A restricted capture that has been made locally and has been ingested into the admin area of Preservica (WARC/Web Archive format). Accessible to staff for offline viewing via [https://replayweb.page/](https://replayweb.page/)</a>.
+
+- A restricted capture made using the wget crawler with assets saved in their native formats, i.e., HTML, CSS, JS etc. This crawl is primarily made a backup for the other two crawls. Only available to view offline via the digital archiving workstation.
+
+- A full media library download from Sitecore which has been ingested into the admin area of Preservica. The media library download contains all public/private media content that is hosted on Sitecore at the time of download. Not readily accessible, however, the digital archivist can access the downloads if needed.
+
+
 ## Pre-crawl work
 
 ### Request updated site templates

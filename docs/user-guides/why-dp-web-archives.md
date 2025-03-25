@@ -1,23 +1,30 @@
-# Why digital preservation and web archiving?
+# Why Digital Preservation and Web Archiving?
 
-## Digital preservation
+## Digital Preservation
 
-Digital preservation is necessary to ensure that digital information remains accessible, usable, and understandable over time. Digital information is vulnerable to a wide range of threats, including [hardware and software obsolescence](https://en.wikipedia.org/wiki/Digital_obsolescence), [media decay](https://en.wikipedia.org/wiki/Data_degradation), accidental or intentional data loss, and cyberattacks.
+Digital preservation is critical for maintaining the accessibility, usability, and integrity of digital information over time. Digital data faces numerous risks, including:
 
-As more and more information is created and stored in digital formats, it becomes increasingly important to preserve that information for future generations. Without proper digital preservation, valuable historical, cultural, and scientific data could be lost forever.
+- Hardware and software obsolescence ([learn more](https://en.wikipedia.org/wiki/Digital_obsolescence))
+- Media degradation ([learn more](https://en.wikipedia.org/wiki/Data_degradation))
+- Accidental or intentional data loss
+- Cyberattacks
 
-Digital preservation is also important for legal and regulatory reasons. Many organizations are required by law to retain certain types of data for a specified period of time, and digital preservation is the only way to ensure that this data remains accessible and accurate.
+As digital content becomes more pervasive, it is essential to safeguard this information for future generations. Without proper preservation efforts, significant historical, cultural, and scientific data may be lost forever.
 
-## Web archiving
+In addition to its cultural value, digital preservation is vital for legal and regulatory compliance. 
 
-Web archiving is the process of collecting, preserving, and making accessible websites and online content over time. The need for web archiving arises from several reasons:
+Many organisations are legally obligated to retain certain data for specified periods, and preservation ensures that this information remains accurate and accessible.
 
-1. Cultural heritage preservation: Websites and online content represent an important aspect of our cultural heritage. They contain information on a wide range of topics, from art and literature to social and political movements.
-   
-2. Historical research: Websites and online content are valuable resources for historical research. They provide insights into past events, social trends, and cultural attitudes.
-   
-3. Legal and regulatory compliance: Many organizations are required by law to retain certain types of online content, such as government websites, for a specified period of time.
+## Web Archiving
 
-4. Business continuity: Web archiving can help organizations ensure business continuity by preserving important online content, such as corporate websites and social media accounts.
+Web archiving is the process of capturing, preserving, and ensuring continued access to websites and online content over time. As the web evolves rapidly, web archiving has become an essential practice for several reasons:
 
-5. Accountability and transparency: Web archiving can help to ensure accountability and transparency by preserving online content related to government actions, corporate activities, and public discourse.
+- **Preserving Cultural Heritage**: Websites reflect and document cultural, societal, and political movements. By archiving online content, we safeguard this valuable aspect of our cultural history.
+  
+- **Supporting Historical Research**: The web serves as a primary resource for understanding historical events, social changes, and shifting public attitudes. Archived websites provide an invaluable window into the past.
+  
+- **Ensuring Legal and Regulatory Compliance**: Many organisations are legally required to archive specific online content, such as government websites, to meet regulatory requirements.
+  
+- **Protecting Business Continuity**: Archiving corporate websites and social media ensures that important digital assets are not lost, helping businesses maintain continuity and access to key information.
+  
+- **Promoting Accountability and Transparency**: By preserving government, corporate, and public online content, web archiving helps ensure transparency and accountability in digital public discourse.

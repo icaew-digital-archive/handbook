@@ -3,14 +3,14 @@ site_url: https://example.com/
 nav:
     - Home: index.md
     - 'User guides':
-        - 'Why digital preservation / web-archiving?': 'user-guides/why-dp-web-archives.md'
+        - 'Why digital preservation and web-archiving?': 'user-guides/why-dp-web-archives.md'
         - 'Overview of the ICAEW Digital Archive': 'user-guides/overview.md'
         - 'Preservica':
-            - 'Overview and collections': 'user-guides/preservica/preservica-overview.md'
-            - 'Accessing / searching Preservica': 'user-guides/preservica/accessing-preservica.md'
-        - 'Web archives / Archive-It':
-            - 'Overview and collections': 'user-guides/web-archiving/web-archive-overview.md'
-            - 'Accessing / searching the web archives': 'user-guides/web-archiving/accessing-the-web-archives.md'
+            - 'Overview': 'user-guides/preservica/preservica-overview.md'
+            - 'Accessing and searching Preservica': 'user-guides/preservica/accessing-preservica.md'
+        - 'Web archives (via Preservica and Archive-It)':
+            - 'Overview': 'user-guides/web-archiving/web-archive-overview.md'
+            - 'Accessing and searching the web archives': 'user-guides/web-archiving/accessing-the-web-archives.md'
     - 'Admin guides':
         - 'Preservica':
             - 'Standard ingest workflow': 'admin-guides/preservica/standard-ingest-workflow.md'
@@ -64,3 +64,5 @@ theme:
 plugins:
     - offline
     - search
+extra_css:
+  - assets/css/custom.css

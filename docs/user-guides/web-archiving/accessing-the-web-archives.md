@@ -1,88 +1,102 @@
-# Accessing / searching the web archives
+# Accessing and Searching Web Archives
 
-## Overview of what is captured and how
-This guide will focus primarily on the full ICAEW.com captures but should also be relevant for other web captures - Economia, Coronavirus Hub, ION etc. A complete list of web collections is available [here](../web-archiving/web-archive-overview.md).
+## Overview of Captures
+This guide primarily focuses on full ICAEW.com captures, though the same principles apply to other collections.
 
-The ICAEW.com captures are split into **public** or **restricted** captures. Public captures are a full crawl of the website from a ‘public view’ - i.e., the crawler didn’t have access to pages behind the login. Restricted captures are a full crawl of the website from a ‘logged-in’ perspective – i.e., the crawler had access to pages behind the login.
+Web collections are classified as either **public** or **restricted**:
 
-A full capture of the ICAEW.com consists of the following:
+- **Public captures**: Full website crawls from a public perspective, without access to content behind login credentials.
+- **Restricted captures**: Full website crawls from a logged-in perspective, capturing content accessible only to authenticated users.
 
-- A public capture in that is hosted by Archive-It (WARC/Web Archive format). Accessible to the public and staff.
+For a comprehensive understanding of ICAEW.com captures, refer to the [Web Crawl Process Overview](../../admin-guides/web-archiving/crawl-process-overview.md).
 
-- A restricted capture that has been made locally and has been ingested into the admin area of Preservica (WARC/Web Archive format). Accessible to staff for offline viewing via [https://replayweb.page/](https://replayweb.page/)</a>.
+---
 
-- A restricted capture made using the wget crawler with assets saved in their native formats, i.e., HTML, CSS, JS etc. This crawl is primarily made a backup for the other two crawls. Only available to view offline via the digital archiving workstation.
+## Restricted Captures on Preservica
 
-- A full media library download from Sitecore which has been ingested into the admin area of Preservica. The media library download contains all public/private media content that is hosted on Sitecore at the time of download. Not readily accessible, however, the digital archivist can access the downloads if needed.
+### Accessing Archived Pages
 
-## Is a web capture the best place to look for archived content?
-Web crawls are primarily carried out to capture the ICAEW.com website at a specific point of time - with a particular emphasis on capturing the HTML pages. Web crawls should also include all the media content (PDFs, DOCXs etc.). They generally do not include video/audio content which is often streamed from external services (Vimeo, StreamAMG etc.).
+Restricted web captures are hosted on **Preservica** under the top-level folder: [Web Archives](https://icaew.access.preservica.com/index.php?name=SO_0c90c41b-e651-4c56-a503-b4088bab2f5a).
 
-However, even though web captures will contain a substantial amount of media content, Preservica will generally be the best access point for this sort of material. The collections on Preservica have been curated, should be more complete (items having been sourced from places other than the website), and have had additional metadata written to allow for better access 
-and discovery.
+**Note:** You must be logged into Preservica to see the restricted collections, without doing this you will only see the public collections.
 
-## Looking for content when the URL is known
+To explore a collection:
 
-### Public captures hosted by Archive-It
-All web collections on Archive-It have a collection id. The collection id for the ICAEW.com 
-public capture is: 16306
+1. Navigate to the desired folder in the portal.
+2. Viewing the capture is made possible by the in-built PyWb-based web archive player.
 
-All Archive-Its URL follows this pattern:
+Example of a restricted web archive containing 16,982 pages:  
 
-[https://wayback.archive-it.org/16306/*/https://www.icaew.com/](https://wayback.archive-it.org/16306/*/https://www.icaew.com/)
+![preservica-web-archive-1](../../assets/images/preservica-web-archive-1.png)
 
-The URL above describes a capture of **"https://www.icaew.com/"** in **collection 16306**, and the **\*** designates a ‘wildcard’ search where the timestamp would normally appear in direct Archive-It links (rather than going via an index).
+Clicking on a URL will open the archived webpage, a good tip is to make use of the "Full Screen" functionality:
 
-The above link will take you to an index page of archived versions of ‘https://www.icaew.com/’. In this example ‘https://www.icaew.com/’ has been archived 7 times. To access the archived page, you will need to click on a date in the calendar – 
+![preservica-web-archive-3](../../assets/images/preservica-web-archive-3.png)
 
-![search-web-cap-1](../../assets/images/search-web-cap-1.png)
+### Full-Text Search in Preservica
+Preservica supports full-text search for certain collections, provided the text has been indexed. Use this feature to locate specific content by keyword or phrase.
 
-Put simply, to check whether the Archive-It public capture contains a URL you 
-need to prepend your URL of interest with - **https://wayback.archive-it.org/16306/*/**
+Example of a full-text search result:  
 
-For example, if needing to check whether ‘https://www.icaew.com/technical/Technology/Artificial-intelligence’ has been 
-captured, you would prepend the URL with https://wayback.archive-it.org/16306/*/ to make the full Archive-It URL - [https://wayback.archive-it.org/16306/\*/https://www.icaew.com/technical/Technology/Artificial-intelligence](https://wayback.archive-it.org/16306/\*/https://www.icaew.com/technical/Technology/Artificial-intelligence)
+![preservica-web-archive-2](../../assets/images/preservica-web-archive-2.png)
 
-Opening the full archive URL will lead you to an index page (like in the example above) which will show you how many times the page has been captured, when it was captured and will provide access points to the archived page.
+---
 
-If the page is not present in the web collection you will see this page –
+## Public Captures on Archive-It
 
-![search-web-cap-2](../../assets/images/search-web-cap-2.png)
+Public web collections on Archive-It are identified by a **collection ID**. For ICAEW.com public captures, the collection ID is **16306**. 
 
-### For captures predating the Archive-It captures
+### Accessing Archived Pages
+To check if a URL has been captured:
 
-For captures predating the Archive-It captures, it will often be useful to search the public [Internet Archive - Wayback Machine](https://archive.org/web/) by entering the URL into the search box. However, you can also take the same approach of prepending your URL with **https://web.archive.org/web/*/** similar to above.
+1. Prepend the target URL with:  
+   `https://wayback.archive-it.org/16306/*/`
+2. Example:  
+   Target URL: `https://www.icaew.com/technical/Technology/Artificial-intelligence`  
+   Archive-It URL:  
+   [https://wayback.archive-it.org/16306/*/https://www.icaew.com/technical/Technology/Artificial-intelligence](https://wayback.archive-it.org/16306/*/https://www.icaew.com/technical/Technology/Artificial-intelligence)
 
-For example, if needing to check whether ‘https://www.icaew.com/technical/Technology/Artificial-intelligence’ has been captured by the Internet Archive, you would prepend the URL with https://web.archive.org/web/\*/ to make the full Internet Archive URL - [https://web.archive.org/web//*/https://www.icaew.com/technical/Technology/Artificial-intelligence](https://web.archive.org/web/*/https://www.icaew.com/technical/Technology/Artificial-intelligence)
+The resulting Archive-It page provides:
+- A timeline of captures.
+- Dates when the page was archived.
+- Links to archived versions.
 
+If the page is missing, a "not found" message will be displayed.
 
-### Restricted captures held offline/locally
+### Full-Text Search in Archive-It
+Archive-It supports full-text search within public collections, unlike the Internet Archive.
 
-Restricted captures are currently available for viewing via [https://replayweb.page/](https://replayweb.page/). To view the offline captures you first need to load them into the web app. The web captures are currently held here: W:\DA\Web Archive Replay\WACZ-files
+1. Visit the collection search page:  
+   [https://archive-it.org/collections/16306](https://archive-it.org/collections/16306)
+2. Click **Search Page Text**:  
 
+    ![search-web-cap-3](../../assets/images/search-web-cap-3.png)
 
-## Searching the captures
-### Searching the public Archive-It capture
-The public Archive-It capture allows for full-text search. This is contrast with the public Internet Archive captures, there is no full-text search capability.  
+3. Set **Results per page** to Unlimited:  
 
-Searching the capture is made from this page - [https://archive-it.org/collections/16306](https://archive-it.org/collections/16306)
+    ![search-web-cap-4](../../assets/images/search-web-cap-4.png)
 
-To begin searching via full-text click on “Search Page Text”.
+4. Enter your search query using these options:
+   - **Contains all of**: Includes all specified terms.
+   - **Exact phrase**: Searches for an exact match.
+   - **Not containing**: Excludes specific terms.
+5. Optionally, filter results by date range.
+6. Click **Advanced Search** to start the search.
 
-![search-web-cap-3](../../assets/images/search-web-cap-3.png)
+For detailed instructions, refer to the [Archive-It Search Guide](https://support.archive-it.org/hc/en-us/articles/208002196-Browse-and-search-on-archive-it-org#Usingsearch).
 
-After this, ensure that “Results per page” is set to Unlimited. You can enter your search query 
-in either “contains all of”, “exact phrase” or “not containing”, or in a combination of your 
-choosing.  
+---
 
-There is also an option to filter by date ranges. Once your search criteria has been entered you click on the “Advanced Search” button to begin the search. For more information regarding search, a guide is available here - [https://support.archive-it.org/hc/en-us/articles/208002196-Browse-and-search-on-archive-it-org#Usingsearch](https://support.archive-it.org/hc/en-us/articles/208002196-Browse-and-search-on-archive-it-org#Usingsearch)
+## Captures Predating the ICAEW Digital Archive
 
-![search-web-cap-4](../../assets/images/search-web-cap-4.png)
+For captures preceding the ICAEW digital archive, use the [Internet Archive's Wayback Machine](https://archive.org/web/).
 
-## Instances when you cannot find what you are looking for
+### Accessing Older Captures
+To search for older versions of a URL:
 
-There may be instances when you are unable to locate what you are looking for. This may be due to a few reasons:
-
-- There may have been problem at the time of crawl. For instance, the crawler may have visited a page and received a 404 error, or the crawler didn’t capture a HTML/JavaScript element correctly which has resulted in a non-functional/missing page.
-
-If you are unable to locate what you are looking for, contact the Digital Archive Manager or Digital Archivist. They will be able to look in the restricted capture and/or the Sitecore media library download.
+1. Prepend the URL with:  
+   `https://web.archive.org/web/*/`
+2. Example:  
+   Target URL: `https://www.icaew.com/technical/Technology/Artificial-intelligence`  
+   Internet Archive URL:  
+   [https://web.archive.org/web/*/https://www.icaew.com/technical/Technology/Artificial-intelligence](https://web.archive.org/web/*/https://www.icaew.com/technical/Technology/Artificial-intelligence)
