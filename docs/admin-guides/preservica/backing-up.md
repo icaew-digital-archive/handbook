@@ -1,4 +1,11 @@
-# Backing up Preservica locally
+# Backing Up
+
+[NOTE: Add a "Overview" section]
+[NOTE: Add a "Backup Types" section]
+[NOTE: Add a "Schedule" section]
+[NOTE: Add a "Storage" section]
+[NOTE: Add a "Verification" section]
+[NOTE: Add a "Best Practices" section]
 
 ## Running the report and downloading the files
 

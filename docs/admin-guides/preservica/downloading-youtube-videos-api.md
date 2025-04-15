@@ -1,6 +1,13 @@
 # YouTube Video Downloads and Metadata Export Guide
 
-Here’s a summary of the entire process, from creating the app in **Google Cloud** to running the script to get a list of videos from a **YouTube Brand Account** you manage:
+[NOTE: Add a "Prerequisites" section]
+[NOTE: Add a "API Setup" section]
+[NOTE: Add a "Download Process" section]
+[NOTE: Add a "Quality Settings" section]
+[NOTE: Add a "Error Handling" section]
+[NOTE: Add a "Best Practices" section]
+
+Here's a summary of the entire process, from creating the app in **Google Cloud** to running the script to get a list of videos from a **YouTube Brand Account** you manage:
 
 ### 1. **Set Up the Google Cloud Project**
    
@@ -128,3 +135,12 @@ Here’s a summary of the entire process, from creating the app in **Google Clou
 - **API Limits**: The YouTube Data API has daily quotas (10,000 units/day) for free use, but listing videos for personal use should fall well within these limits.
 
 Let me know if you need further clarification or assistance!
+
+# Downloading YouTube Videos via API
+
+[NOTE: Add a "Prerequisites" section]
+[NOTE: Add a "API Setup" section]
+[NOTE: Add a "Download Process" section]
+[NOTE: Add a "Quality Settings" section]
+[NOTE: Add a "Error Handling" section]
+[NOTE: Add a "Best Practices" section]

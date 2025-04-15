@@ -1,5 +1,14 @@
 Methods used to generate end of year reports and statistics.
 
+# Reporting / Statistics
+
+[NOTE: Add a "Report Types" section]
+[NOTE: Add a "Schedule" section]
+[NOTE: Add a "Access" section]
+[NOTE: Add a "Format" section]
+[NOTE: Add a "Distribution" section]
+[NOTE: Add a "Archival" section]
+
 ## Preservica
 
 

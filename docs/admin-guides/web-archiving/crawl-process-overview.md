@@ -1,118 +1,191 @@
-# Web crawl process overview
+# Web Archiving Process Overview
 
-This page outlines how to create a full archival capture of ICAEW.com. However, the methods and techniques will be applicable for archiving other websites.
+## Prerequisites
 
-Generally the workflow will be as follows:
+- Digital Archive Workstation access
+- Required software installed:
+  - wget
+  - browsertrix-crawler
+  - ArchiveWeb.page
+  - ReplayWeb.page
+- Sufficient storage space
+- Network access to target sites
 
-```mermaid
-flowchart LR
-    id1[Pre-crawl work \n\n Request updated site templates \n Media Library download \n Save a copy of the sitemap] --> id2
-    id2[Crawl/s \n\n wget crawl \n Main crawl via browsertrix-crawler] --> id3[Post-crawl work \n\n Adding details to the web-crawl-log]
-```
+## Process Overview
 
-## ICAEW.com full capture
+### 1. Template Testing Crawl
 
-A full capture of the ICAEW.com consists of the following:
+Before running a full crawl, it's important to test how the crawler handles various templates and elements on the site. This helps identify potential issues with capture and playback.
 
-- A public capture in that is hosted by Archive-It (WARC/Web Archive format). Accessible to the public and staff.
+#### Setup for Template Testing
 
-- A restricted capture that has been made locally and has been ingested into the admin area of Preservica (WARC/Web Archive format). Accessible to staff for offline viewing via [https://replayweb.page/](https://replayweb.page/)</a>.
+1. Update the crawler:
 
-- A restricted capture made using the wget crawler with assets saved in their native formats, i.e., HTML, CSS, JS etc. This crawl is primarily made a backup for the other two crawls. Only available to view offline via the digital archiving workstation.
+   ```bash
+   docker pull webrecorder/browsertrix-crawler
+   ```
 
-- A full media library download from Sitecore which has been ingested into the admin area of Preservica. The media library download contains all public/private media content that is hosted on Sitecore at the time of download. Not readily accessible, however, the digital archivist can access the downloads if needed.
+2. Create required directories and files:
 
+   - Create a folder with `crawl-config.yaml`
+   - Create `custom-behaviors` subfolder
+   - Add ICAEW behaviors file from GitHub
 
-## Pre-crawl work
+3. Create logged-in profile:
 
-### Request updated site templates
+   ```bash
+   sudo docker run -p 6080:6080 -p 9223:9223 -v $PWD/crawls/profiles:/crawls/profiles/ \
+   -it webrecorder/browsertrix-crawler create-login-profile \
+   --url "https://my.icaew.com/security/Account/Login"
+   ```
 
-- Request a list of new templates that may have been added to the site since the last crawl. Check for problems that they may present for capture/playback via browsertrix-crawler and ReplayWeb.page
-- At this point it might warrant investigating the writing of custom behaviors for the web crawler. This is outlined further on the [browsertrix custom behaviors](./browsertrix-behaviors.md).
+4. Profile Setup Steps:
 
-### Media Library download
+   1. Open http://localhost:9223/ in Chrome
+   2. Click "Allow all cookies"
+   3. Disable Brave shields
+   4. Login with credentials
+   5. Disable Brave shields again
+   6. Close "Discover the latest MyICAEW App" popup
+   7. Navigate to a page with StreamAMG video player
+   8. Create Profile
 
-Log into the backend of Sitecore [here](http://master.icaew.com/sitecore/login).
+5. Start the crawl:
 
-The login credentials can be found at the [Logins page](../../logins.md).
+   ```bash
+   sudo docker run -p 9037:9037 \
+   -v $PWD/crawls:/crawls \
+   -v $PWD/custom-behaviors/:/custom-behaviors/ \
+   -v $PWD/crawl-config.yaml:/app/crawl-config.yaml \
+   -v $PWD/seedFile.txt:/app/seedFile.txt \
+   webrecorder/browsertrix-crawler crawl \
+   --config /app/crawl-config.yaml
+   ```
 
-Navigate to the Media Library by selecting it via the bottom toolbar.
+6. Monitor the crawl at http://localhost:9037
 
-![media-lib-1](../../assets/images/media-lib-1.png)
+#### Post-Template Testing
 
-Right click the root level folder, i.e., “Media Library”. Select Scripts and then Download. The process will take quite a while and will result in a ~10 GB zip file that contains the media content that is being stored directly in Sitecore. It will not download items that a linked to from other media content providers such as Vimeo and StreamAMG.
+1. Validate the WACZ file:
 
-![media-lib-2](../../assets/images/media-lib-2.png)
+   ```bash
+   python3 web_archive_validator.py [WACZ_FILE]
+   ```
 
-You should see the following -
+2. Run QA crawl:
+   ```bash
+   sudo docker run -v $PWD/crawls/:/crawls/ \
+   -it webrecorder/browsertrix-crawler qa \
+   --qaSource /crawls/collections/template-testing/template-testing.wacz \
+   --collection example-qa \
+   --generateWACZ \
+   --workers 8
+   ```
 
-![media-lib-3](../../assets/images/media-lib-3.png)
+### 2. Sitecore Media Library Download
 
-![media-lib-4](../../assets/images/media-lib-4.png)
+1. Access the Sitecore Media Library
+2. Download the complete library as a zip file
+3. Verify the download size (~10GB expected)
+4. Note: This includes only media within Sitecore, not third-party content
 
-Once the download is complete, ingest to Admin/Private Repository/Web Captures/Sitecore Media Library Downloads, following the established naming convention for the file.
+### 3. Ingest to Preservica
 
-Once the crawls have completed, upload to Preservica and check the checksums match with `sha1sum [FILE]` in the local machine and then in Preservica by navigating to Advanced and then the Bitsteam page.
+1. Rename file following standard naming convention
+2. Ingest to: `Admin / Private Repository / Web Captures / Sitecore Media Library Downloads`
+3. Verify checksums:
+   ```bash
+   sha1sum [FILE]
+   ```
+4. Confirm in Preservica: Advanced → Bitstream
 
-The file will need to be transferred out of the VDI via SharePoint to be uploaded to Preservica via the [AWS client](../preservica/aws-cli.md).
+### 4. Sitemap Processing
 
-### Saving a copy of the ICAEW.com sitemap
+1. Save ICAEW sitemap for:
 
-A copy of the sitemap is saved for multiple reasons:
+   - Input for crawlers
+   - Post-crawl validation
+   - Content reference
 
-- To help the crawls via input to wget and browsertrix-crawler
-- For post-crawl testing, to ensure all URLs have been crawled
-- For future reference, as a record of what the crawls/WARC files contain
+2. Convert Sitemap:
+   ```bash
+   python3 sitemap_xml_to_txt_or_html.py --to_file 202XXXXX_sitemap.txt \
+   https://www.icaew.com/sitemap_corporate.xml \
+   https://www.icaew.com/sitemap_careers.xml \
+   --exclude_strings "sprint-test-pages" "active-members"
+   ```
 
-The following script can be used to produce the sitemaps in .txt format: [sitemap_xml_to_txt_or_html.py](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/sitemap%20tools/sitemap_xml_to_txt_or_html.py).
+### 5. Crawl Execution
 
-The script requires the 'requests' library to be install via:
+#### wget Crawl
 
-        pip install requests
+- Follow [wget guide](./wget.md) for setup
+- Use provided configurations
+- Monitor log files
+- Validate output
 
-#### Example sitemap_xml_to_txt_or_html.py usage
+#### browsertrix-crawler
 
-The following outputs a list of URLs from the sitemap to a text file with pages that contain "sprint-test-pages" or "active-members" exluded:
+- Follow [browsertrix guide](./browsertrix.md)
+- Use custom behaviors
+- Monitor progress
+- Validate captures
 
-        python3 sitemap_xml_to_txt_or_html.py --to_file 202XXXXX_sitemap.txt https://www.icaew.com/sitemap_corporate.xml https://www.icaew.com/sitemap_careers.xml  --exclude_strings "sprint-test-pages" "active-members"
+### 6. Post-Crawl Processing
 
-## Crawls
+1. Validate WACZ files:
 
-### Wget crawl
+   ```bash
+   python3 wacz_validator.py [WACZ_FILE]
+   ```
 
-Information regarding the use of wget can be found on the [wget](./wget.md) page.
+2. Check logs:
 
-### browsertrix-crawler
+   ```bash
+   python3 wget_log_reader.py [LOG_FILE]
+   python3 pages_json_log_validate.py [PAGES.JSON]
+   ```
 
-Information regarding the setup and use of browsertrix-crawler can be found on the [browsertrix-crawler](./browsertrix.md) page.
+3. Upload to Preservica:
+   - Use AWS CLI for large files
+   - Verify checksums
+   - Validate in Preservica
 
-Once the crawls have completed, upload to Preservica and check the checksums match with `sha1sum [FILE]` in the local machine and then in Preservica by navigating to Advanced and then the Bitsteam page.
+## Quality Assurance
 
-### Public crawls via Archive-It
+### Validation Steps
 
-Ensure that the inclusion/exclusion rules match the browsertrix configuration. Run the crawl for 30 days, using the Standard crawling technology and with a 50 GB data limit. This crawl will not require post-crawl validation work.
+1. Check file integrity
+2. Verify metadata completeness
+3. Test playback in ReplayWeb.page
+4. Validate checksums
+5. Review crawl coverage
+6. Verify template functionality
+7. Check video playback
+8. Validate interactive elements
 
+### Common Issues
 
-## Post-crawl work
+1. Incomplete crawls
+2. Missing resources
+3. Authentication failures
+4. Storage limitations
+5. Network timeouts
+6. Template rendering issues
+7. Video playback problems
+8. Interactive element failures
 
-### web-crawl-log
+## Best Practices
 
-Upload the sitemap used for the crawls to Web Crawls/Web Crawl Sitemaps. Fill out the details in web-crawl-log.xlsx in Web Crawls.
+1. Always test with small crawls first
+2. Monitor system resources
+3. Keep detailed logs
+4. Document any issues
+5. Regular validation checks
+6. Maintain backup copies
+7. Test all template types
+8. Verify interactive content
 
+## Support
 
-## Appendix
-
-### warc-reader.py
-
-The WARC reader script (as found here - [https://github.com/craiglmccarthy/web-archiving-scripts/blob/main/warc-reader.py](https://github.com/craiglmccarthy/web-archiving-scripts/blob/main/warc-reader.py)) is used to check the sitemap against the capture.
-
-The script needs to be edited here:
-
-        # URL_LIST is most likely going to be a sitemap 'snapshot'
-        URL_LIST = ''
-        # WARC_FOLDER_PATH is a path to a folder containing WARC files
-        WARC_FOLDER_PATH = ''
-        # CSV_FILENAME is the filename for the CSV output
-        CSV_FILENAME = ''
-
-The URL_LIST should point to a .txt file of URLs, i.e. the 202XXXXX_sitemap.txt created earlier in the crawl process. WARC_FOLDER_PATH should point to a folder containing WARC files. CSV_FILENAME is the name of .csv file output.
+For issues or questions, contact the Digital Archive team.

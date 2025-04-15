@@ -1,6 +1,11 @@
-# Filename conventions?
+# Filename Conventions
 
-## TODO: Rewrite the following/combine with previously written notes
+[NOTE: Add a "Overview" section]
+[NOTE: Add a "Naming Rules" section]
+[NOTE: Add a "Special Cases" section]
+[NOTE: Add a "Validation" section]
+[NOTE: Add a "Examples" section]
+[NOTE: Add a "Best Practices" section]
 
 Assets in the digital archive follow the following format:
 

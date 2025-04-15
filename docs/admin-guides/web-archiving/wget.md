@@ -12,7 +12,7 @@ The following page outlines the process of using wget to create a secondary/back
 - Once logged in export the cookies via the Get cookies.txt LOCALLY extension, rename the cookies file to cookies.txt and move to the folder where you want the wget download to begin.
 - Test that the cookies file works by using the following command. This uses a known logged in/restricted page to test whether wget has a successfully logged in session. This "known" logged-in page will need to be reviewed periodically.
 
-        wget --load-cookies cookies.txt --keep-session-cookies --page-requisites --adjust-extension --span-hosts --convert-links --restrict-file-names=windows https://www.icaew.com/technical/technology/tech-faculty/chartech-magazine/chartech-2020/chartech-november-december-2020/blockchain-moves-into-the-mainstream
+        wget --load-cookies cookies.txt --keep-session-cookies --page-requisites --adjust-extension --span-hosts --convert-links --restrict-file-names=windows https://www.icaew.com/technical/technology/excel-community/excel-community-articles/2023/dont-expect-too-much-from-ai-after-all-its-not-only-human
 
 - Once confirmed to be working perform the following crawls. Only the first crawl containing icaew.com and careers.icaew.com needs a sitemap .txt file.
 
@@ -21,10 +21,6 @@ The following page outlines the process of using wget to create a secondary/back
 - **icaew.com / careers.icaew.com** (this is a non-recursive crawl and it needs the sitemaps to be supplied via -i):
 
         wget --load-cookies cookies.txt --keep-session-cookies --page-requisites --adjust-extension --convert-links --restrict-file-names=windows --regex-type pcre --reject-regex '((?i)(.*log(?:off|out).*))|((?i)(.*membership\/active-members.*))' --random-wait --retry-connrefused --waitretry=10 --tries=3 --timeout=15 -i urls.txt 2>&1 | tee icaew-careers-icaew-wget.log
-
-- **live.icaew.com** (this is a recursive crawl, the sitemap doesn't exist for this domain):
-
-        wget --load-cookies cookies.txt --keep-session-cookies --recursive --page-requisites --adjust-extension --span-hosts --convert-links --restrict-file-names=windows --domains live.icaew.com --no-parent live.icaew.com/ --regex-type pcre --reject-regex '(?i)(.*log(?:off|out).*)' --random-wait --retry-connrefused --waitretry=10 --tries=3 --timeout=15 live.icaew.com 2>&1 | tee live-icaew-wget.log
 
 - **regulation.icaew.com** (this is a recursive crawl, the sitemap doesn't exist for this domain):
 

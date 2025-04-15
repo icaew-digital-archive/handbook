@@ -1,4 +1,11 @@
-# Post-ingest
+# Post-Ingest
+
+[NOTE: Add a "Verification Steps" section]
+[NOTE: Add a "Quality Checks" section]
+[NOTE: Add a "Metadata Review" section]
+[NOTE: Add a "Access Testing" section]
+[NOTE: Add a "Documentation" section]
+[NOTE: Add a "Troubleshooting" section]
 
 ## Update Catalogue entries
 

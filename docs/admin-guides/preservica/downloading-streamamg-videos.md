@@ -1,3 +1,87 @@
+# Downloading StreamAMG Videos
+
+## Prerequisites
+- Access to KMC Management Console
+- StreamAMG API credentials
+- Python 3.x environment
+- Required Python packages installed
+
+## Access Requirements
+- Valid StreamAMG account with appropriate permissions
+- API access credentials (secret and partnerId)
+- Sufficient storage space for video downloads
+
+## Download Process
+
+### 1. KMC Management Console Setup
+1. Log in to [KMC Management Console](https://kmc.mp.streamamg.com/login)
+2. Navigate to Integration Settings
+3. Note down your secret and partnerId
+
+### 2. Video Download
+1. Access video library in KMC
+2. Select videos for download
+3. Use "MORE ACTIONS" → "Download"
+4. Choose "Source" format
+5. Save download link when received
+
+### 3. Metadata Export
+The process uses the [xml_to_csv.py](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/xml_to_csv.py) script to process metadata:
+
+1. Obtain API Session:
+   - Use [API Test Console](https://mp.streamamg.com/api_v3/testme/index.php)
+   - Select "session" service
+   - Choose "start" action
+   - Enter credentials
+   - Set type to "ADMIN"
+   - Generate KS string
+
+2. Retrieve Metadata:
+   - Select "media" service
+   - Choose "list" action
+   - Set pageSize to 500 (maximum)
+   - Increment pageIndex for multiple pages
+   - Save XML output
+
+3. Process Metadata:
+```bash
+python3 xml_to_csv.py --xml_file input.xml --csv_file output.csv
+```
+
+## Quality Settings
+- Download original source files
+- Preserve original metadata
+- Maintain video quality
+- Include all associated files
+
+## Error Handling
+Common issues and solutions:
+1. API Connection:
+   - Verify credentials
+   - Check network connection
+   - Validate KS string
+
+2. Download Issues:
+   - Check storage space
+   - Verify file permissions
+   - Monitor download progress
+
+3. Metadata Processing:
+   - Validate XML structure
+   - Check CSV output
+   - Verify field mapping
+
+## Best Practices
+1. Always download source quality
+2. Keep original filenames
+3. Maintain metadata integrity
+4. Document any issues
+5. Test with single video first
+6. Verify downloads before processing
+
+## Support
+For issues or questions, contact the Digital Archive team.
+
 # StreamAMG Video Downloads and Metadata Export Guide
 
 This guide provides clear, step-by-step instructions on how to download videos from StreamAMG and efficiently export metadata in bulk using StreamAMG's API and the [xml-to-csv.py script](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/xml_to_csv.py).
@@ -77,5 +161,3 @@ This process involves using the [API Test Console](https://mp.streamamg.com/api_
 
 - Once you have saved the XML files, use the [xml-to-csv.py script](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/xml_to_csv.py) to convert them to CSV format.
 - The script requires specifying an `xml_file` as input and a `csv_file` as output.
-
-By following these steps, you will successfully download videos from StreamAMG and export the associated metadata into a more manageable CSV format.

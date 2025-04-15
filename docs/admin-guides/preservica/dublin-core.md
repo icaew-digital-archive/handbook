@@ -1,5 +1,12 @@
 # Dublin Core
 
+[NOTE: Add a "Overview" section]
+[NOTE: Add a "Required Fields" section]
+[NOTE: Add a "Optional Fields" section]
+[NOTE: Add a "Format Guidelines" section]
+[NOTE: Add a "Validation" section]
+[NOTE: Add a "Best Practices" section]
+
 ## General
 
 This page covers how ICAEW utilises Dublin Core in Preservica.

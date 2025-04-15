@@ -1,5 +1,11 @@
-# Useful resources
+# Useful Resources
 
+[NOTE: Add a "Featured Resources" section at the top]
+[NOTE: Add a "Resource Categories" section]
+[NOTE: Add a "External Links" section]
+[NOTE: Add a "Training Materials" section]
+[NOTE: Add a "Community Resources" section]
+[NOTE: Add a "Related Documentation" section]
 
 ## Preservica
 

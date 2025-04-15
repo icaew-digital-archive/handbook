@@ -1,3 +1,12 @@
+# Reclassification
+
+[NOTE: Add a "Prerequisites" section]
+[NOTE: Add a "Classification Rules" section]
+[NOTE: Add a "Process Steps" section]
+[NOTE: Add a "Validation" section]
+[NOTE: Add a "Error Handling" section]
+[NOTE: Add a "Best Practices" section]
+
 # Reclassification Workflow
 
 The following document outlines the reclassification workflow.

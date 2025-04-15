@@ -1,5 +1,12 @@
 # Appraisal
 
+[NOTE: Add a "Prerequisites" section]
+[NOTE: Add a "Assessment Criteria" section]
+[NOTE: Add a "Tools and Methods" section]
+[NOTE: Add a "Documentation" section]
+[NOTE: Add a "Decision Making" section]
+[NOTE: Add a "Best Practices" section]
+
 ### [Brunnhilde](https://github.com/tw4l/brunnhilde)
 
 - Brunnhilde provides the three following features.

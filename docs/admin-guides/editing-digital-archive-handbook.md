@@ -1,5 +1,12 @@
 # Editing the ICAEW Digital Archive Handbook
 
+[NOTE: Add a "Style Guide" section]
+[NOTE: Add a "Markdown Guidelines" section]
+[NOTE: Add a "Review Process" section]
+[NOTE: Add a "Version Control" section]
+[NOTE: Add a "Testing" section]
+[NOTE: Add a "Deployment" section]
+
 This ICAEW Digital Archive Handbook is produced using:
 
 * [MkDocs](https://www.mkdocs.org)  

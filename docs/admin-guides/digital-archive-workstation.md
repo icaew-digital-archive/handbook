@@ -1,5 +1,11 @@
+# Digital Archive Workstation
 
----
+[NOTE: Add a "Prerequisites" section]
+[NOTE: Add a "System Requirements" section]
+[NOTE: Add a "Installation Steps" section]
+[NOTE: Add a "Configuration Guide" section]
+[NOTE: Add a "Maintenance" section]
+[NOTE: Add a "Troubleshooting" section]
 
 ## Overview of the installed software on the digital archiving workstation
 
@@ -9,8 +15,6 @@ The workstation is configured as a dual-boot system running both Windows and Ubu
 
 For login details to both Windows and Ubuntu/BitCurator, refer to the [Logins page](../logins.md).
 
-
----
 
 ## Installing Ubuntu/BitCurator on a New Laptop
 
@@ -23,7 +27,7 @@ If you are setting up a new laptop, ensure Windows is installed first. Ubuntu/Bi
   
 2. **Download Ubuntu**: Obtain the Ubuntu image from [this link](https://ubuntu.com/tutorials/install-ubuntu-desktop).
 
-3. **Create a Bootable USB**: Use Ubuntu’s "Startup Disk Creator" or [balenaEtcher](https://www.balena.io/etcher/) as a cross-platform alternative to create a bootable USB stick.
+3. **Create a Bootable USB**: Use Ubuntu's "Startup Disk Creator" or [balenaEtcher](https://www.balena.io/etcher/) as a cross-platform alternative to create a bootable USB stick.
 
 4. **Boot from USB**: Restart the laptop and press `F12` at boot to select the USB drive as the boot device.
 
@@ -31,8 +35,6 @@ If you are setting up a new laptop, ensure Windows is installed first. Ubuntu/Bi
    - Follow the installation process and select "Install Ubuntu alongside Windows Boot Manager" when prompted.
 
 6. **Install BitCurator**: Once Ubuntu is installed, proceed with installing BitCurator using the [SaltStack repository](https://github.com/bitcurator/bitcurator-salt).
-
----
 
 
 ## General Software
@@ -122,8 +124,6 @@ Below is a list of general software installed on the workstation:
   sudo apt install thunar
   ```
 
----
-
 ## Archiving-Specific Software
 
 The following tools are specialized for digital archiving:
@@ -176,8 +176,6 @@ The following tools are specialized for digital archiving:
 - **[Brozzler](https://github.com/internetarchive/brozzler)**  
   _Not in current use. A distributed browser-based web crawler._
 
----
-
 ## ICAEW Digital Archive Handbook-Specific Software
 
 This handbook is produced using the following tools:
@@ -193,5 +191,3 @@ This handbook is produced using the following tools:
   ```bash
   pip install mkdocs-material
   ```
-
----

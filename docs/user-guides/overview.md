@@ -1,5 +1,12 @@
 # Overview of the ICAEW Digital Archive
 
+[NOTE: Add a "Key Features" section]
+[NOTE: Add a "System Requirements" section]
+[NOTE: Add a "Access Levels" section]
+[NOTE: Add a "Getting Started" section]
+[NOTE: Add a "Common Tasks" section]
+[NOTE: Add a "Troubleshooting" section]
+
 The ICAEW Digital Archive consists of two main components: a **digital preservation platform** ([Preservica](https://icaew.access.preservica.com/)) and **web archive collections** (hosted on both [Preservica](https://icaew.access.preservica.com/) and [Archive-It](https://archive-it.org/organizations/1613)).
 
 ## Preservica

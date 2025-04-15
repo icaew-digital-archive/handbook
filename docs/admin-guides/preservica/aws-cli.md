@@ -1,3 +1,12 @@
+# AWS CLI
+
+[NOTE: Add a "Overview" section]
+[NOTE: Add a "Installation" section]
+[NOTE: Add a "Configuration" section]
+[NOTE: Add a "Basic Commands" section]
+[NOTE: Add a "Security" section]
+[NOTE: Add a "Best Practices" section]
+
 # Uploading large files via AWS CLI 
 
 The easiest way to upload large files to the Preservica PUT area is via the AWS CLI tool. It can be dowloaded from [here](https://docs.aws.amazon.com/cli/index.html).
