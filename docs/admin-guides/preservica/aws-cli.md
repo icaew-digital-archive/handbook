@@ -1,35 +1,46 @@
 # AWS CLI
 
-[NOTE: Add a "Overview" section]
-[NOTE: Add a "Installation" section]
-[NOTE: Add a "Configuration" section]
-[NOTE: Add a "Basic Commands" section]
-[NOTE: Add a "Security" section]
-[NOTE: Add a "Best Practices" section]
+## Overview
+The AWS Command Line Interface (CLI) is a unified tool to manage AWS services. In the context of digital archiving, it's primarily used for uploading large files to Preservica's PUT area. The CLI provides a more reliable and efficient way to handle large file transfers compared to web interfaces.
 
-# Uploading large files via AWS CLI 
+## Installation
+1. Download the AWS CLI from the [official website](https://docs.aws.amazon.com/cli/index.html)
+2. Follow the installation instructions for your operating system:
 
-The easiest way to upload large files to the Preservica PUT area is via the AWS CLI tool. It can be dowloaded from [here](https://docs.aws.amazon.com/cli/index.html).
+      - Linux: Use package manager or install from source
 
-After installation, run:
+## Configuration
+After installation, configure the AWS CLI with your Preservica credentials:
 
-        aws configure  
-            
-and enter the Preservica authentication details which can be found on the [Logins page](../../logins.md).
+```bash
+aws configure
+```
 
+You'll need to enter:
 
-Usage is via standard Linux commands, for instance, list the contents of the directory:
-        
-        aws s3 ls s3://com.preservica.icaew.put.holding/    
+- AWS Access Key ID (from Preservica Logins page)
+- AWS Secret Access Key (from Preservica Logins page)
+- Default region name (use the one specified in Preservica)
+- Default output format (json or text)
 
-Upload/copy a local file to s3:
+## Usage Examples
 
-        aws s3 cp '/home/digital-archivist/Downloads/20220719-ICAEW-com-media-library.zip' s3://com.preservica.icaew.put.holding/20220719-ICAEW-com-media-library.zip
+### List Directory Contents
+```bash
+aws s3 ls s3://com.preservica.icaew.put.holding/    
+```
 
-Upload/copy a local directory to s3:
-        
-        aws s3 cp --recursive local_directory s3://com.preservica.icaew.put.holding/NewFolder/
+### Upload a Single File
+```bash
+aws s3 cp '/home/digital-archivist/Downloads/20220719-ICAEW-com-media-library.zip' s3://com.preservica.icaew.put.holding/20220719-ICAEW-com-media-library.zip
+```
 
-List aws folder contents with their etags and size (note this example uses com.preservica.icaew.export):
+### Upload a Directory
+```bash
+aws s3 cp --recursive local_directory s3://com.preservica.icaew.put.holding/NewFolder/
+```
 
-        aws s3api list-objects --bucket com.preservica.icaew.export
+### List Objects with Metadata
+```bash
+aws s3api list-objects --bucket com.preservica.icaew.export
+```

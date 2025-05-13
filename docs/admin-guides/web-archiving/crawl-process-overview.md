@@ -1,191 +1,128 @@
 # Web Archiving Process Overview
 
-## Prerequisites
+This page outlines a full web capture of ICAEW.com crawl (logged-in / public) but the general process should apply to most other websites.
 
-- Digital Archive Workstation access
-- Required software installed:
-  - wget
-  - browsertrix-crawler
-  - ArchiveWeb.page
-  - ReplayWeb.page
-- Sufficient storage space
-- Network access to target sites
+## High-level overview
+
+```mermaid
+flowchart LR
+    id1[Pre-crawl processes \n\n 1. Sitemap \n 2. Template crawl \n 3. Sub-domain discovery] --> id2
+    id2[Crawl processes \n\n 1. wget crawl - logged in \n 2. Browsertrix crawl - logged-in / public \n 3. Media library download] --> id3[Post-crawl processes \n\n 1. QA and verification \n 2. Patch-crawls \n 3. Ingest and upload]
+```
+
+### [Preservica folder structure](#preservica-folder-structure)
+
+
+The following shows an example of a complete crawl within Preservica. Web crawls should follow this structure. All items should be closed with the exception of the .wacz file.
+
+```bash
+20241128-ICAEW-com-logged-in/
+├── 20241128-ICAEW-com-logged-in.wacz
+├── 20241128-ICAEW-com-logged-in-wget.zip
+├── 20241128-ICAEW-com-media-library.zip
+├── crawl-metadata/
+│   ├── 20241128_sitemap_.txt (Mandatory)
+│   ├── matching_urls_20241128_145826.csv (Optional)
+│   ├── missing_urls_20241128_145826.csv (Optional)
+│   ├── non_200_urls_20241128_145826.csv (Optional)
+│   ├── notes.txt (Optional)
+```
 
 ## Process Overview
 
-### 1. Template Testing Crawl
+### Pre-crawl processes
 
-Before running a full crawl, it's important to test how the crawler handles various templates and elements on the site. This helps identify potential issues with capture and playback.
+#### 1) Sitemap
 
-#### Setup for Template Testing
+Save a copy of the ICAEW sitemap for:
 
-1. Update the crawler:
+- Input to the web crawlers
+- Post-crawl validation
+- Content reference
 
-   ```bash
-   docker pull webrecorder/browsertrix-crawler
-   ```
+Use [sitemap_xml_to_txt_or_html.py](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/sitemap%20tools/sitemap_xml_to_txt_or_html.py) with the following arguments:
 
-2. Create required directories and files:
+```bash
+# Example command to convert sitemaps to text format
+python3 sitemap_xml_to_txt_or_html.py \
+    --to_file 202XXXXX_sitemap.txt \
+    https://www.icaew.com/sitemap_corporate.xml \
+    https://www.icaew.com/sitemap_careers.xml \
+    --exclude_strings "sprint-test-pages" "active-members"
+```
 
-   - Create a folder with `crawl-config.yaml`
-   - Create `custom-behaviors` subfolder
-   - Add ICAEW behaviors file from GitHub
+#### 2) Request a list of templates and do a template crawl
 
-3. Create logged-in profile:
+Before running a full crawl, it's important to test how the crawler handles various templates and elements on the site - especially new ones. This helps identify potential issues with capture and playback.
 
-   ```bash
-   sudo docker run -p 6080:6080 -p 9223:9223 -v $PWD/crawls/profiles:/crawls/profiles/ \
-   -it webrecorder/browsertrix-crawler create-login-profile \
-   --url "https://my.icaew.com/security/Account/Login"
-   ```
+- Request any new additional templates be added to this document: [Sitecore templates and examples ](https://icaew.sharepoint.com/:w:/s/digitalarchive/EY-WRGmke3VGmyYkTdEDDYMBfZ5nyLgefubtdJNa4WMfDQ?e=CMGN8D&CID=db808ef5-54c9-52fb-079f-87384e3ca7aa&ovuser=30a7efd6-7f05-437d-bc19-e7c6df3892f1%2CCraig.McCarthy%40icaew.com&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIxNDE1LzI1MDMwMjAxMDEwIiwiSGFzRmVkZXJhdGVkVXNlciI6ZmFsc2V9)
 
-4. Profile Setup Steps:
+- Complete a template crawl
 
-   1. Open http://localhost:9223/ in Chrome
-   2. Click "Allow all cookies"
-   3. Disable Brave shields
-   4. Login with credentials
-   5. Disable Brave shields again
-   6. Close "Discover the latest MyICAEW App" popup
-   7. Navigate to a page with StreamAMG video player
-   8. Create Profile
+    - This is covered on the Browsertrix page [here](../web-archiving/browsertrix.md).
+    - OPTIONAL: At this point it might warrant investigating the writing of custom behaviors for the web crawler if any problematic elements are identified. This is outlined further [here](../web-archiving/browsertrix-behaviors.md).
 
-5. Start the crawl:
 
-   ```bash
-   sudo docker run -p 9037:9037 \
-   -v $PWD/crawls:/crawls \
-   -v $PWD/custom-behaviors/:/custom-behaviors/ \
-   -v $PWD/crawl-config.yaml:/app/crawl-config.yaml \
-   -v $PWD/seedFile.txt:/app/seedFile.txt \
-   webrecorder/browsertrix-crawler crawl \
-   --config /app/crawl-config.yaml
-   ```
 
-6. Monitor the crawl at http://localhost:9037
+#### 3) Sub-domain discovery
 
-#### Post-Template Testing
+OPTIONAL: An optional step can be to use the [crt-scraper.py](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/web%20crawling/crt-scraper.py) script to look for new sub-domains that may or may not be included in a full ICAEW.com capture.
 
-1. Validate the WACZ file:
+### Crawl processes:
 
-   ```bash
-   python3 web_archive_validator.py [WACZ_FILE]
-   ```
+#### 1) Media library download
 
-2. Run QA crawl:
-   ```bash
-   sudo docker run -v $PWD/crawls/:/crawls/ \
-   -it webrecorder/browsertrix-crawler qa \
-   --qaSource /crawls/collections/template-testing/template-testing.wacz \
-   --collection example-qa \
-   --generateWACZ \
-   --workers 8
-   ```
+Prerequisites:
 
-### 2. Sitecore Media Library Download
+- Access to the VDI
+- Sitecore login credentials (available on the Logins page)
 
-1. Access the Sitecore Media Library
-2. Download the complete library as a zip file
-3. Verify the download size (~10GB expected)
-4. Note: This includes only media within Sitecore, not third-party content
+Steps:
 
-### 3. Ingest to Preservica
+1. Log into the Sitecore backend
+2. Navigate to the "Media Library"
+3. Right-click the root level folder ("Media Library")
+4. Select "Scripts" and then "Download"
 
-1. Rename file following standard naming convention
-2. Ingest to: `Admin / Private Repository / Web Captures / Sitecore Media Library Downloads`
-3. Verify checksums:
-   ```bash
-   sha1sum [FILE]
-   ```
-4. Confirm in Preservica: Advanced → Bitstream
+Notes:
 
-### 4. Sitemap Processing
+- The download process may take several hours
+- The resulting zip file can be upwards of 10 GB
+- Only media stored directly in Sitecore will be downloaded. External media (e.g., Vimeo, StreamAMG) will not be included
 
-1. Save ICAEW sitemap for:
 
-   - Input for crawlers
-   - Post-crawl validation
-   - Content reference
+#### 2) wget crawl
 
-2. Convert Sitemap:
-   ```bash
-   python3 sitemap_xml_to_txt_or_html.py --to_file 202XXXXX_sitemap.txt \
-   https://www.icaew.com/sitemap_corporate.xml \
-   https://www.icaew.com/sitemap_careers.xml \
-   --exclude_strings "sprint-test-pages" "active-members"
-   ```
+- This is covered on the wget page [here](../web-archiving/wget.md).
 
-### 5. Crawl Execution
+#### 3) Browsertrix - logged-in / public crawls
 
-#### wget Crawl
+- This is covered on the Browsertrix page [here](../web-archiving/browsertrix.md).
 
-- Follow [wget guide](./wget.md) for setup
-- Use provided configurations
-- Monitor log files
-- Validate output
+### Post-crawl processes:
 
-#### browsertrix-crawler
 
-- Follow [browsertrix guide](./browsertrix.md)
-- Use custom behaviors
-- Monitor progress
-- Validate captures
+#### 1) Quality Assurance and Verification
 
-### 6. Post-Crawl Processing
+- These processes are covered on the wget page [here](../web-archiving/wget.md) and on the Browsertrix page [here](../web-archiving/browsertrix.md).
 
-1. Validate WACZ files:
 
-   ```bash
-   python3 wacz_validator.py [WACZ_FILE]
-   ```
+#### 2) Ingest to Preservica
 
-2. Check logs:
+- Upload to Preservica using the [AWS client](../preservica/aws-cli.md), replicate the [Preservica folder structure](#preservica-folder-structure) as noted above.
 
-   ```bash
-   python3 wget_log_reader.py [LOG_FILE]
-   python3 pages_json_log_validate.py [PAGES.JSON]
-   ```
+- After ingest ensure fixity values match with    
 
-3. Upload to Preservica:
-   - Use AWS CLI for large files
-   - Verify checksums
-   - Validate in Preservica
+      ```bash
+      sha1sum [FILE]
+      ```
 
-## Quality Assurance
+- Check playback of the WACZ file works in Preservica's UA.   
 
-### Validation Steps
+#### 3) Upload public ICAEW.com capture to Archive-It
 
-1. Check file integrity
-2. Verify metadata completeness
-3. Test playback in ReplayWeb.page
-4. Validate checksums
-5. Review crawl coverage
-6. Verify template functionality
-7. Check video playback
-8. Validate interactive elements
+- TODO
 
-### Common Issues
+#### 4) Documentation (ICAEW Digital Archive Sharepoint)
 
-1. Incomplete crawls
-2. Missing resources
-3. Authentication failures
-4. Storage limitations
-5. Network timeouts
-6. Template rendering issues
-7. Video playback problems
-8. Interactive element failures
-
-## Best Practices
-
-1. Always test with small crawls first
-2. Monitor system resources
-3. Keep detailed logs
-4. Document any issues
-5. Regular validation checks
-6. Maintain backup copies
-7. Test all template types
-8. Verify interactive content
-
-## Support
-
-For issues or questions, contact the Digital Archive team.
+- Update the [ICAEW platform register](https://icaew.sharepoint.com/:x:/r/sites/digitalarchive/_layouts/15/Doc.aspx?sourcedoc=%7B17C4654A-615F-4E26-8FF9-B309DEB01339%7D&file=ICAEW%20platform%20register.xlsx&action=default&mobileredirect=true) document with the latest capture dates.

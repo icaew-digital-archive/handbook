@@ -1,46 +1,64 @@
 # Monthly Web Captures
 
+## Overview
+This document outlines the process for capturing three specific ICAEW webpages on a monthly basis using ArchiveWeb.page.
+
+## Target Pages
 The following three homepages are required to be captured on the second Monday of each month:
 
-* Audit and Beyond <https://www.icaew.com/technical/audit-and-assurance/faculty/audit-and-beyond>
-* By All Accounts <https://www.icaew.com/technical/corporate-reporting/corporate-reporting-faculty/by-all-accounts>
-* Taxline <https://www.icaew.com/technical/tax/tax-faculty/taxline>
+1. **Audit and Beyond**
+   - URL: <https://www.icaew.com/technical/audit-and-assurance/faculty/audit-and-beyond>
+
+2. **By All Accounts**
+   - URL: <https://www.icaew.com/technical/corporate-reporting/corporate-reporting-faculty/by-all-accounts>
+
+3. **Taxline**
+   - URL: <https://www.icaew.com/technical/tax/tax-faculty/taxline>
 
 ## Tools
+For the monthly web captures, we use [ArchiveWeb.page](https://github.com/webrecorder/archiveweb.page), a web archiving tool that allows for interactive capture of web content.
 
-For the monthly web captures we use [ArchiveWeb.page](https://github.com/webrecorder/archiveweb.page).
+## Capture Process
 
-## Process
+### 1. Initial Setup
+1. Open ArchiveWeb.page
+2. Create a new Archive
+3. Name the Archive following the WARC naming convention:
+   ```
+   audit-and-beyond-19951012-000-ICAEW
+   ```
+   Note: Additional GMT data will be added during Preservica ingestion
 
-1. Open the ArchiveWeb.page.
+### 2. Crawl Execution
+1. Start the crawl from the three target homepages
+2. Begin in preview mode
+3. Log in to the ICAEW website using your work credentials
+4. After successful login, start the crawl
+5. During the crawl:
+   - Manually click through each tab on the webpage
+   - Ensure all interactive elements are captured
+6. Wait for the crawl to complete and all URLs to be collected
+7. Download the completed crawl
 
-2. Create a new Archive, name Archive in line with the warc naming conventions
+### 3. Preservica Ingestion
+1. Rename the WACZ file to include GMT time:
+   ```
+   audit-and-beyond-19951012111005-000-ICAEW
+   ```
+2. Ingest the files into the following Preservica folders:
+   - **Audit and Beyond**: 
+     ```
+     Admin/Private Repository/Web Captures/WACZ/WARC Files/audit-and-beyond-logged-in
+     ```
+   - **By All Accounts**: 
+     ```
+     Admin/Private Repository/Web Captures/WACZ/WARC Files/by-all-accounts-logged-in
+     ```
+   - **Taxline**: 
+     ```
+     Admin/Private Repository/Web Captures/WACZ/WARC Files/taxline-logged-in
+     ```
 
-    Example: audit-and-beyond-19951012-000-ICAEW
-    
-    Add the additional GMT data when ingesting the crawl in Preservica.
-
-3. Start crawl from the top three homepages. Start the crawl in preview mode.
-
-4. Log in to the ICAEW website using your work details.
-
-5. After logging in start the crawl.
-
-6. During crawl manually, click through each tab on the webpage.
-
-7. When crawl has finished and all URL's collected, download the crawl.
-
-8. Ingest crawl into Preservica:
-
-    Rename the WACZ file to include the GMT time. Example: audit-and-beyond-19951012111005-000-ICAEW
-    
-    Ingest the files into the following folders:
-        
-    - Audit and Beyond: Admin/Private Repository/Web Captures/WACZ/WARC Files/audit-and-beyond-logged-in
-    - By All Accounts: Admin/Private Repository/Web Captures/WACZ/WARC Files/by-all-accounts-logged-in
-    - Taxline: Admin/Private Repository/Web Captures/WACZ/WARC Files/taxline-logged-in
-
-## End of Year Series
-
-At the end of year each seperate months WACZ file will be combined into an annual series for these webpages. 
+## Annual Series Creation
+At the end of each year, the monthly WACZ files for each webpage will be combined into an annual series, creating a comprehensive archive of the year's content. 
 

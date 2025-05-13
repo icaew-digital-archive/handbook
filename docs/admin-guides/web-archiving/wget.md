@@ -1,46 +1,175 @@
-## Wget crawl
+# Wget Crawl
 
-The following page outlines the process of using wget to create a secondary/back-up crawl.
+## Overview
+This document outlines the process of using wget to create a secondary/back-up crawl of ICAEW.com and its subdomains using wget. 
 
-[Wget](https://en.wikipedia.org/wiki/Wget) being a free utility for non-interactive downloading of files from the web. It supports HTTP, HTTPS, and FTP protocols, as well as retrieval through HTTP proxies.
+[Wget](https://en.wikipedia.org/wiki/Wget) is a free utility for non-interactive downloading of files from the web, supporting HTTP, HTTPS, and FTP protocols, as well as retrieval through HTTP proxies.
 
-### Obtaining a cookies.txt file
+## Prerequisites
+- [Get cookies.txt LOCALLY](https://chrome.google.com/webstore/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc) browser extension
+- Access to ICAEW.com with appropriate credentials
+- Wget installed on your system
 
-- To be used in conjunction with the Get cookies.txt LOCALLY browser extension.
+## Setup Process
 
-- Login to the ICAEW.com as normally via a browser that has the [Get cookies.txt LOCALLY](https://chrome.google.com/webstore/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc) extension installed.
-- Once logged in export the cookies via the Get cookies.txt LOCALLY extension, rename the cookies file to cookies.txt and move to the folder where you want the wget download to begin.
-- Test that the cookies file works by using the following command. This uses a known logged in/restricted page to test whether wget has a successfully logged in session. This "known" logged-in page will need to be reviewed periodically.
+### 1. Obtaining Cookies
+1. Install the Get cookies.txt LOCALLY browser extension
+2. Log in to ICAEW.com using a browser with the extension installed
+3. Export cookies using the extension
+4. Rename the exported file to `cookies.txt`
+5. Move the file to your working directory
 
-        wget --load-cookies cookies.txt --keep-session-cookies --page-requisites --adjust-extension --span-hosts --convert-links --restrict-file-names=windows https://www.icaew.com/technical/technology/excel-community/excel-community-articles/2023/dont-expect-too-much-from-ai-after-all-its-not-only-human
+### 2. Testing Authentication
+Before starting the full crawl, verify that the cookies file works by testing with a known restricted page:
 
-- Once confirmed to be working perform the following crawls. Only the first crawl containing icaew.com and careers.icaew.com needs a sitemap .txt file.
+```bash
+wget --load-cookies cookies.txt \
+     --keep-session-cookies \
+     --page-requisites \
+     --adjust-extension \
+     --span-hosts \
+     --convert-links \
+     --restrict-file-names=windows \
+     https://www.icaew.com/technical/technology/excel-community/excel-community-articles/2023/dont-expect-too-much-from-ai-after-all-its-not-only-human
+```
 
-### ICAEW.com wget crawl configurations
+After the crawl has finished navigate to the appropriate HTML file and ensure that it has remained logged in.
 
-- **icaew.com / careers.icaew.com** (this is a non-recursive crawl and it needs the sitemaps to be supplied via -i):
+## Crawl Configurations
 
-        wget --load-cookies cookies.txt --keep-session-cookies --page-requisites --adjust-extension --convert-links --restrict-file-names=windows --regex-type pcre --reject-regex '((?i)(.*log(?:off|out).*))|((?i)(.*membership\/active-members.*))' --random-wait --retry-connrefused --waitretry=10 --tries=3 --timeout=15 -i urls.txt 2>&1 | tee icaew-careers-icaew-wget.log
+The following crawls can be run simultaneously:
 
-- **regulation.icaew.com** (this is a recursive crawl, the sitemap doesn't exist for this domain):
+### 1. ICAEW.com and Careers.ICAEW.com
 
-        wget --load-cookies cookies.txt --keep-session-cookies --recursive --page-requisites --adjust-extension --span-hosts --convert-links --restrict-file-names=windows --domains regulation.icaew.com --no-parent regulation.icaew.com/ --regex-type pcre --reject-regex '(?i)(.*log(?:off|out).*)' --random-wait --retry-connrefused --waitretry=10 --tries=3 --timeout=15 regulation.icaew.com 2>&1 | tee regulation-icaew-wget.log
+urls.txt should be a list of URLs, which will almost always be a .txt version of the sitemap.
 
-- **train.icaew.com** (blog pages only):
+```bash
+wget --load-cookies cookies.txt \
+     --keep-session-cookies \
+     --page-requisites \
+     --adjust-extension \
+     --convert-links \
+     --restrict-file-names=windows \
+     --regex-type pcre \
+     --reject-regex '((?i)(.*log(?:off|out).*))|((?i)(.*membership\/active-members.*))' \
+     --random-wait \
+     --retry-connrefused \
+     --waitretry=10 \
+     --tries=3 \
+     --timeout=15 \
+     -i urls.txt 2>&1 | tee icaew-careers-icaew-wget.log
+```
 
-        wget --load-cookies cookies.txt --keep-session-cookies --recursive --page-requisites --adjust-extension --span-hosts --convert-links --restrict-file-names=windows --domains train.icaew.com --no-parent icaew.com/ --regex-type pcre --reject-regex '^(?!https:\/\/train\.icaew\.com\/?(blog\/?.*|article\/?.*|$)).+$' --random-wait --retry-connrefused --waitretry=10 --tries=3 --timeout=15 train.icaew.com 2>&1 | tee train-icaew-wget.log
+### 2. Regulation.icaew.com
+```bash
+wget --load-cookies cookies.txt \
+     --keep-session-cookies \
+     --recursive \
+     --page-requisites \
+     --adjust-extension \
+     --span-hosts \
+     --convert-links \
+     --restrict-file-names=windows \
+     --domains regulation.icaew.com \
+     --no-parent \
+     --regex-type pcre \
+     --reject-regex '(?i)(.*log(?:off|out).*)' \
+     --random-wait \
+     --retry-connrefused \
+     --waitretry=10 \
+     --tries=3 \
+     --timeout=15 \
+     regulation.icaew.com 2>&1 | tee regulation-icaew-wget.log
+```
 
-- **volunteer.icaew.com** (blog pages only):
+### 3. Train.icaew.com (Blog Pages Only)
+```bash
+wget --load-cookies cookies.txt \
+     --keep-session-cookies \
+     --recursive \
+     --page-requisites \
+     --adjust-extension \
+     --span-hosts \
+     --convert-links \
+     --restrict-file-names=windows \
+     --domains train.icaew.com \
+     --no-parent \
+     --regex-type pcre \
+     --reject-regex '^(?!https:\/\/train\.icaew\.com\/?(blog\/?.*|article\/?.*|$)).+$' \
+     --random-wait \
+     --retry-connrefused \
+     --waitretry=10 \
+     --tries=3 \
+     --timeout=15 \
+     train.icaew.com 2>&1 | tee train-icaew-wget.log
+```
 
-        wget --load-cookies cookies.txt --keep-session-cookies --recursive --page-requisites --adjust-extension --span-hosts --convert-links --restrict-file-names=windows --domains volunteer.icaew.com --no-parent icaew.com/ --regex-type pcre --reject-regex '^(?!https:\/\/volunteer\.icaew\.com\/?(blog\/?.*|article\/?.*|$)).+$' --random-wait --retry-connrefused --waitretry=10 --tries=3 --timeout=15 volunteer.icaew.com 2>&1 | tee voluneteer-icaew-wget.log
+### 4. Volunteer.icaew.com (Blog Pages Only)
+```bash
+wget --load-cookies cookies.txt \
+     --keep-session-cookies \
+     --recursive \
+     --page-requisites \
+     --adjust-extension \
+     --span-hosts \
+     --convert-links \
+     --restrict-file-names=windows \
+     --domains volunteer.icaew.com \
+     --no-parent \
+     --regex-type pcre \
+     --reject-regex '^(?!https:\/\/volunteer\.icaew\.com\/?(blog\/?.*|article\/?.*|$)).+$' \
+     --random-wait \
+     --retry-connrefused \
+     --waitretry=10 \
+     --tries=3 \
+     --timeout=15 \
+     volunteer.icaew.com 2>&1 | tee volunteer-icaew-wget.log
+```
 
-## Post-crawl
+## Post-Crawl Process
 
-- A script callled [wget_log_reader.py](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/wget_log_reader.py) can be used to read the log file to find any potentially missing URLs.
-- When complete, zip the contents of the crawls into a single file and ingest into Preservica at Admin/Private Repository/Web Captures/Wget Captures using the [AWS client](../preservica/aws-cli.md). Ensure that you include the original seed url .txt file.
+1. **Log Analysis with [wget_log_reader.py](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/web%20crawling/wget_log_reader.py)**
+      - The script analyzes wget log files and compares them against the original URL list
+      - Generates three CSV files with timestamps:
+        - `matching_urls_[timestamp].csv`: URLs successfully crawled with 200 status
+        - `missing_urls_[timestamp].csv`: URLs not found in the archives
+        - `non_200_urls_[timestamp].csv`: URLs with non-200 status codes
+
+        Usage:
+        ```bash
+        python wget_log_reader.py <log_file_path> <url_file_path>
+        ```
+
+2. **Verification Steps**
+   
+      - Review the generated CSV files
+      - Investigate missing URLs and non-200 status codes
+      - Check redirect chains for any unexpected behavior
+      - If needed re-run the crawl but for the missing URLs only.
+
+3. **Zipping and ingest**
+   
+      - Add all of the folders to a parent folder called: 202XXXXX-ICAEW-com-logged-in-wget and compress this into a zip file.
+      - This file is to be ingested into Preservica along with the other elements of the capture.
 
 ## Appendix
 
-- This was an earlier configuration that crawled icaew.com recursively, but it was found to take too long to finish and resulted in large capture sizes, i.e. it also crawled the media library items which are saved at another point of the crawl process.
+### Previous Configuration
+This was an earlier configuration that crawled icaew.com recursively. It was found to take too long to finish and resulted in large capture sizes, as it also crawled media library items which are saved separately in the crawl process.
 
-        wget --load-cookies cookies.txt --keep-session-cookies --recursive --page-requisites --adjust-extension --span-hosts --convert-links --restrict-file-names=windows --domains icaew.com --no-parent icaew.com/ --reject-regex '(.*(l|L)(o|O)(g|G)((o|O)(f|F)(f|F)|(o|O)(u|U)(t|T)).*)|(.*membership\/active-members.*)|(^(http(s)?:\/\/)?(www\.)?(train|volunteer)\.icaew\.com\/?(?:(?!blog(\/)?).)+$)' --exclude-domains access.icaew.com,annualreturns.icaew.com,apps.icaew.com,dataprotection.icaew.com,demo.icaew.com,ebookshop.icaew.com,ebm.icaew.com,economia.icaew.com,elearning.icaew.com,events.icaew.com,examresults.icaew.com,fdw.icaew.com,find.icaew.com,ion.icaew.com,jobs.icaew.com,latest.icaew.com,learningshop.icaew.com,libcat.icaew.com,membersearch.icaew.com,my.icaew.com,recruit.icaew.com,review.icaew.com,students.icaew.com,uatapps.icaew.com,uatcdn.icaew.com,uatcloudcdn.icaew.com,uatevents.icaew.com,uatmy.icaew.com,vacancies.icaew.com,www.ion.icaew.com --random-wait -i '/mnt/fc6d53c3-3dad-406c-a8ff-222b171f9208/wget-icaew-com-logged-in-july-2022/202XXXXX_sitemap.txt
+```bash
+wget --load-cookies cookies.txt \
+     --keep-session-cookies \
+     --recursive \
+     --page-requisites \
+     --adjust-extension \
+     --span-hosts \
+     --convert-links \
+     --restrict-file-names=windows \
+     --domains icaew.com \
+     --no-parent \
+     --reject-regex '(.*(l|L)(o|O)(g|G)((o|O)(f|F)(f|F)|(o|O)(u|U)(t|T)).*)|(.*membership\/active-members.*)|(^(http(s)?:\/\/)?(www\.)?(train|volunteer)\.icaew\.com\/?(?:(?!blog(\/)?).)+$)' \
+     --exclude-domains access.icaew.com,annualreturns.icaew.com,apps.icaew.com,dataprotection.icaew.com,demo.icaew.com,ebookshop.icaew.com,ebm.icaew.com,economia.icaew.com,elearning.icaew.com,events.icaew.com,examresults.icaew.com,fdw.icaew.com,find.icaew.com,ion.icaew.com,jobs.icaew.com,latest.icaew.com,learningshop.icaew.com,libcat.icaew.com,membersearch.icaew.com,my.icaew.com,recruit.icaew.com,review.icaew.com,students.icaew.com,uatapps.icaew.com,uatcdn.icaew.com,uatcloudcdn.icaew.com,uatevents.icaew.com,uatmy.icaew.com,vacancies.icaew.com,www.ion.icaew.com \
+     --random-wait \
+     -i '/mnt/fc6d53c3-3dad-406c-a8ff-222b171f9208/wget-icaew-com-logged-in-july-2022/202XXXXX_sitemap.txt
+```

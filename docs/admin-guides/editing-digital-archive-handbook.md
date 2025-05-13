@@ -1,44 +1,91 @@
 # Editing the ICAEW Digital Archive Handbook
 
-[NOTE: Add a "Style Guide" section]
-[NOTE: Add a "Markdown Guidelines" section]
-[NOTE: Add a "Review Process" section]
-[NOTE: Add a "Version Control" section]
-[NOTE: Add a "Testing" section]
-[NOTE: Add a "Deployment" section]
+## Overview
+This guide provides comprehensive instructions for editing and maintaining the ICAEW Digital Archive Handbook, which serves as the central resource for digital preservation and web archiving activities at ICAEW.
 
-This ICAEW Digital Archive Handbook is produced using:
+## Tools and Technologies
 
+### Core Documentation Tools
 * [MkDocs](https://www.mkdocs.org)  
 _A static site generator that's geared towards building project documentation_
 
 * [Material](https://squidfunk.github.io/mkdocs-material/)  
 _Material theme for MkDocs_
 
-MkDocs and Material require a Python installation. Good practice is to initialize a Python virtual environment before installing the libraries. This is done via:  
+### Development Environment Setup
 
-        python3 -m venv venv
-    
-and then activating the virtual environment using:  
-    
-        . ./venv/bin/activate
+#### Python Environment
+MkDocs and Material require a Python installation. Good practice is to initialize a Python virtual environment before installing the libraries:
 
-MkDocs is installed via:  
+```bash
+python3 -m venv venv
+```
 
-        pip install mkdocs
+Activate the virtual environment:
+```bash
+. ./venv/bin/activate
+```
 
-Material is installed via:  
+#### Package Installation
+Install MkDocs:
+```bash
+pip install mkdocs
+```
 
-        pip install mkdocs-material
+Install Material theme:
+```bash
+pip install mkdocs-material
+```
 
-The following command allows the mkdocs.yml and the files in /docs/ to be edited with changes seen in realtime:  
+### Additional Tools
+* [Visual Studio Code](https://code.visualstudio.com/)  
+  Recommended code editor with Markdown support
+  - Install the following extensions:
+    - Markdown All in One
+    - Markdown Preview Enhanced
+    - Python
+    - Prettier
 
-        mkdocs serve
+* [Git](https://git-scm.com/)  
+  Version control system for tracking changes
 
-In order to create a static site (which can then be copied over for offline viewing in the ICAEW VDI), the following command is run:  
+* [Python Virtual Environment](https://docs.python.org/3/library/venv.html)  
+  For managing Python dependencies
 
-        mkdocs build
+## Development Workflow
 
-This will create a static website located in the project directory under /site/. The contents of this folder can be transferred anywhere where the documentation needs to be viewed, i.e. inside the ICAEW VDI.  
+### Local Development
+To edit and preview changes in real-time:
+```bash
+mkdocs serve
+```
 
-The contents of /site/ should be copied over to G:\Apps\Passport\ICAEW Digital Archive Handbook.
+### Building Static Site
+To create a static site for offline viewing (e.g., in the ICAEW VDI):
+```bash
+mkdocs build
+```
+
+This creates a static website in the `/site/` directory.
+
+### Deployment
+The contents of `/site/` should be copied to:
+```
+G:\Apps\Passport\ICAEW Digital Archive Handbook
+```
+
+## Documentation Structure
+
+### File Organization
+- Main documentation files are located in the `/docs/` directory
+- Configuration is managed in `mkdocs.yml`
+- Custom CSS can be added in `/assets/css/custom.css`
+
+### Navigation
+The navigation structure is defined in `mkdocs.yml`. Key sections include:
+
+- User Guides
+- Admin Guides
+- Useful Resources
+- Logins
+
