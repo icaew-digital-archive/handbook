@@ -57,34 +57,29 @@ pip install mkdocs-material
 ### GitHub Workflow
 When contributing to the handbook, follow these steps to manage your changes:
 
-1. **Create a branch from `master`**:
+1. **Create a branch from `master`:**
    ```bash
    git checkout -b craig
    ```
 
-2. **Make your changes** (edit, stage, commit):
-   ```bash
-   git add .
-   git commit -m "Add awesome feature"
-   ```
+2. **Make your changes (edit, stage, commit):**
 
-3. **Push your branch to GitHub**:
+    Note: This section will usually be done in the GUI of VSCode rather than via these commands.
+
+    ```bash
+    git add .
+    git commit -m "Add awesome feature"
+    ```
+
+3. **Push your branch to GitHub:**
    ```bash
    git push -u origin craig
    ```
 
-4. **Keep the branch up-to-date with `master`**:
+4. **Keep your branch up to date with `master`:**
    ```bash
-   git fetch origin
-   git merge origin/master  # OR git rebase origin/master
+   git fetch origin && git merge origin/master && git push
    ```
-
-5. **Push any merge/rebase updates back to GitHub**:
-   ```bash
-   git push origin craig
-   ```
-
-6. **Open a Pull Request on GitHub**, get it reviewed, and merge.
 
 ### Local Development
 To edit and preview changes in real-time:
