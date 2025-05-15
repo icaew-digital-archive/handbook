@@ -15,8 +15,7 @@ nav:
         - 'Preservica':
             - 'Standard ingest workflow': 'admin-guides/preservica/standard-ingest-workflow.md'
             - 'Appraisal': 'admin-guides/preservica/appraisal.md'
-            - 'Pre-ingest': 'admin-guides/preservica/pre-ingest.md'
-            - 'Post-ingest': 'admin-guides/preservica/post-ingest.md'
+            - 'Ingest workflow': 'admin-guides/preservica/ingest-workflow.md'
             - 'Dublin Core': 'admin-guides/preservica/dublin-core.md'
             - 'Auto classification': 'admin-guides/preservica/auto-classification.md'
             - 'Reclassification': 'admin-guides/preservica/reclassification.md'
