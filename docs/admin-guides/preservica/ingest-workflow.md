@@ -90,6 +90,6 @@ This tool uses the preservica reference numbers in the CSV to locate where to ad
 
 # Suggested Checklist:
 
-◻ Confirm folder hierarchy matches appraisal output
-◻ Ensure all relevant metadata fields are filled in CSV
-◻ Review fields for misspelling, or misalignment. i.e fields filled out wrong
+◻ Confirm folder hierarchy matches appraisal output  
+◻ Ensure all relevant metadata fields are filled in CSV  
+◻ Review fields for misspelling, or misalignment. i.e fields filled out wrong  
