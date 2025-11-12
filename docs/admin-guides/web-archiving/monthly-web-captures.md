@@ -1,10 +1,12 @@
 # Monthly Web Captures
 
 ## Overview
-This document outlines the process for capturing three specific ICAEW webpages on a monthly basis using ArchiveWeb.page.
+
+> **Purpose:** This document outlines the process for capturing three specific ICAEW webpages on a monthly basis using ArchiveWeb.page.
 
 ## Target Pages
-The following three homepages are required to be captured on the second Monday of each month:
+
+> **Schedule:** The following three homepages are required to be captured on the second Monday of each month:
 
 1. **Audit and Beyond**
    - URL: <https://www.icaew.com/technical/audit-and-assurance/faculty/audit-and-beyond>
@@ -16,7 +18,8 @@ The following three homepages are required to be captured on the second Monday o
    - URL: <https://www.icaew.com/technical/tax/tax-faculty/taxline>
 
 ## Tools
-For the monthly web captures, we use [ArchiveWeb.page](https://github.com/webrecorder/archiveweb.page), a web archiving tool that allows for interactive capture of web content.
+
+> **Tool:** For the monthly web captures, we use [ArchiveWeb.page](https://github.com/webrecorder/archiveweb.page), a web archiving tool that allows for interactive capture of web content.
 
 ## Capture Process
 
@@ -27,7 +30,7 @@ For the monthly web captures, we use [ArchiveWeb.page](https://github.com/webrec
    ```
    audit-and-beyond-19951012-000-ICAEW
    ```
-   Note: Additional GMT data will be added during Preservica ingestion
+   > **Note:** Additional GMT data will be added during Preservica ingestion
 
 ### 2. Crawl Execution
 1. Start the crawl from the three target homepages
@@ -60,5 +63,6 @@ For the monthly web captures, we use [ArchiveWeb.page](https://github.com/webrec
      ```
 
 ## Annual Series Creation
-At the end of each year, the monthly WACZ files for each webpage will be combined into an annual series, creating a comprehensive archive of the year's content. 
+
+> **Note:** At the end of each year, the monthly WACZ files for each webpage will be combined into an annual series, creating a comprehensive archive of the year's content. 
 

@@ -1,36 +1,49 @@
+# YouTube-dl / yt-dlp
+
 ## Overview
 
-Downloading videos from YouTube or other sites is done using [youtube-dl](https://github.com/ytdl-org/youtube-dl).
+> **Purpose:** Downloading videos from YouTube or other sites is done using [youtube-dl](https://github.com/ytdl-org/youtube-dl).
 
-From the youtube-dl GitHub repository: _"youtube-dl is a command-line program to download videos from YouTube.com and a few more sites. It requires the Python interpreter, version 2.6, 2.7, or 3.2+, and it is not platform specific. It should work on your Unix box, on Windows or on macOS. It is released to the public domain, which means you can modify it, redistribute it or use it however you like"._
+> **Note:** From the youtube-dl GitHub repository: _"youtube-dl is a command-line program to download videos from YouTube.com and a few more sites. It requires the Python interpreter, version 2.6, 2.7, or 3.2+, and it is not platform specific. It should work on your Unix box, on Windows or on macOS. It is released to the public domain, which means you can modify it, redistribute it or use it however you like"._
 
 ## Installation
 
-Installation is via (a virtual environment is recommended):
+> **Tip:** Installation is via pip (a virtual environment is recommended):
 
-        pip install youtube-dl
+**Command:**
+```bash
+pip install youtube-dl
+```
 
 ## Configuration
 
-The following configuration works best for ICAEW needs - 
+> **Purpose:** The following configuration works best for ICAEW needs:
 
-- it outputs json metadata files which can be converted to .metadata files via Python script
-- restrict-filenames - "Restrict[s] filenames to only ASCII characters, and avoid "&" and spaces in filenames"
-- always saves the downloaded YouTube videos as mp4 format
-- saves the files with %(upload_date)s-%(title)s' format
-- the write-annotations, write-description, write-all-thumbnails, and sub parameters may not be necessary, but can be downloaded for completion sake  
+**Configuration features:**
+- Outputs JSON metadata files which can be converted to .metadata files via Python script
+- `restrict-filenames` - "Restrict[s] filenames to only ASCII characters, and avoid "&" and spaces in filenames"
+- Always saves the downloaded YouTube videos as mp4 format
+- Saves the files with `%(upload_date)s-%(title)s` format
+- The write-annotations, write-description, write-all-thumbnails, and sub parameters may not be necessary, but can be downloaded for completion sake
 
-        youtube-dl --write-annotations --write-description --write-info-json --write-all-thumbnails --all-subs --write-auto-sub --write-sub --restrict-filenames --format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --output '%(upload_date)s-%(title)s' [YouTube Channel URL] 
+**Command:**
+```bash
+youtube-dl --write-annotations --write-description --write-info-json --write-all-thumbnails --all-subs --write-auto-sub --write-sub --restrict-filenames --format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --output '%(upload_date)s-%(title)s' [YouTube Channel URL]
+```
 
-- The YouTube channel URL is provided as the last argument. The files will be downloaded to a folder where youtube-dl was run from. The most important files are the videos themselves and the json files which contain all metadata relating to the videos. The files will still need to be manually renamed, i.e., removal of illegal characters, such as outlined here: [https://www.mtu.edu/umc/services/websites/writing/characters-avoid](https://www.mtu.edu/umc/services/websites/writing/characters-avoid)
+> **Note:** The YouTube channel URL is provided as the last argument. The files will be downloaded to a folder where youtube-dl was run from. The most important files are the videos themselves and the json files which contain all metadata relating to the videos. The files will still need to be manually renamed, i.e., removal of illegal characters, such as outlined here: [https://www.mtu.edu/umc/services/websites/writing/characters-avoid](https://www.mtu.edu/umc/services/websites/writing/characters-avoid)
 
 ## Basic Commands
 
-Parameters can be found at -  [https://github.com/ytdl-org/youtube-dl#options](https://github.com/ytdl-org/youtube-dl#options).
+> **Reference:** Parameters can be found at [https://github.com/ytdl-org/youtube-dl#options](https://github.com/ytdl-org/youtube-dl#options).
 
 ## Advanced Options
 
+> **Note:** Advanced options section to be added.
+
 ## Best Practices
+
+> **Note:** Best practices section to be added.
 
 ## Appendices
 

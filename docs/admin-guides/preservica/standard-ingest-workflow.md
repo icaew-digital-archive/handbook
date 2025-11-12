@@ -1,13 +1,14 @@
 # Standard Ingest Workflow
 
-[NOTE: Add a "Prerequisites" section]
-[NOTE: Add a "Required Tools" section]
-[NOTE: Add a "Step-by-Step Guide" section]
-[NOTE: Add a "Quality Checks" section]
-[NOTE: Add a "Troubleshooting" section]
-[NOTE: Add a "Best Practices" section]
+> **Purpose:** This page outlines the critical steps of appraisal and pre-ingest processes that are followed before an asset is ingested into **Preservica**. These workflows ensure thorough evaluation, metadata assignment, and asset preparation to maintain integrity and compliance throughout the digital preservation lifecycle.
 
-This page outlines the critical steps of appraisal and pre-ingest processes that are followed before an asset is ingested into **Preservica**. These workflows ensure thorough evaluation, metadata assignment, and asset preparation to maintain integrity and compliance throughout the digital preservation lifecycle.
+> **Note:** This page is under development. Future additions will include:
+> - Prerequisites section
+> - Required Tools section
+> - Step-by-Step Guide section
+> - Quality Checks section
+> - Troubleshooting section
+> - Best Practices section
 
 ```mermaid
 flowchart LR

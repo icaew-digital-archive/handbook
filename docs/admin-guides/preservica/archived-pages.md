@@ -1,4 +1,10 @@
-# Appraisal
+# Archived Pages
+
+> **Purpose:** This document contains reference information for various Preservica processes and workflows. For current workflows, see the dedicated pages in this section.
+
+> **Note:** This page contains legacy and reference information. Some sections may be duplicated or outdated. Please refer to the main workflow pages for current processes.
+
+## Appraisal Tools
 
 [NOTE: Add a "Prerequisites" section]
 [NOTE: Add a "Assessment Criteria" section]
@@ -34,7 +40,13 @@ Brunnhilde provides the three following features:
 
 **TODO: Cover how to strip metadata from PDFs, doc, docx etc. here.**
 
-# Appraisal
+# Archived Pages
+
+> **Purpose:** This document contains reference information for various Preservica processes and workflows. For current workflows, see the dedicated pages in this section.
+
+> **Note:** This page contains legacy and reference information. Some sections may be duplicated or outdated. Please refer to the main workflow pages for current processes.
+
+## Appraisal Tools
 
 [NOTE: Add a "Prerequisites" section]
 [NOTE: Add a "Assessment Criteria" section]
@@ -70,71 +82,83 @@ Brunnhilde provides the three following features:
 
 **TODO: Cover how to strip metadata from PDFs, doc, docx etc. here.**
 
-# Auto Classification for DC Metadata
+## Auto Classification for DC Metadata
 
-[NOTE: Add a "Overview" section]
-[NOTE: Add a "Configuration" section]
-[NOTE: Add a "Rules Setup" section]
-[NOTE: Add a "Process Flow" section]
-[NOTE: Add a "Validation" section]
-[NOTE: Add a "Best Practices" section]
+> **Purpose:** ICAEW uses [Smartlogic Semaphore](https://cloud.smartlogic.com/spa/) to auto-classify material using a custom made taxonomy. The _Classification & Language Service Client_ tool provides subject classification for documents stored locally.
 
-ICAEW uses [Smartlogic Semaphore](https://cloud.smartlogic.com/spa/) to auto-classify material using a custom made taxonomy. The _Classification & Language Service Client_ tool provides subject classification for documents stored locally. We have decided to include only subjects with a classification threshold of 48% and above - this matches what is happening on ICAEW.com. Topics can be removed at the descretion of the digital archivist if they feel the document has been assigned too many subjects.
+> **Note:** This section is under development. Future additions will include:
+> - Overview section
+> - Configuration section
+> - Rules Setup section
+> - Process Flow section
+> - Validation section
+> - Best Practices section
 
-This tool will mostly be used in conjunction with the **semaphore-helper.py** script.
+> **Configuration:** We have decided to include only subjects with a classification threshold of 48% and above - this matches what is happening on ICAEW.com. Topics can be removed at the discretion of the digital archivist if they feel the document has been assigned too many subjects.
 
-`--cloud-api-key` can be found on the [Logins page](../../logins.md).
+> **Usage:** This tool will mostly be used in conjunction with the **semaphore-helper.py** script.
 
-CLI example:
+> **Credentials:** `--cloud-api-key` can be found on the [Logins page](../../logins.md).
 
-    java -jar Semaphore-CLSClient-5.6.3.jar --cloud-api-key= --url=https://cloud.smartlogic.com/svc/138b5bab-8ac4-45e0-b36f-815008f9921d/ --threshold=48 --csv-output-file subject-terms-output.csv input
+**CLI example:**
+```bash
+java -jar Semaphore-CLSClient-5.6.3.jar --cloud-api-key= --url=https://cloud.smartlogic.com/svc/138b5bab-8ac4-45e0-b36f-815008f9921d/ --threshold=48 --csv-output-file subject-terms-output.csv input
+```
 
+> **Things to note:**
+> - `threshold=48` is the 48% classification threshold
+> - The output must be a CSV
+> - We use the terms from the Generic_UPWARD column
 
-## Things to note:
+### The Classification & Language Service Client
 
-- threshold=48 is the 48% classification threshold
-- The output must be a csv
-- We use the terms from the Generic_UPWARD column
+> **Reference:** The _Classification & Language Service Client_ tool can be downloaded from the Smartlogic portal, along with the documentation: [CLS-Client](https://portal.smartlogic.com/docs/5.6/classification_server_-_developers_guide/the_command_line_client)
 
-## The Classification & Language Service Client
+## Post-Ingest
 
-The _Classification & Language Service Client_ tool can be downloaded from the Smartlogic portal, along with the documentation: [CLS-Client](https://portal.smartlogic.com/docs/5.6/classification_server_-_developers_guide/the_command_line_client)
+> **Reference:** For current post-ingest processes, see [Post Ingest](../preservica/post-ingest.md).
 
-# Post-Ingest
+> **Note:** This section is under development. Future additions will include:
+> - Verification Steps section
+> - Quality Checks section
+> - Metadata Review section
+> - Access Testing section
+> - Documentation section
+> - Troubleshooting section
 
-[NOTE: Add a "Verification Steps" section]
-[NOTE: Add a "Quality Checks" section]
-[NOTE: Add a "Metadata Review" section]
-[NOTE: Add a "Access Testing" section]
-[NOTE: Add a "Documentation" section]
-[NOTE: Add a "Troubleshooting" section]
+### Update Catalogue entries
 
-## Update Catalogue entries
+> **Purpose:** Post-ingest, the ICAEW catalogue needs updating to include the new access point in Preservica. This is achieved by adding a new 856 field in Symphony.
 
-Post-ingest the ICAEW catalogue needs updating to include the new access point in Preservica. This is achieved by adding a new 856 field in Symphony.
-
-The formatting for adding an 856 field in Symphony is as follows:
-
+**Formatting for adding an 856 field in Symphony:**
+```
 |aAvailable at the ICAEW Digital Repository: |u*hyperlink*
+```
 
-(To be discussed)
-If we add unique identifiers alongside Dublin Core metadata, these should be added into the catalogue as well.
+> **Note:** (To be discussed) If we add unique identifiers alongside Dublin Core metadata, these should be added into the catalogue as well.
 
-**TODO: Write post-ingest processes**
+> **TODO:** Write post-ingest processes
 
-## Appendix:
+### Appendix: Legacy Processes
 
-Processes that are no longer used.
+> **Note:** Processes that are no longer used.
 
 - **Semaphore CLS Client and semaphore-subject-import.py**
 
-  The semaphore-subject-import.py script combines the CSV output from the Semaphore CLS Client, negating the need for copy and pasting from one CSV to the other. Usage is as follows:
+  > **Purpose:** The semaphore-subject-import.py script combines the CSV output from the Semaphore CLS Client, negating the need for copy and pasting from one CSV to the other.
 
-        semaphore-subject-import.py semaphore_csv dublin_core_csv csv_output
+  **Usage:**
+  ```bash
+  semaphore-subject-import.py semaphore_csv dublin_core_csv csv_output
+  ```
 
-# Pre-Ingest
+## Pre-Ingest
 
-## Prerequisites
+> **Reference:** For current pre-ingest processes, see [Ingest Workflow](../preservica/ingest-workflow.md) and [Standard Ingest Workflow](../preservica/standard-ingest-workflow.md).
+
+### Prerequisites
+
+**Required:**
 - Python 3.x environment with required packages
 - Access to Preservica API credentials
 - Understanding of Dublin Core metadata standards
@@ -146,8 +170,9 @@ Processes that are no longer used.
 3. Remove any temporary or system files
 4. Verify file integrity and readability
 
-## Metadata Creation
-The pre-ingest process uses a series of Python scripts to create Submission Information Packages (SIPs):
+### Metadata Creation
+
+> **Purpose:** The pre-ingest process uses a series of Python scripts to create Submission Information Packages (SIPs):
 
 ### 1. Generate Initial CSV (`a_files_to_csv.py`)
 ```bash
@@ -229,109 +254,149 @@ For issues or questions, contact the Digital Archive team.
 
 ### Prepare a Submission Information Package (SIP)
 
-- Creating a SIP requires: Fixity, Dublin Core descriptive metadata and the digital artefacts.
-- For Fixity ICAEW uses the SHA-1 algorithim.
-- Refer to the [Dublin Core](./dublin-core.md) page to understand how ICAEW uses it.
+> **Purpose:** Creating a SIP requires: Fixity, Dublin Core descriptive metadata and the digital artefacts.
 
-## SIP
+> **Note:** 
+> - For Fixity, ICAEW uses the SHA-1 algorithm
+> - Refer to the [Dublin Core](./dublin-core.md) page to understand how ICAEW uses it
 
-- Each of these elements are placed in a folder, the fixity and descriptive metadata are nested in an .opex metadata template beside the digital artefact they represent.
-- Each artefact including the folder must have a seperate .opex metadata document.
-- The folder level .opex metadata document is unique to the other .opex files, its primary role is to include a manifest of the folder: both content and metadata.
+**SIP Structure:**
+- Each of these elements are placed in a folder, the fixity and descriptive metadata are nested in an .opex metadata template beside the digital artefact they represent
+- Each artefact including the folder must have a separate .opex metadata document
+- The folder level .opex metadata document is unique to the other .opex files, its primary role is to include a manifest of the folder: both content and metadata
 
 ### Python SIP creation tools
 
-We have multiple tools that achieve the objective of creating a Preservica SIP. The tools can be found on the [icaew-digital-archive](https://github.com/icaew-digital-archive/digital-archiving-scripts/tree/main/opex-scripts) GitHub page.
+> **Purpose:** We have multiple tools that achieve the objective of creating a Preservica SIP. The tools can be found on the [icaew-digital-archive](https://github.com/icaew-digital-archive/digital-archiving-scripts/tree/main/opex-scripts) GitHub page.
 
-- **Tool A**: creates a .csv file with seperate SHA-1 hashes for each artefact and includes relevant dublin core fields to populate for the .opex metadata file.
+**Tool A:** Creates a .csv file with separate SHA-1 hashes for each artefact and includes relevant Dublin Core fields to populate for the .opex metadata file.
 
-          a_files_to_csv.py [-h] [--hash_type {sha1,md5}] directory output
-Populate the .csv with the relevant Dublin Core metadata - leaving the Subject fields for the next stage of the process.
+**Command:**
+```bash
+a_files_to_csv.py [-h] [--hash_type {sha1,md5}] directory output
+```
 
-- **Semaphore auto-classification (via semaphore-helper.py)**
+> **Note:** Populate the .csv with the relevant Dublin Core metadata - leaving the Subject fields for the next stage of the process.
 
-          usage: semaphore-helper.py [-h] [--preservica_ref PRESERVICA_REF] directory
-Make use of Semaphore's Classification Server via semaphore-helper.py. This script acts as a wrapper around the Semamphore CLS client and outputs a maximum of 10 subject topics, sorted by scoring. The script accepts a local directory or a preservica folder reference can be supplied directly to the script. Further information regarding the Semaphore CLS client can be found [here](./auto-classification.md). After populating the .csv with the relevant dublin core metadata, move on to the rename tool.
+**Semaphore auto-classification (via semaphore-helper.py):**
 
-- **Rename tool**: renames the original filenames (found in the 'filename' column) to filenames given in the 'Title' column from the csv produced by a_files_to_csv.py. Use the output CSV file from semaphore-subject-import.py (unless the step was skipped for whatever reason).
+**Command:**
+```bash
+semaphore-helper.py [-h] [--preservica_ref PRESERVICA_REF] directory
+```
 
-          csv_file_rename.py file_directory csv_file_path
-After using the script to rename the files, move on to Tool B.  
-  **Note: after running the script you should also copy the contents of the 'Title' field over to 'filename' in the csv file as Tool B uses this column to name the .opex files. You will also need to re-add the file extensions if following this method.**
+> **Purpose:** Make use of Semaphore's Classification Server via semaphore-helper.py. This script acts as a wrapper around the Semaphore CLS client and outputs a maximum of 10 subject topics, sorted by scoring. The script accepts a local directory or a Preservica folder reference can be supplied directly to the script. Further information regarding the Semaphore CLS client can be found [here](./auto-classification.md). After populating the .csv with the relevant Dublin Core metadata, move on to the rename tool.
 
-- **Tool B**: uses the completed .csv to create unique .opex metadata files for each digital artefact in the folder. Including fixity and dublin core metadata.
+**Rename tool:** Renames the original filenames (found in the 'filename' column) to filenames given in the 'Title' column from the csv produced by a_files_to_csv.py. Use the output CSV file from semaphore-subject-import.py (unless the step was skipped for whatever reason).
 
-          b_csv_to_opex_xml.py csv_file output_dir
-After this tool has successfully created a .opex metadata file for each digital artefact, move on to Tool C.
+**Command:**
+```bash
+csv_file_rename.py file_directory csv_file_path
+```
 
-- **Tool C**: creates a folder level .opex metadata document. It scans the parent folder and creates an authenicated folder level .opex metadata document that serves as a manifest for the ingest. The folder level opex file can then be edited before ingest if needed, i.e. adding/changing the Title, Description, SecurityDescriptor and other Dublin Core metadata.
+> **Important:** After running the script, you should also copy the contents of the 'Title' field over to 'filename' in the csv file as Tool B uses this column to name the .opex files. You will also need to re-add the file extensions if following this method.
 
-        c_folders_of_files_to_folder_opex_xml.py folder_path
+**Tool B:** Uses the completed .csv to create unique .opex metadata files for each digital artefact in the folder. Including fixity and Dublin Core metadata.
 
-# Reclassification
+**Command:**
+```bash
+b_csv_to_opex_xml.py csv_file output_dir
+```
 
-[NOTE: Add a "Prerequisites" section]
-[NOTE: Add a "Classification Rules" section]
-[NOTE: Add a "Process Steps" section]
-[NOTE: Add a "Validation" section]
-[NOTE: Add a "Error Handling" section]
-[NOTE: Add a "Best Practices" section]
+> **Next Step:** After this tool has successfully created a .opex metadata file for each digital artefact, move on to Tool C.
 
-# Reclassification Workflow
+**Tool C:** Creates a folder level .opex metadata document. It scans the parent folder and creates an authenticated folder level .opex metadata document that serves as a manifest for the ingest. The folder level opex file can then be edited before ingest if needed, i.e. adding/changing the Title, Description, SecurityDescriptor and other Dublin Core metadata.
 
-The following document outlines the reclassification workflow.
+**Command:**
+```bash
+c_folders_of_files_to_folder_opex_xml.py folder_path
+```
 
-The reclassification workflow downloads assets from the ICAEW Preservica digital archive. Then using Python tools and the Semaphore taxonomy each asset is re-classified with Dublin Core metadata. Upon completing the Dublin Core metadata CSV, the existing metadata connected to the asset will be deleted. The new metadata will then be connected to the asset. Four tools are used in the workflow, the workflow has two stages.
+## Reclassification
 
-Each of these tools require that the operator is within a virtual environment in the relevant directory.
+> **Purpose:** The following document outlines the reclassification workflow.
 
-```. ./venv/bin/activate```
+> **Note:** This section is under development. Future additions will include:
+> - Prerequisites section
+> - Classification Rules section
+> - Process Steps section
+> - Validation section
+> - Error Handling section
+> - Best Practices section
 
-## Download and Classify
+### Overview
 
-* a_get_metadata.py
-* semaphore-helper.py
+> **Purpose:** The reclassification workflow downloads assets from the ICAEW Preservica digital archive. Then using Python tools and the Semaphore taxonomy, each asset is re-classified with Dublin Core metadata. Upon completing the Dublin Core metadata CSV, the existing metadata connected to the asset will be deleted. The new metadata will then be connected to the asset. Four tools are used in the workflow, the workflow has two stages.
 
-During this stage, assets and existing metadata will be downloaded from Preservica. Using semaphore, each of these assets will be re-classified and any additional metadata will be added/updated.
+> **Prerequisites:** Each of these tools require that the operator is within a virtual environment in the relevant directory.
 
-## a_get_metadata.py
+**Activate virtual environment:**
+```bash
+. ./venv/bin/activate
+```
 
-The first step is to download the existing metadata for the assets that are to be reclassified. First step is to grab the asset or folder ID from Preservica. Secondly, create a CSV. This will be where the relevant Dublin Core metadata is added/updated.
+### Download and Classify
 
-```python3 a_get_metadata.py [preservica reference number] [output.csv] ```
+**Tools used:**
+- `a_get_metadata.py`
+- `semaphore-helper.py`
 
-WARNING: The CSV output will require manual column realignment if there are repeating Dublin Core elements.
+> **Purpose:** During this stage, assets and existing metadata will be downloaded from Preservica. Using semaphore, each of these assets will be re-classified and any additional metadata will be added/updated.
 
-## semaphore-helper.py
+#### a_get_metadata.py
 
-The semaphore-helper script is a multi-part tool that firstly downloads a copy of each required asset from Preservica and then using the ICAEW taxonomy classifies up to ten subject terms for the Dublin Core subject fields.
+> **Purpose:** The first step is to download the existing metadata for the assets that are to be reclassified. First step is to grab the asset or folder ID from Preservica. Secondly, create a CSV. This will be where the relevant Dublin Core metadata is added/updated.
 
-Semaphore requires a preservica reference number, an area for each asset to be downloaded to and a output preferably CSV.
+**Command:**
+```bash
+python3 a_get_metadata.py [preservica reference number] [output.csv]
+```
 
-```python3 semaphore-helper.py [preservica ref] [asset download location] [output location > .csv]```
+> **Warning:** The CSV output will require manual column realignment if there are repeating Dublin Core elements.
 
-## Delete and Upload
+#### semaphore-helper.py
 
-* b_delete_metadata.py
-* c_add_metadata_from_csv.py
+> **Purpose:** The semaphore-helper script is a multi-part tool that firstly downloads a copy of each required asset from Preservica and then using the ICAEW taxonomy classifies up to ten subject terms for the Dublin Core subject fields.
 
-During this stage, existing metadata will be deleted from the enclosed Preservica environment. Afterwards the new completed Dublin Core metadata will be added to the assets.
+**Requirements:**
+- Preservica reference number
+- Area for each asset to be downloaded to
+- Output preferably CSV
 
-## b_delete_metadata.py
+**Command:**
+```bash
+python3 semaphore-helper.py [preservica ref] [asset download location] [output location > .csv]
+```
 
-The b_delete_metadata.py permanently deletes metadata templates connected to the asset. It uses a preservica reference number to locate which assets metadata it will delete. Using a folders preservica reference number will delete each of its child files metadata templates.
+### Delete and Upload
 
-```python3 b_delete_metadata.py [preservica_ref]```
+**Tools used:**
+- `b_delete_metadata.py`
+- `c_add_metadata_from_csv.py`
 
-WARNING: Each times this script is used, a Y/N prompt occurs. After Y the metadata is permanently deleted.
+> **Purpose:** During this stage, existing metadata will be deleted from the enclosed Preservica environment. Afterwards the new completed Dublin Core metadata will be added to the assets.
 
-## c_add_metadata_from_csv.py
+#### b_delete_metadata.py
 
-Lastly, the c_add_metadata.py tool adds the newly complete Dublin Core metadata CSV to the original assets within Preservica.
+> **Purpose:** The `b_delete_metadata.py` permanently deletes metadata templates connected to the asset. It uses a Preservica reference number to locate which assets' metadata it will delete. Using a folder's Preservica reference number will delete each of its child files' metadata templates.
 
-```python3 c_add_metadata_from_csv.py [csv_location]```
+**Command:**
+```bash
+python3 b_delete_metadata.py [preservica_ref]
+```
 
-This tool uses the preservica reference numbers in the CSV to locate where to add the newly completed Dublin Core metadata template.
+> **Warning:** Each time this script is used, a Y/N prompt occurs. After Y, the metadata is permanently deleted.
+
+#### c_add_metadata_from_csv.py
+
+> **Purpose:** Lastly, the `c_add_metadata_from_csv.py` tool adds the newly complete Dublin Core metadata CSV to the original assets within Preservica.
+
+**Command:**
+```bash
+python3 c_add_metadata_from_csv.py [csv_location]
+```
+
+> **Note:** This tool uses the Preservica reference numbers in the CSV to locate where to add the newly completed Dublin Core metadata template.
 
 
 

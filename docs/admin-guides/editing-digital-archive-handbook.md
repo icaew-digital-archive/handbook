@@ -1,7 +1,8 @@
 # Editing the ICAEW Digital Archive Handbook
 
 ## Overview
-This guide provides comprehensive instructions for editing and maintaining the ICAEW Digital Archive Handbook, which serves as the central resource for digital preservation and web archiving activities at ICAEW.
+
+> **Purpose:** This guide provides comprehensive instructions for editing and maintaining the ICAEW Digital Archive Handbook, which serves as the central resource for digital preservation and web archiving activities at ICAEW.
 
 ## Tools and Technologies
 
@@ -15,7 +16,8 @@ _Material theme for MkDocs_
 ### Development Environment Setup
 
 #### Python Environment
-MkDocs and Material require a Python installation. Good practice is to initialize a Python virtual environment before installing the libraries:
+
+> **Tip:** MkDocs and Material require a Python installation. Good practice is to initialize a Python virtual environment before installing the libraries:
 
 ```bash
 python3 -m venv venv

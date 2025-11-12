@@ -1,7 +1,8 @@
 # Browsertrix-crawler custom behaviors
 
 ## Overview
-This document provides information about creating and implementing custom behaviors for the Browsertrix web crawler. These behaviors are used to enhance the crawling process by automatically handling dynamic content, auto-playing videos, and implementing site-specific interactions.
+
+> **Purpose:** This document provides information about creating and implementing custom behaviors for the Browsertrix web crawler. These behaviors are used to enhance the crawling process by automatically handling dynamic content, auto-playing videos, and implementing site-specific interactions.
 
 ## Prerequisites
 
@@ -22,7 +23,8 @@ This document provides information about creating and implementing custom behavi
 - Understand the behavior development framework and requirements
 
 ### 2. Testing Environment Setup
-Use the following command for testing custom behaviors:
+
+**Command for testing custom behaviors:**
 
 ```bash
 docker run -p 9037:9037 \
@@ -37,8 +39,7 @@ docker run -p 9037:9037 \
     --generateWACZ
 ```
 
-Key parameters:
-
+**Key parameters:**
 - `--url`: Accepts multiple URLs for testing
 - `--scopeType`: Set to "page" to crawl only specified pages
 - `--behaviors`: Set to "siteSpecific" to avoid confusion with default behaviors
@@ -57,7 +58,8 @@ Key parameters:
 - Folder should be in the same directory as the docker command execution
 
 ### Behavior Script
-The behavior script is available on the [icaew-digital-archive](https://github.com/icaew-digital-archive) GitHub page.
+
+> **Note:** The behavior script is available on the [icaew-digital-archive](https://github.com/icaew-digital-archive) GitHub page. The ICAEW behaviors file can be found at [icaew-com-behaviors.js](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/browsertrix-crawler%20files%20and%20scripts/icaew-com-behaviors.js).
 
 
 ## Appendix

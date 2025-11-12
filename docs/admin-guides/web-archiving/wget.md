@@ -1,11 +1,14 @@
 # Wget Crawl
 
 ## Overview
-This document outlines the process of using wget to create a secondary/back-up crawl of ICAEW.com and its subdomains using wget. 
+
+> **Purpose:** This document outlines the process of using wget to create a secondary/back-up crawl of ICAEW.com and its subdomains.
 
 [Wget](https://en.wikipedia.org/wiki/Wget) is a free utility for non-interactive downloading of files from the web, supporting HTTP, HTTPS, and FTP protocols, as well as retrieval through HTTP proxies.
 
 ## Prerequisites
+
+**Required:**
 - [Get cookies.txt LOCALLY](https://chrome.google.com/webstore/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc) browser extension
 - Access to ICAEW.com with appropriate credentials
 - Wget installed on your system
@@ -20,7 +23,8 @@ This document outlines the process of using wget to create a secondary/back-up c
 5. Move the file to your working directory
 
 ### 2. Testing Authentication
-Before starting the full crawl, verify that the cookies file works by testing with a known restricted page:
+
+> **Tip:** Before starting the full crawl, verify that the cookies file works by testing with a known restricted page:
 
 ```bash
 wget --load-cookies cookies.txt \
@@ -33,7 +37,7 @@ wget --load-cookies cookies.txt \
      https://www.icaew.com/technical/technology/excel-community/excel-community-articles/2023/dont-expect-too-much-from-ai-after-all-its-not-only-human
 ```
 
-After the crawl has finished navigate to the appropriate HTML file and ensure that it has remained logged in.
+> **Verification:** After the crawl has finished, navigate to the appropriate HTML file and ensure that it has remained logged in.
 
 ## Crawl Configurations
 
@@ -41,7 +45,7 @@ The following crawls can be run simultaneously:
 
 ### 1. ICAEW.com
 
-urls.txt should be a list of URLs, which will almost always be a .txt version of the sitemap.
+> **Note:** `urls.txt` should be a list of URLs, which will almost always be a .txt version of the sitemap.
 
 ```bash
 wget --load-cookies cookies.txt \
@@ -142,20 +146,21 @@ wget --load-cookies cookies.txt \
 
 2. **Verification Steps**
    
-      - Review the generated CSV files
-      - Investigate missing URLs and non-200 status codes
-      - Check redirect chains for any unexpected behavior
-      - If needed re-run the crawl but for the missing URLs only.
+   - Review the generated CSV files
+   - Investigate missing URLs and non-200 status codes
+   - Check redirect chains for any unexpected behavior
+   - If needed, re-run the crawl but for the missing URLs only.
 
-3. **Zipping and ingest**
+3. **Zipping and Ingest**
    
-      - Add all of the folders to a parent folder called: 202XXXXX-ICAEW-com-logged-in-wget and compress this into a zip file.
-      - This file is to be ingested into Preservica along with the other elements of the capture.
+   - Add all of the folders to a parent folder called: `202XXXXX-ICAEW-com-logged-in-wget` and compress this into a zip file.
+   - This file is to be ingested into Preservica along with the other elements of the capture.
 
 ## Appendix
 
 ### Previous Configuration
-This was an earlier configuration that crawled icaew.com recursively. It was found to take too long to finish and resulted in large capture sizes, as it also crawled media library items which are saved separately in the crawl process.
+
+> **Note:** This was an earlier configuration that crawled icaew.com recursively. It was found to take too long to finish and resulted in large capture sizes, as it also crawled media library items which are saved separately in the crawl process.
 
 ```bash
 wget --load-cookies cookies.txt \

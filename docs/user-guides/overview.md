@@ -1,13 +1,14 @@
 # Overview of the ICAEW Digital Archive
 
-[NOTE: Add a "Key Features" section]
-[NOTE: Add a "System Requirements" section]
-[NOTE: Add a "Access Levels" section]
-[NOTE: Add a "Getting Started" section]
-[NOTE: Add a "Common Tasks" section]
-[NOTE: Add a "Troubleshooting" section]
+> **Purpose:** The ICAEW Digital Archive consists of two main components: a **digital preservation platform** ([Preservica](https://icaew.access.preservica.com/)) and **web archive collections** (hosted on both [Preservica](https://icaew.access.preservica.com/) and [Archive-It](https://archive-it.org/organizations/1613)).
 
-The ICAEW Digital Archive consists of two main components: a **digital preservation platform** ([Preservica](https://icaew.access.preservica.com/)) and **web archive collections** (hosted on both [Preservica](https://icaew.access.preservica.com/) and [Archive-It](https://archive-it.org/organizations/1613)).
+> **Note:** This page is under development. Future additions will include:
+> - Key Features section
+> - System Requirements section
+> - Access Levels section
+> - Getting Started section
+> - Common Tasks section
+> - Troubleshooting section
 
 ## Preservica
 
@@ -17,7 +18,7 @@ Preservica is a cloud-based digital preservation platform used globally by organ
 
 ICAEW primarily uses Preservica for preserving documents (PDFs, DOCs), images, audio (e.g., podcasts), and video (e.g., webinars, YouTube content). Unlike web archives, the content in Preservica is more _curated_, organised into a hierarchical folder structure with detailed metadata to support search and retrieval. Additionally, Preservica is used to host some of our web collections, alongside Archive-It.
 
-**Note**: Logged-in captures of ICAEW.com can be found in Preservica but not on Archive-It.
+> **Note:** Logged-in captures of ICAEW.com can be found in Preservica but not on Archive-It.
 
 ## Web Archive Collections
 

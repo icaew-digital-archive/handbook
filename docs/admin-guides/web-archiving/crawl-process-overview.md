@@ -1,6 +1,6 @@
 # Web Archiving Process Overview
 
-This page outlines a full web capture of ICAEW.com crawl (logged-in / public) but the general process should apply to most other websites.
+> **Purpose:** This page outlines a full web capture of ICAEW.com crawl (logged-in / public) but the general process should apply to most other websites.
 
 ## High-level overview
 
@@ -12,7 +12,7 @@ flowchart LR
 
 ### Preservica folder structure
 
-The following shows an example of a complete crawl within Preservica. Web crawls should follow this structure. All items should be closed with the exception of the .wacz file.
+> **Important:** The following shows an example of a complete crawl within Preservica. Web crawls should follow this structure. All items should be closed with the exception of the .wacz file.
 
 ```
 ICAEW.com, April 2025/
@@ -37,10 +37,9 @@ ICAEW.com, April 2025/
 
 #### 1) Sitemap
 
-Save a copy of the ICAEW sitemap for:
-
-- Input to the web crawlers
-- Post-crawl QA / validation
+> **Purpose:** Save a copy of the ICAEW sitemap for:
+> - Input to the web crawlers
+> - Post-crawl QA / validation
 
 Use [sitemap_xml_to_txt_or_html.py](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/sitemap%20tools/sitemap_xml_to_txt_or_html.py) with the following arguments:
 
@@ -54,7 +53,7 @@ python3 sitemap_xml_to_txt_or_html.py \
 
 #### 2) Request a list of templates and do a template crawl
 
-Before running a full crawl, it's important to test how the crawler handles various templates and elements on the site - especially new ones. This helps identify potential issues with capture and playback.
+> **Tip:** Before running a full crawl, it's important to test how the crawler handles various templates and elements on the site - especially new ones. This helps identify potential issues with capture and playback.
 
 - Request any new additional templates be added to this document: [Sitecore templates and examples ](https://icaew.sharepoint.com/:w:/s/digitalarchive/EY-WRGmke3VGmyYkTdEDDYMBfZ5nyLgefubtdJNa4WMfDQ?e=CMGN8D&CID=db808ef5-54c9-52fb-079f-87384e3ca7aa&ovuser=30a7efd6-7f05-437d-bc19-e7c6df3892f1%2CCraig.McCarthy%40icaew.com&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIxNDE1LzI1MDMwMjAxMDEwIiwiSGFzRmVkZXJhdGVkVXNlciI6ZmFsc2V9)
 
@@ -73,23 +72,21 @@ Before running a full crawl, it's important to test how the crawler handles vari
 
 #### 1) Media library download
 
-Prerequisites:
-
+**Prerequisites:**
 - Access to the VDI
 - Sitecore login credentials (available on the Logins page)
 
-Steps:
+**Steps:**
 
 1. Log into the Sitecore backend
 2. Navigate to the "Media Library"
 3. Right-click the root level folder ("Media Library")
 4. Select "Scripts" and then "Download"
 
-Notes:
-
-- The download process may take several hours
-- The resulting zip file can be upwards of 10 GB
-- Only media stored directly in Sitecore will be downloaded. External media (e.g., Vimeo, StreamAMG) will not be included
+> **Important Notes:**
+> - The download process may take several hours
+> - The resulting zip file can be upwards of 10 GB
+> - Only media stored directly in Sitecore will be downloaded. External media (e.g., Vimeo, StreamAMG) will not be included
 
 
 #### 2) wget crawl
@@ -121,7 +118,7 @@ Detailed QA processes are covered on the [wget page](../web-archiving/wget.md) a
 
 #### 2) Patch crawls
 
-**Conditional:** If QA reveals missing URLs or problematic pages, perform targeted patch crawls to capture the missing content:
+> **Conditional:** If QA reveals missing URLs or problematic pages, perform targeted patch crawls to capture the missing content:
 
 - Create a new seed file containing only the problematic URLs
 - Run a patch crawl using a one-hop configuration (only crawls URLs in seed file plus one hop for linked resources)
@@ -137,13 +134,12 @@ Upload all crawl materials to Preservica following the established folder struct
 - Replicate the [Preservica folder structure](#preservica-folder-structure) as outlined above
 - Ensure all items are closed with the exception of the .wacz file
 
-**Post-ingest verification:**
-
-- Verify fixity values match using:
-  ```bash
-  sha1sum [FILE]
-  ```
-- Test playback of the WACZ file in Preservica's Portal to ensure proper rendering
+> **Post-ingest verification:**
+> - Verify fixity values match using:
+>   ```bash
+>   sha1sum [FILE]
+>   ```
+> - Test playback of the WACZ file in Preservica's Portal to ensure proper rendering
 
 #### 4) Write basic metadata in Preservica
 

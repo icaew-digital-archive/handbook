@@ -1,6 +1,6 @@
 # Appendix: Advanced Web Archiving Processes
 
-This appendix contains detailed documentation for specialized web archiving processes that are performed infrequently. These instructions are maintained for reference purposes.
+> **Purpose:** This appendix contains detailed documentation for specialized web archiving processes that are performed infrequently. These instructions are maintained for reference purposes.
 
 ## Table of Contents
 
@@ -13,7 +13,7 @@ This appendix contains detailed documentation for specialized web archiving proc
 
 ### Overview
 
-Process for downloading content from the Internet Archive Wayback Machine using the CDX Server API. Information and documentation can be found here: [Wayback CDX Server API](https://github.com/internetarchive/wayback/tree/master/wayback-cdx-server)
+> **Purpose:** Process for downloading content from the Internet Archive Wayback Machine using the CDX Server API. Information and documentation can be found here: [Wayback CDX Server API](https://github.com/internetarchive/wayback/tree/master/wayback-cdx-server)
 
 ### Process Details
 
@@ -21,7 +21,7 @@ Process for downloading content from the Internet Archive Wayback Machine using 
 
    - The first step is to obtain an index of pages captured by the public IA crawls via the Internet Archive Wayback CDX Server API
    - Example API query: `http://web.archive.org/cdx/search/cdx?url=icaew.com&output=json&matchType=domain&filter=mimetype:application.*`
-   - Note: Obtaining the index for a large site can produce a response with many lines and will often crash the browser when queried directly through the browser address bar
+   - > **Note:** Obtaining the index for a large site can produce a response with many lines and will often crash the browser when queried directly through the browser address bar
 
 2. **Download Index**
 
@@ -41,12 +41,12 @@ Process for downloading content from the Internet Archive Wayback Machine using 
 
 ### Overview
 
-Methods for archiving Twitter content, including full account histories and specific time periods.
+> **Purpose:** Methods for archiving Twitter content, including full account histories and specific time periods.
 
 ### Prerequisites
 
 - Twitter account credentials (available on the [Logins page](../../logins.md))
-- Note: Regarding Tweet limits (from the [Twitter Help Center](https://help.twitter.com/en/using-twitter/missing-tweets)):
+- > **Note:** Regarding Tweet limits (from the [Twitter Help Center](https://help.twitter.com/en/using-twitter/missing-tweets)):
   - Only the 800 most recent Tweets are displayed in the Tweets tab
   - Only the latest 3,200 Tweets are displayed in the Tweets and replies tab
 
@@ -102,7 +102,7 @@ Methods for archiving Twitter content, including full account histories and spec
 
 ### Overview
 
-Process for downloading and managing WARC files from Archive-It.
+> **Purpose:** Process for downloading and managing WARC files from Archive-It.
 
 ### Installation and Configuration
 
@@ -112,7 +112,7 @@ Process for downloading and managing WARC files from Archive-It.
    pip install py-wasapi-client
    ```
 
-   Note: Best practice is to install in a virtual environment
+   > **Tip:** Best practice is to install in a virtual environment
 
 2. **Configure Credentials**
    Create `~/.wasapi-client`:
@@ -182,7 +182,7 @@ The following collection IDs can be ignored:
 
 ### Overview
 
-Before ingest into Preservica or uploading to Archive-It, WARC files must follow a specific naming convention to ensure proper identification and organization.
+> **Purpose:** Before ingest into Preservica or uploading to Archive-It, WARC files must follow a specific naming convention to ensure proper identification and organization.
 
 ### Naming Format
 

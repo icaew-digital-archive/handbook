@@ -2,7 +2,7 @@
 
 ## General
 
-This page covers how ICAEW applies metadata in Preservica.
+> **Purpose:** This page covers how ICAEW applies metadata in Preservica.
 
 
 ## Asset XIP

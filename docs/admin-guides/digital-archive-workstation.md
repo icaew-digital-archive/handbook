@@ -1,14 +1,16 @@
 # Digital Archive Workstation
 
 ## Overview
-This document provides comprehensive information about the digital archiving workstation setup, including system configuration, installed software, and maintenance procedures.
+
+> **Purpose:** This document provides comprehensive information about the digital archiving workstation setup, including system configuration, installed software, and maintenance procedures.
 
 ## System Configuration
 
 ### Dual-Boot Setup
-The workstation is configured as a dual-boot system running both Windows and Ubuntu/BitCurator, with Ubuntu/BitCurator serving as the primary operating system. To switch between the two at boot, press `F12`.
 
-For login details to both Windows and Ubuntu/BitCurator, refer to the [Logins page](../logins.md).
+> **Configuration:** The workstation is configured as a dual-boot system running both Windows and Ubuntu/BitCurator, with Ubuntu/BitCurator serving as the primary operating system. To switch between the two at boot, press `F12`.
+
+> **Note:** For login details to both Windows and Ubuntu/BitCurator, refer to the [Logins page](../logins.md).
 
 ## Installation Guide
 

@@ -1,13 +1,18 @@
 # YouTube Video Downloads and Metadata Export Guide
 
-[NOTE: Add a "Prerequisites" section]
-[NOTE: Add a "API Setup" section]
-[NOTE: Add a "Download Process" section]
-[NOTE: Add a "Quality Settings" section]
-[NOTE: Add a "Error Handling" section]
-[NOTE: Add a "Best Practices" section]
+> **Purpose:** This guide outlines the process for downloading videos and exporting metadata from a YouTube Brand Account using the YouTube Data API.
 
-Here's a summary of the entire process, from creating the app in **Google Cloud** to running the script to get a list of videos from a **YouTube Brand Account** you manage:
+> **Note:** This page is under development. Future additions will include:
+> - Prerequisites section
+> - API Setup section
+> - Download Process section
+> - Quality Settings section
+> - Error Handling section
+> - Best Practices section
+
+## Overview
+
+> **Summary:** Here's a summary of the entire process, from creating the app in **Google Cloud** to running the script to get a list of videos from a **YouTube Brand Account** you manage:
 
 ### 1. **Set Up the Google Cloud Project**
    
@@ -129,18 +134,19 @@ Here's a summary of the entire process, from creating the app in **Google Cloud*
 
    If you want to download the videos instead of just listing them, you can integrate **yt-dlp** into the script to handle the downloads, as outlined in the previous examples.
 
-### Key Points:
-- **OAuth Authentication**: This process allows you to access the Brand Account's videos, even if they are private or unlisted, as long as you are authenticated as a manager.
-- **Cookies for Downloading**: For downloading private/unlisted videos that require authentication, you may need to use cookies with `yt-dlp` (optional if you're just listing videos).
-- **API Limits**: The YouTube Data API has daily quotas (10,000 units/day) for free use, but listing videos for personal use should fall well within these limits.
+> **Key Points:**
+> - **OAuth Authentication**: This process allows you to access the Brand Account's videos, even if they are private or unlisted, as long as you are authenticated as a manager
+> - **Cookies for Downloading**: For downloading private/unlisted videos that require authentication, you may need to use cookies with `yt-dlp` (optional if you're just listing videos)
+> - **API Limits**: The YouTube Data API has daily quotas (10,000 units/day) for free use, but listing videos for personal use should fall well within these limits
 
 Let me know if you need further clarification or assistance!
 
 # Downloading YouTube Videos via API
 
-[NOTE: Add a "Prerequisites" section]
-[NOTE: Add a "API Setup" section]
-[NOTE: Add a "Download Process" section]
-[NOTE: Add a "Quality Settings" section]
-[NOTE: Add a "Error Handling" section]
-[NOTE: Add a "Best Practices" section]
+> **Note:** This section is under development. Future additions will include:
+> - Prerequisites section
+> - API Setup section
+> - Download Process section
+> - Quality Settings section
+> - Error Handling section
+> - Best Practices section

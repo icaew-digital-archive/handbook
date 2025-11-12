@@ -2,7 +2,7 @@
 
 ## Key Benefits
 
-Digital preservation and web archiving offer numerous advantages for organizations:
+> **Purpose:** Digital preservation and web archiving offer numerous advantages for organizations:
 
 - **Long-term Access**: Ensures continued access to digital content regardless of technological changes
 - **Risk Mitigation**: Protects against data loss, corruption, and obsolescence
@@ -13,7 +13,7 @@ Digital preservation and web archiving offer numerous advantages for organizatio
 
 ## Use Cases
 
-Digital preservation and web archiving serve various important purposes:
+> **Purpose:** Digital preservation and web archiving serve various important purposes:
 
 ### Organizational Use Cases
 - Maintaining corporate records and communications
@@ -35,7 +35,7 @@ Digital preservation and web archiving serve various important purposes:
 
 ## Legal Requirements
 
-Digital preservation is often mandated by various legal and regulatory frameworks:
+> **Purpose:** Digital preservation is often mandated by various legal and regulatory frameworks:
 
 - **Data Protection Regulations**: Requirements for secure storage and access control
 - **Industry Standards**: Professional guidelines for record retention
@@ -45,7 +45,7 @@ Digital preservation is often mandated by various legal and regulatory framework
 
 ## Best Practices
 
-To ensure effective digital preservation and web archiving:
+> **Purpose:** To ensure effective digital preservation and web archiving:
 
 1. **Regular Backups**
    - Implement automated backup systems
@@ -87,7 +87,9 @@ To ensure effective digital preservation and web archiving:
 
 ## Digital Preservation
 
-Digital preservation is critical for maintaining the accessibility, usability, and integrity of digital information over time. Digital data faces numerous risks, including:
+> **Purpose:** Digital preservation is critical for maintaining the accessibility, usability, and integrity of digital information over time.
+
+**Digital data faces numerous risks, including:**
 
 - Hardware and software obsolescence ([learn more](https://en.wikipedia.org/wiki/Digital_obsolescence))
 - Media degradation ([learn more](https://en.wikipedia.org/wiki/Data_degradation))
@@ -102,7 +104,7 @@ Many organisations are legally obligated to retain certain data for specified pe
 
 ## Web Archiving
 
-Web archiving is the process of capturing, preserving, and ensuring continued access to websites and online content over time. As the web evolves rapidly, web archiving has become an essential practice for several reasons:
+> **Purpose:** Web archiving is the process of capturing, preserving, and ensuring continued access to websites and online content over time. As the web evolves rapidly, web archiving has become an essential practice for several reasons:
 
 - **Preserving Cultural Heritage**: Websites reflect and document cultural, societal, and political movements. By archiving online content, we safeguard this valuable aspect of our cultural history.
   
