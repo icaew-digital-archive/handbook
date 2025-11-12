@@ -39,7 +39,7 @@ After the crawl has finished navigate to the appropriate HTML file and ensure th
 
 The following crawls can be run simultaneously:
 
-### 1. ICAEW.com and Careers.ICAEW.com
+### 1. ICAEW.com
 
 urls.txt should be a list of URLs, which will almost always be a .txt version of the sitemap.
 
