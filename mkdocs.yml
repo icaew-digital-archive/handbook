@@ -25,10 +25,10 @@ nav:
             - 'Downloading YouTube videos (YouTube Data API)': 'admin-guides/preservica/downloading-youtube-videos-api.md'
             - 'yt-dlp and youtube-dl': 'admin-guides/preservica/yt-dlp-youtube-dl.md'
             - 'Archived pages': 'admin-guides/preservica/archived-pages.md'
-        - 'Web archives / Archive-It':
+        - 'Web archives':
             - 'Web crawl process overview': 'admin-guides/web-archiving/crawl-process-overview.md'
             - 'Wget': 'admin-guides/web-archiving/wget.md'
-            - 'Browsertrix': 'admin-guides/web-archiving/browsertrix.md'
+            - 'Browsertrix-crawler': 'admin-guides/web-archiving/browsertrix.md'
             - 'Browsertrix custom behaviors': 'admin-guides/web-archiving/browsertrix-behaviors.md'
             - 'Monthly web captures': 'admin-guides/web-archiving/monthly-web-captures.md'
             - 'Appendix': 'admin-guides/web-archiving/appendix.md'
