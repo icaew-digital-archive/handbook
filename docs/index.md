@@ -1,6 +1,6 @@
 # ICAEW Digital Archive Handbook
 
-**Last Updated:** November 24 2025 (NK edit v2) another edit
+**Last Updated:** November 24 2025
 
 ## Introduction
 
