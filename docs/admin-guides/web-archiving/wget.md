@@ -6,12 +6,16 @@
 
 [Wget](https://en.wikipedia.org/wiki/Wget) is a free utility for non-interactive downloading of files from the web, supporting HTTP, HTTPS, and FTP protocols, as well as retrieval through HTTP proxies.
 
+> **Note:** Wget crawls serve as a secondary/back-up capture method. The primary crawl should be performed using [Browsertrix-crawler](browsertrix.md), which creates the main WACZ file for ingestion into Preservica. For the complete web archiving workflow, see the [Web Archiving Process Overview](crawl-process-overview.md).
+
 ## Prerequisites
 
 **Required:**
 - [Get cookies.txt LOCALLY](https://chrome.google.com/webstore/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc) browser extension
 - Access to ICAEW.com with appropriate credentials
 - Wget installed on your system
+- Sufficient disk space (crawls can generate several GB of data)
+- `seedFile.txt` containing URLs to crawl (typically a .txt version of the sitemap, one URL per line)
 
 ## Setup Process
 
@@ -39,6 +43,35 @@ wget --load-cookies cookies.txt \
 
 > **Verification:** After the crawl has finished, navigate to the appropriate HTML file and ensure that it has remained logged in.
 
+---
+
+## Crawl Configurations
+
+### Key Wget Flags Explained
+
+Before running crawls, it's helpful to understand some key flags:
+
+- `--recursive`: Follow links and crawl pages recursively (not used in non-recursive crawls)
+- `--page-requisites`: Download all files needed to display HTML pages (images, CSS, JavaScript)
+- `--span-hosts`: Allow downloading from different hosts (needed for CDN resources)
+- `--adjust-extension`: Add appropriate file extensions based on content type
+- `--convert-links`: Convert links in downloaded files to point to local files
+- `--restrict-file-names=windows`: Ensure filenames are Windows-compatible
+- `--no-parent`: Don't ascend to parent directories when using `--recursive`
+- `--domains`: Restrict crawling to specified domains only
+- `--reject-regex`: Exclude URLs matching the regex pattern
+
+---
+
+### Directory Structure
+
+Wget will create directories based on the domain structure. For example:
+- `www.icaew.com/` - Main site content
+- `regulation.icaew.com/` - Regulation subdomain content
+- Log files will be saved in the current working directory
+
+---
+
 ## Crawl Configurations
 
 The following crawls can be run simultaneously:
@@ -46,6 +79,8 @@ The following crawls can be run simultaneously:
 ### 1. ICAEW.com
 
 > **Note:** `seedFile.txt` should be a list of URLs, which will almost always be a .txt version of the sitemap.
+
+> **Important:** This crawl configuration does not use `--recursive`, meaning it will only crawl the URLs explicitly listed in `seedFile.txt` and will not follow links. Media items (images, videos, etc.) are not included in the sitemap and therefore will not be crawled. If you need to crawl media items, use the [Media Items Crawl](#3-media-items-crawl-optional) configuration instead.
 
 ```bash
 wget --load-cookies cookies.txt \
@@ -61,10 +96,13 @@ wget --load-cookies cookies.txt \
      --waitretry=10 \
      --tries=3 \
      --timeout=15 \
-     -i seedFile.txt 2>&1 | tee icaew-careers-icaew-wget.log
+     -i seedFile.txt 2>&1 | tee icaew-com-wget.log
 ```
 
-### 2. Regulation.icaew.com
+### 2. Subdomains (Regulation, Train, Volunteer)
+
+> **Note:** This combined crawl covers regulation.icaew.com (full site), train.icaew.com (blog pages only), and volunteer.icaew.com (blog pages only). All three subdomains are crawled recursively from their seed URLs.
+
 ```bash
 wget --load-cookies cookies.txt \
      --keep-session-cookies \
@@ -74,19 +112,26 @@ wget --load-cookies cookies.txt \
      --span-hosts \
      --convert-links \
      --restrict-file-names=windows \
-     --domains regulation.icaew.com \
+     --domains regulation.icaew.com,train.icaew.com,volunteer.icaew.com \
      --no-parent \
      --regex-type pcre \
-     --reject-regex '(?i)(.*log(?:off|out).*)' \
+     --reject-regex '((?i)(.*log(?:off|out).*))|(^(?!https:\/\/(train|volunteer)\.icaew\.com\/?(blog\/?.*|article\/?.*|$)).+$)' \
      --random-wait \
      --retry-connrefused \
      --waitretry=10 \
      --tries=3 \
      --timeout=15 \
-     regulation.icaew.com 2>&1 | tee regulation-icaew-wget.log
+     regulation.icaew.com train.icaew.com volunteer.icaew.com 2>&1 | tee subdomains-wget.log
 ```
 
-### 3. Train.icaew.com (Blog Pages Only)
+> **Note:** The regex pattern restricts train.icaew.com and volunteer.icaew.com to blog/article pages only, while allowing full recursive crawling of regulation.icaew.com.
+
+### 3. Media Items Crawl (Optional)
+
+> **Note:** If you need to crawl media items (images, videos, PDFs, etc.) that are not included in the sitemap, use this domain crawl configuration. This uses `seedFile.txt` as starting points and then recursively crawls from those URLs, following links to capture media library items.
+
+> **Warning:** This crawl can take significantly longer and result in much larger capture sizes compared to the non-recursive seedFile.txt crawl, as it follows all links and downloads all media content.
+
 ```bash
 wget --load-cookies cookies.txt \
      --keep-session-cookies \
@@ -96,39 +141,21 @@ wget --load-cookies cookies.txt \
      --span-hosts \
      --convert-links \
      --restrict-file-names=windows \
-     --domains train.icaew.com \
+     --domains icaew.com \
      --no-parent \
      --regex-type pcre \
-     --reject-regex '^(?!https:\/\/train\.icaew\.com\/?(blog\/?.*|article\/?.*|$)).+$' \
+     --reject-regex '((?i)(.*log(?:off|out).*))|((?i)(.*membership\/active-members.*))' \
      --random-wait \
      --retry-connrefused \
      --waitretry=10 \
      --tries=3 \
      --timeout=15 \
-     train.icaew.com 2>&1 | tee train-icaew-wget.log
+     -i seedFile.txt 2>&1 | tee icaew-media-wget.log
 ```
 
-### 4. Volunteer.icaew.com (Blog Pages Only)
-```bash
-wget --load-cookies cookies.txt \
-     --keep-session-cookies \
-     --recursive \
-     --page-requisites \
-     --adjust-extension \
-     --span-hosts \
-     --convert-links \
-     --restrict-file-names=windows \
-     --domains volunteer.icaew.com \
-     --no-parent \
-     --regex-type pcre \
-     --reject-regex '^(?!https:\/\/volunteer\.icaew\.com\/?(blog\/?.*|article\/?.*|$)).+$' \
-     --random-wait \
-     --retry-connrefused \
-     --waitretry=10 \
-     --tries=3 \
-     --timeout=15 \
-     volunteer.icaew.com 2>&1 | tee volunteer-icaew-wget.log
-```
+> **Note:** This configuration uses `seedFile.txt` as seed URLs and then recursively crawls from those pages, following links to capture media items that are not listed in the sitemap. This ensures you're crawling media linked from the pages you care about, rather than starting from just the homepage.
+
+---
 
 ## Post-Crawl Process
 
@@ -155,26 +182,3 @@ wget --load-cookies cookies.txt \
    
    - Add all of the folders to a parent folder called: `202XXXXX-ICAEW-com-logged-in-wget` and compress this into a zip file.
    - This file is to be ingested into Preservica along with the other elements of the capture.
-
-## Appendix
-
-### Previous Configuration
-
-> **Note:** This was an earlier configuration that crawled icaew.com recursively. It was found to take too long to finish and resulted in large capture sizes, as it also crawled media library items which are saved separately in the crawl process.
-
-```bash
-wget --load-cookies cookies.txt \
-     --keep-session-cookies \
-     --recursive \
-     --page-requisites \
-     --adjust-extension \
-     --span-hosts \
-     --convert-links \
-     --restrict-file-names=windows \
-     --domains icaew.com \
-     --no-parent \
-     --reject-regex '(.*(l|L)(o|O)(g|G)((o|O)(f|F)(f|F)|(o|O)(u|U)(t|T)).*)|(.*membership\/active-members.*)|(^(http(s)?:\/\/)?(www\.)?(train|volunteer)\.icaew\.com\/?(?:(?!blog(\/)?).)+$)' \
-     --exclude-domains access.icaew.com,annualreturns.icaew.com,apps.icaew.com,dataprotection.icaew.com,demo.icaew.com,ebookshop.icaew.com,ebm.icaew.com,economia.icaew.com,elearning.icaew.com,events.icaew.com,examresults.icaew.com,fdw.icaew.com,find.icaew.com,ion.icaew.com,jobs.icaew.com,latest.icaew.com,learningshop.icaew.com,libcat.icaew.com,membersearch.icaew.com,my.icaew.com,recruit.icaew.com,review.icaew.com,students.icaew.com,uatapps.icaew.com,uatcdn.icaew.com,uatcloudcdn.icaew.com,uatevents.icaew.com,uatmy.icaew.com,vacancies.icaew.com,www.ion.icaew.com \
-     --random-wait \
-     -i '/mnt/fc6d53c3-3dad-406c-a8ff-222b171f9208/wget-icaew-com-logged-in-july-2022/202XXXXX_sitemap.txt
-```

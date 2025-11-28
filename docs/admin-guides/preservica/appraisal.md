@@ -30,6 +30,8 @@ brunnhilde.py source destination
 
 > **Tip:** Check for any complications such as 0-sized files and duplicates.
 
+---
+
 ## Check the G:Drive
 
 > **Purpose:** When appraising a collection of documents, it is important to check for similar resources in the G:Drive from the VDI.
@@ -46,6 +48,7 @@ G:\MD\LIS\LIBRARY AND INFORMATION SERVICE\ICAEW digital repository
 - If duplicates are found, remove them from the G:Drive after ingest
 - If additional resources are found, transfer them from the VDI onto your local machine using the Digital Archive Sharepoint
 
+---
 
 ## Creating a series
 

@@ -21,6 +21,8 @@
 
 > **Tool:** For the monthly web captures, we use [ArchiveWeb.page](https://github.com/webrecorder/archiveweb.page), a web archiving tool that allows for interactive capture of web content.
 
+---
+
 ## Capture Process
 
 ### 1. Initial Setup
@@ -43,6 +45,8 @@
 6. Wait for the crawl to complete and all URLs to be collected
 7. Download the completed crawl
 
+---
+
 ### 3. Preservica Ingestion
 1. Rename the WACZ file to include GMT time:
    ```
@@ -61,6 +65,8 @@
      ```
      Admin/Private Repository/Web Captures/WACZ/WARC Files/taxline-logged-in
      ```
+
+---
 
 ## Annual Series Creation
 

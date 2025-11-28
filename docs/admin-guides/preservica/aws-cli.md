@@ -25,6 +25,8 @@ aws configure
 - Default region name (use the one specified in Preservica)
 - Default output format (json or text)
 
+---
+
 ## Usage Examples
 
 ### List Directory Contents

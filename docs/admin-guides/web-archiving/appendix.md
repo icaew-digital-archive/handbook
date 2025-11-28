@@ -9,6 +9,8 @@
 - [Archive-It WARC Downloads](#archive-it-warc-downloads)
 - [WARC File Naming Conventions](#warc-file-naming-conventions)
 
+---
+
 ## Internet Archive Wayback Machine
 
 ### Overview
@@ -36,6 +38,8 @@
 3. **Process JSON**
    - Use the [ia_cdx_json_to_txt.py](https://github.com/craiglmccarthy/web-archiving-scripts/blob/main/downloading%20items%20from%20internet%20archive/ia_cdx_json_to_txt.py) script to convert the local json file to a list of URLs
    - The resulting URL list can be given to wget or another downloader/crawler
+
+---
 
 ## Twitter Archiving
 
@@ -97,6 +101,8 @@
   ```
 
 - **Note**: A developer account needs to be setup. There is a development account setup using the same credentials as above. The login details are on [Logins page](../../logins.md).
+
+---
 
 ## Archive-It WARC Downloads
 
@@ -177,6 +183,8 @@ The following collection IDs can be ignored:
 - 14886 (DELETEME-ION (Excel Community) - OLD)
 - 14752 (DELETEME-Insights - Daily Summary (Broken 2))
 - 13348 (DELETEME-Insights - Daily Summary (Broken 1))
+
+---
 
 ## WARC File Naming Conventions
 

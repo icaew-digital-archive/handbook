@@ -22,6 +22,8 @@
 
 > **Important:** Preservica should be contacted before running this report as it is apparently process heavy. It should be run over the weekend to minimise any potential disruption to their servers.
 
+---
+
 ## Unzipping the Preservica download
 
 > **Purpose:** The Preservica backup download will be contained within .zip files, which in turn contain further .zip files (i.e., nested .zip files). In order to make the files more accessible, to generate local hashes, and for tools such as Brunnhilde/ssdeep to work as intended, the contents must be unzipped.

@@ -61,6 +61,8 @@
 python3 xml_to_csv.py --xml_file input.xml --csv_file output.csv
 ```
 
+---
+
 ## Quality Settings
 
 > **Best Practices:**
@@ -86,6 +88,8 @@ Common issues and solutions:
    - Check CSV output
    - Verify field mapping
 
+---
+
 ## Best Practices
 1. Always download source quality
 2. Keep original filenames
@@ -94,8 +98,12 @@ Common issues and solutions:
 5. Test with single video first
 6. Verify downloads before processing
 
+---
+
 ## Support
 For issues or questions, contact the Digital Archive team.
+
+---
 
 # StreamAMG Video Downloads and Metadata Export Guide
 
@@ -108,6 +116,8 @@ Below are key links referenced throughout this guide:
 - [KMC Management Console](https://kmc.mp.streamamg.com/login)
 - [API Test Console](https://mp.streamamg.com/api_v3/testme/index.php)
 - [API Documentation](https://mp.streamamg.com/api_v3/testmeDoc/index.php)
+
+---
 
 ## Part 1: Downloading Videos from StreamAMG
 
@@ -138,6 +148,8 @@ Follow the steps below to download videos from StreamAMG:
 - You will receive an email with a download link. Right-click on the link and select "Save link as..." to save the file to your local device.
 
 ![kmc-3](../../assets/images/kmc-3.png)
+
+---
 
 ## Part 2: Exporting StreamAMG Metadata
 

@@ -31,6 +31,8 @@ ICAEW.com, April 2025/
 │   │   ├── notes.txt [Optional]
 ```
 
+---
+
 ## Process Overview
 
 ### Pre-crawl processes
@@ -68,6 +70,8 @@ python3 sitemap_xml_to_txt_or_html.py \
 
 **Optional:** Use the [crt-scraper.py](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/web%20crawling/crt-scraper.py) script to discover new sub-domains that may not be included in a full ICAEW.com capture. This helps ensure comprehensive coverage of all ICAEW web properties.
 
+---
+
 ### Crawl processes
 
 #### 1) Media library download
@@ -102,6 +106,8 @@ Execute the primary crawl using Browsertrix-crawler. This creates the main WACZ 
 - For logged-in crawls: Requires browser profile creation with authentication cookies
 - For public crawls: No authentication required
 - Detailed instructions are available on the [Browsertrix-crawler page](../web-archiving/browsertrix.md).
+
+---
 
 ### Post-crawl processes
 

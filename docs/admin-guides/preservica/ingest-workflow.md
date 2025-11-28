@@ -23,9 +23,13 @@ This workflow utilises the following tools:
 
 > **Important:** Take note of the asset ID for the bucket. This is the Preservica reference number that we use for our custom tools. It will be necessary for later steps in the workflow.
 
+---
+
 ## Step 2: Upload resources to Preservica
 
 Using the drag and drop feature, populate the bucket in accordance with the hierarchy decided on during appraisal.
+
+---
 
 ## Step 3: Add metadata
 
@@ -94,6 +98,8 @@ python3 d_update_xip_from_csv.py [csv_location]
 > **Purpose:** The `d_update_xip_from_csv.py` tool adds the newly complete XIP metadata CSV to the original assets within Preservica. XIP metadata includes the `entity.title` (file name) and `entity.description`. The asset security tag can also be changed using this tool, but it is recommended to do that within the Preservica GUI.
 
 > **Note:** This tool uses the Preservica reference numbers in the CSV to locate where to add the newly completed XIP metadata template.
+
+---
 
 ## Suggested Checklist
 

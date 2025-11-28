@@ -43,6 +43,8 @@
       - Name it (e.g., "YouTube Data API Desktop Client") and click **Create**.
       - Download the `client_secret.json` file, which will be used in your Python script.
 
+---
+
 ### 3. **Set Up Your Python Environment**
 
    1. **Install the required Python libraries**:
@@ -50,6 +52,8 @@
       ```bash
       pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client yt-dlp
       ```
+
+---
 
 ### 4. **Run the Python Script**
 
@@ -113,6 +117,8 @@
            print(f"Title: {title}, URL: {url}")
    ```
 
+---
+
 ### 5. **Run the Script**
 
    1. **Place the `client_secret.json` file** in the same directory as your script.
@@ -130,6 +136,8 @@
    4. **View the List of Videos**:
       - The script will print the titles and URLs of all videos from the Brand Account, including public, private, and unlisted ones.
 
+---
+
 ### 6. (Optional) **Download Videos Using yt-dlp**
 
    If you want to download the videos instead of just listing them, you can integrate **yt-dlp** into the script to handle the downloads, as outlined in the previous examples.
@@ -140,6 +148,8 @@
 > - **API Limits**: The YouTube Data API has daily quotas (10,000 units/day) for free use, but listing videos for personal use should fall well within these limits
 
 Let me know if you need further clarification or assistance!
+
+---
 
 # Downloading YouTube Videos via API
 

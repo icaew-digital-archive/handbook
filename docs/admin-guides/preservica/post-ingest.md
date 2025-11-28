@@ -5,6 +5,7 @@
 > - Cleaning up the tools we use after ingest (for example, Preservica and Sharepoint)
 > - Linking the resources to the broader ICAEW information ecosphere
 
+---
 
 ## Quality Assurance
 
@@ -21,6 +22,8 @@
 3. **Enforce Consistency:**
    - Ensure resources adhere to file naming conventions and Dublin Core style guide
 
+---
+
 ## Clean Preservica and Sharepoint
 
 > **Purpose:** When you are sure of the quality of metadata, it is time to clean up after the ingest.
@@ -32,6 +35,8 @@
 3. Add to the description field of the bucket that you have completed the ingest with a date stamp: `yyyymmdd`
 
 > **Note:** Often when ingesting materials, we have received the resources from the G:Drive within the VDI and transferred them out using Sharepoint. The previous steps can be used to clean up Sharepoint after ingest.
+
+---
 
 ## Add to Catalogue
 

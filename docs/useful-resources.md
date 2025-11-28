@@ -4,6 +4,8 @@
 
 > **Purpose:** This section provides a comprehensive collection of resources related to digital preservation and web archiving at ICAEW. These resources are organized by platform and category for easy reference.
 
+---
+
 ## Platform-Specific Resources
 
 ### Preservica
@@ -25,6 +27,8 @@
 | Admin Interface | Administrative interface | [partner.archive-it.org](https://partner.archive-it.org/) |
 | Help Centre and Training | Training resources and documentation | [support.archive-it.org](https://support.archive-it.org/hc/en-us/articles/208117886-Live-Archive-It-Training-Sessions-and-Webinars) |
 
+---
+
 ### ICAEW Systems
 
 | Resource | Description | URL |
@@ -32,6 +36,8 @@
 | Sitecore | ICAEW.com content management system | [master.icaew.com/sitecore/login](http://master.icaew.com/sitecore/login) |
 | Semaphore SmartLogic | Taxonomy management system | [cloud.smartlogic.com/spa/](https://cloud.smartlogic.com/spa/) |
 | Smartlogic Portal | Additional taxonomy resources | [portal.smartlogic.com](https://portal.smartlogic.com/) |
+
+---
 
 ## Web Archiving Tools and Documentation
 
@@ -44,6 +50,8 @@
 | Web Archive Validator | Validation tools for web archives | [github.com/iipc/webarchive-validator](https://github.com/iipc/webarchive-validator) |
 | Wayback Machine | Internet Archive's web archive | [web.archive.org](https://web.archive.org/) |
 
+---
+
 ## Digital Preservation Standards and Guidelines
 
 | Resource | Description | URL |
@@ -55,6 +63,8 @@
 | Digital Preservation Coalition | UK-based digital preservation community | [dpconline.org](https://www.dpconline.org/) |
 | IIPC Guidelines | Web archiving best practices | [netpreserve.org/web-archiving/](https://netpreserve.org/web-archiving/) |
 
+---
+
 ## File Format Resources
 
 | Resource | Description | URL |
@@ -62,6 +72,8 @@
 | PRONOM | File format registry | [nationalarchives.gov.uk/PRONOM](https://www.nationalarchives.gov.uk/PRONOM/) |
 | Library of Congress Format Descriptions | File format documentation | [loc.gov/preservation/digital/formats/](https://www.loc.gov/preservation/digital/formats/) |
 | Wikidata File Format Items | File format information | [wikidata.org/wiki/Q235557](https://www.wikidata.org/wiki/Q235557) |
+
+---
 
 ## Tooling Documentation
 
@@ -72,6 +84,8 @@
 | Brunnhilde | File analysis and virus checking tool | [github.com/tw4l/brunnhilde](https://github.com/tw4l/brunnhilde) |
 | Siegfried | File format identification tool | [itforarchivists.com/siegfried](https://www.itforarchivists.com/siegfried) |
 | MediaInfo | Media file metadata extraction | [mediaarea.net/MediaInfo](https://mediaarea.net/MediaInfo) |
+
+---
 
 ## Training and Educational Resources
 
@@ -91,6 +105,8 @@
 | DPC Webinars | Digital Preservation Coalition training sessions | [dpconline.org/events/](https://www.dpconline.org/events/) |
 | IIPC Training | International Internet Preservation Consortium training | [netpreserve.org/training/](https://netpreserve.org/training/) |
 
+---
+
 ## Community and Professional Organizations
 
 | Organization | Description | URL |
@@ -99,6 +115,8 @@
 | International Internet Preservation Consortium | Web archiving community | [netpreserve.org](https://netpreserve.org/) |
 | Society of American Archivists | Professional archival organization | [archivists.org](https://www.archivists.org/) |
 | Archives and Records Association | UK and Ireland professional body | [archives.org.uk](https://www.archives.org.uk/) |
+
+---
 
 ## Government and Institutional Resources
 

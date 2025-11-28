@@ -24,13 +24,15 @@
 
 ### 2. Testing Environment Setup
 
+> **Note:** For development and testing, custom behaviors are loaded from a local folder. In production crawls, behaviors are loaded via URL (see [Browsertrix-crawler](browsertrix.md) for production configuration).
+
 **Command for testing custom behaviors:**
 
 ```bash
 docker run -p 9037:9037 \
     -v $PWD/crawls:/crawls \
     -v $PWD/custom-behaviors/:/custom-behaviors/ \
-    webrecorder/browsertrix-crawler crawl \
+    webrecorder/browsertrix-crawler:1.5.11 crawl \
     --url [URLS] \
     --customBehaviors /custom-behaviors/ \
     --screencastPort 9037 \
@@ -52,10 +54,13 @@ docker run -p 9037:9037 \
 
 ## Implementation Details
 
+> **Note:** The following file structure is for development and testing. In production, behaviors are loaded via URL from the GitHub repository (see [Browsertrix-crawler](browsertrix.md)).
+
 ### File Structure
 - Custom behaviors are JavaScript functions in a .js file
-- File must be located in a "custom-behaviors" folder
+- For testing: File must be located in a "custom-behaviors" folder
 - Folder should be in the same directory as the docker command execution
+- For production: Behaviors are loaded via URL from the [digital-archiving-scripts repository](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/browsertrix-crawler%20files%20and%20scripts/icaew-com-behaviors.js)
 
 ### Behavior Script
 

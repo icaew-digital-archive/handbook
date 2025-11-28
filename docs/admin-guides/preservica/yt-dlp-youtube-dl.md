@@ -26,6 +26,8 @@ pip install youtube-dl
 - Saves the files with `%(upload_date)s-%(title)s` format
 - The write-annotations, write-description, write-all-thumbnails, and sub parameters may not be necessary, but can be downloaded for completion sake
 
+---
+
 **Command:**
 ```bash
 youtube-dl --write-annotations --write-description --write-info-json --write-all-thumbnails --all-subs --write-auto-sub --write-sub --restrict-filenames --format 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --output '%(upload_date)s-%(title)s' [YouTube Channel URL]
@@ -37,6 +39,8 @@ youtube-dl --write-annotations --write-description --write-info-json --write-all
 
 > **Reference:** Parameters can be found at [https://github.com/ytdl-org/youtube-dl#options](https://github.com/ytdl-org/youtube-dl#options).
 
+---
+
 ## Advanced Options
 
 > **Note:** Advanced options section to be added.
@@ -45,9 +49,11 @@ youtube-dl --write-annotations --write-description --write-info-json --write-all
 
 > **Note:** Best practices section to be added.
 
+---
+
 ## Appendices
 
-### Appendix A: Python script
+### Appendix A: Python Script
     """
     Reads JSON files from youtube-dl and produce .metadata files based on data 
     contained.
@@ -95,7 +101,9 @@ youtube-dl --write-annotations --write-description --write-info-json --write-all
             with open(os.path.join(directory, filename).replace('.info.json', '.mp4.metadata'), 'w') as f:
                 f.write(template_dc)
 
-### Appendix B: Bash scripts for filtering by video duration
+---
+
+### Appendix B: Bash Scripts for Filtering by Video Duration
 Output duration of all videos in folder
         
         for f in *.mp4

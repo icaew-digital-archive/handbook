@@ -22,6 +22,8 @@
 
 > **Access Request:** If you do not have a Preservica account, please request one from the Digital Archive Manager / Digital Archivist.
 
+---
+
 ## Search
 
 ### Searching via the Preservica web portal

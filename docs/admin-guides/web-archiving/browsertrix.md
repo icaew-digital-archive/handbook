@@ -207,7 +207,7 @@ sudo docker run -p 6080:6080 -p 9223:9223 \
 6. **Finalize:**
    - Click "Create Profile"
 
-### 2. Setting Up and Starting the Template Crawl
+### 2. Setting Up and Starting the Full ICAEW.com Crawl
 
 #### Prerequisites
 

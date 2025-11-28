@@ -54,6 +54,8 @@ pip install mkdocs-material
 * [Python Virtual Environment](https://docs.python.org/3/library/venv.html)  
   For managing Python dependencies
 
+---
+
 ## Development Workflow
 
 ### GitHub Workflow
@@ -99,6 +101,8 @@ mkdocs build
 
 This creates a static website in the `/site/` directory. **Note:** The `/site/` directory is excluded from Git (see `.gitignore`) as it's generated content.
 
+---
+
 ### Deployment
 The contents of `/site/` should be copied to:
 ```
@@ -109,6 +113,8 @@ G:\Apps\Passport\ICAEW Digital Archive Handbook
 1. Build the static site: `mkdocs build`
 2. Copy the entire contents of the `/site/` directory to the deployment location
 3. Ensure all files are copied, including assets, JavaScript, and CSS files
+
+---
 
 ## Documentation Structure
 
@@ -132,6 +138,8 @@ To add a new page:
 2. Add the entry to the `nav:` section in `mkdocs.yml`
 3. Follow the existing indentation and formatting pattern
 
+---
+
 ### Adding Images
 1. Place image files in `/docs/assets/images/`
 2. Reference them in Markdown using:
@@ -139,6 +147,8 @@ To add a new page:
    ![Alt text](assets/images/filename.png)
    ```
 3. Supported formats: PNG, JPG, JPEG, GIF, SVG
+
+---
 
 ## Best Practices
 
@@ -184,6 +194,8 @@ To add a new page:
 - Verify the image path is correct relative to the Markdown file
 - Check that the image file exists in `/docs/assets/images/`
 - Ensure the image file is committed to Git
+
+---
 
 ## Additional Resources
 - [MkDocs Documentation](https://www.mkdocs.org/user-guide/)
