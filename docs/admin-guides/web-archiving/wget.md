@@ -45,7 +45,7 @@ The following crawls can be run simultaneously:
 
 ### 1. ICAEW.com
 
-> **Note:** `urls.txt` should be a list of URLs, which will almost always be a .txt version of the sitemap.
+> **Note:** `seedFile.txt` should be a list of URLs, which will almost always be a .txt version of the sitemap.
 
 ```bash
 wget --load-cookies cookies.txt \
@@ -61,7 +61,7 @@ wget --load-cookies cookies.txt \
      --waitretry=10 \
      --tries=3 \
      --timeout=15 \
-     -i urls.txt 2>&1 | tee icaew-careers-icaew-wget.log
+     -i seedFile.txt 2>&1 | tee icaew-careers-icaew-wget.log
 ```
 
 ### 2. Regulation.icaew.com

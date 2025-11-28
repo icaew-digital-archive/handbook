@@ -9,10 +9,11 @@ For comprehensive documentation on Browsertrix-crawler, including all configurat
 Before starting any crawl, ensure you have:
 
 1. Docker installed and running on your system
-2. The latest Browsertrix-crawler image pulled:
+2. The specific Browsertrix-crawler image version pulled:
    ```bash
-   docker pull webrecorder/browsertrix-crawler
+   docker pull webrecorder/browsertrix-crawler:1.5.11
    ```
+   > **Note:** Using version 1.5.11 prevents compatibility issues that can occur with the latest versions. This ensures consistent behavior and avoids unexpected problems during crawls.
 3. Required configuration files and scripts from the digital-archiving-scripts repository
 4. Sufficient disk space for the crawl
 
@@ -42,7 +43,7 @@ This guide covers several types of crawls. Choose the appropriate type based on 
 ```bash
 sudo docker run -p 6080:6080 -p 9223:9223 \
     -v $PWD/crawls/profiles:/crawls/profiles/ \
-    -it webrecorder/browsertrix-crawler \
+    -it webrecorder/browsertrix-crawler:1.5.11 \
     create-login-profile --url "https://my.icaew.com/security/Account/Login"
 ```
 
@@ -75,15 +76,14 @@ Ensure you have the following files in your working directory:
 
 - `crawl-config.yaml` - Configuration file for the crawl
 - `seedFile.txt` - Contains URLs to crawl. This should be the URLs found in the template document.
-- `custom-behaviors/icaew-com-behaviors.js` - Custom behavior scripts. The ICAEW behaviors file is available at [icaew-com-behaviors.js](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/browsertrix-crawler%20files%20and%20scripts/icaew-com-behaviors.js). For information on creating custom behaviors, see the [Browser Behaviors documentation](https://crawler.docs.browsertrix.com/user-guide/browser-behaviors/).
+
+> **Note:** The custom behavior script (`icaew-com-behaviors.js`) is loaded via URL from the [digital-archiving-scripts repository](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/browsertrix-crawler%20files%20and%20scripts/icaew-com-behaviors.js), so no local copy is required. For information on creating custom behaviors, see the [Browser Behaviors documentation](https://crawler.docs.browsertrix.com/user-guide/browser-behaviors/).
 
 **Required directory structure:**
 ```bash
 $PWD/
 ├── seedFile.txt
 ├── crawl-config.yaml
-├── custom-behaviors/
-│   └── icaew-com-behaviors.js
 ```
 
 #### Configuration
@@ -101,13 +101,13 @@ profile: /crawls/profiles/profile.tar.gz
 seedFile: /app/seedFile.txt
 collection: template-test
 screencastPort: 9037
-customBehaviors: /custom-behaviors/
+customBehaviors: https://raw.githubusercontent.com/icaew-digital-archive/digital-archiving-scripts/refs/heads/main/browsertrix-crawler%20files%20and%20scripts/icaew-com-behaviors.js
 
 # Additional options
 allowHashUrls: true
 combineWARC: true
 generateWACZ: true
-workers: 8
+workers: 6
 text:
   - to-warc
   - to-pages
@@ -123,10 +123,9 @@ Command:
 ```bash
 sudo docker run -p 9037:9037 \
     -v $PWD/crawls:/crawls \
-    -v $PWD/custom-behaviors/:/custom-behaviors/ \
     -v $PWD/crawl-config.yaml:/app/crawl-config.yaml \
     -v $PWD/seedFile.txt:/app/seedFile.txt \
-    webrecorder/browsertrix-crawler crawl \
+    webrecorder/browsertrix-crawler:1.5.11 crawl \
     --config /app/crawl-config.yaml
 ```
 
@@ -152,15 +151,14 @@ Run a QA crawl to verify the capture:
 ```bash
 sudo docker run -p 9037:9037 \
     -v $PWD/crawls/:/crawls/ \
-    -v $PWD/custom-behaviors/:/custom-behaviors/ \
-    -it webrecorder/browsertrix-crawler qa \
+    -it webrecorder/browsertrix-crawler:1.5.11 qa \
     --qaSource /crawls/collections/template-test/template-test.wacz \
     --collection template-qa \
     --generateWACZ \
     --profile /crawls/profiles/profile.tar.gz \
-    --customBehaviors /custom-behaviors/ \
+    --customBehaviors https://raw.githubusercontent.com/icaew-digital-archive/digital-archiving-scripts/refs/heads/main/browsertrix-crawler%20files%20and%20scripts/icaew-com-behaviors.js \
     --screencastPort 9037 \
-    --workers 8
+    --workers 6
 ```
 
 Generate a QA report using [extract_qa.py](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/web%20crawling/extract_qa.py). Use this to futher inspect problematic URLs.
@@ -183,7 +181,7 @@ Generate a QA report using [extract_qa.py](https://github.com/icaew-digital-arch
 ```bash
 sudo docker run -p 6080:6080 -p 9223:9223 \
     -v $PWD/crawls/profiles:/crawls/profiles/ \
-    -it webrecorder/browsertrix-crawler \
+    -it webrecorder/browsertrix-crawler:1.5.11 \
     create-login-profile --url "https://my.icaew.com/security/Account/Login"
 ```
 
@@ -217,15 +215,14 @@ sudo docker run -p 6080:6080 -p 9223:9223 \
 
 - `crawl-config.yaml` - Configuration file for the crawl
 - `seedFile.txt` - Contains URLs to crawl. This should be the URLs from the sitemap.
-- `custom-behaviors/icaew-com-behaviors.js` - Custom behavior scripts. The ICAEW behaviors file is available at [icaew-com-behaviors.js](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/browsertrix-crawler%20files%20and%20scripts/icaew-com-behaviors.js). For information on creating custom behaviors, see the [Browser Behaviors documentation](https://crawler.docs.browsertrix.com/user-guide/browser-behaviors/).
+
+> **Note:** The custom behavior script (`icaew-com-behaviors.js`) is loaded via URL from the [digital-archiving-scripts repository](https://github.com/icaew-digital-archive/digital-archiving-scripts/blob/main/browsertrix-crawler%20files%20and%20scripts/icaew-com-behaviors.js), so no local copy is required. For information on creating custom behaviors, see the [Browser Behaviors documentation](https://crawler.docs.browsertrix.com/user-guide/browser-behaviors/).
 
 **Required directory structure:**
 ```bash
 $PWD/
 ├── seedFile.txt
 ├── crawl-config.yaml
-├── custom-behaviors/
-│   └── icaew-com-behaviors.js
 ```
 
 #### Configuration
@@ -245,13 +242,13 @@ seedFile: /app/seedFile.txt
 # Collection name should be 'icaew-com-logged-in' or 'icaew-com-public'
 collection: icaew-com-logged-in
 screencastPort: 9037
-customBehaviors: /custom-behaviors/
+customBehaviors: https://raw.githubusercontent.com/icaew-digital-archive/digital-archiving-scripts/refs/heads/main/browsertrix-crawler%20files%20and%20scripts/icaew-com-behaviors.js
 
 # Additional options
 allowHashUrls: true
 combineWARC: true
 generateWACZ: true
-workers: 8
+workers: 6
 text:
   - to-warc
   - to-pages
@@ -275,10 +272,9 @@ Command:
 ```bash
 sudo docker run -p 9037:9037 \
     -v $PWD/crawls:/crawls \
-    -v $PWD/custom-behaviors/:/custom-behaviors/ \
     -v $PWD/crawl-config.yaml:/app/crawl-config.yaml \
     -v $PWD/seedFile.txt:/app/seedFile.txt \
-    webrecorder/browsertrix-crawler crawl \
+    webrecorder/browsertrix-crawler:1.5.11 crawl \
     --config /app/crawl-config.yaml
 ```
 
@@ -326,7 +322,7 @@ Command:
 ```bash
 sudo docker run -p 6080:6080 -p 9223:9223 \
     -v $PWD/crawls/profiles:/crawls/profiles/ \
-    -it webrecorder/browsertrix-crawler \
+    -it webrecorder/browsertrix-crawler:1.5.11 \
     create-login-profile --url "https://www.icaew.com/"
 ```
 
@@ -363,13 +359,13 @@ seedFile: /app/seedFile.txt
 # Collection name should be 'icaew-com-logged-in' or 'icaew-com-public'
 collection: icaew-com-logged-in
 screencastPort: 9037
-customBehaviors: /custom-behaviors/
+customBehaviors: https://raw.githubusercontent.com/icaew-digital-archive/digital-archiving-scripts/refs/heads/main/browsertrix-crawler%20files%20and%20scripts/icaew-com-behaviors.js
 
 # Additional options
 allowHashUrls: true
 combineWARC: true
 generateWACZ: true
-workers: 8
+workers: 6
 text:
   - to-warc
   - to-pages
@@ -403,13 +399,13 @@ profile: /crawls/profiles/profile.tar.gz
 seedFile: /app/seedFile.txt
 collection: cpia
 screencastPort: 9037
-customBehaviors: /custom-behaviors/
+customBehaviors: https://raw.githubusercontent.com/icaew-digital-archive/digital-archiving-scripts/refs/heads/main/browsertrix-crawler%20files%20and%20scripts/icaew-com-behaviors.js
 
 # Additional options
 allowHashUrls: true
 combineWARC: true
 generateWACZ: true
-workers: 8
+workers: 6
 text:
   - to-warc
   - to-pages
