@@ -36,7 +36,6 @@ nav:
         - 'Editing the ICAEW Digital Archive Handbook': 'admin-guides/editing-digital-archive-handbook.md'
         - 'Reporting / Statistics': 'admin-guides/reporting.md'
     - Useful resources: useful-resources.md
-    - Logins: logins.md
 use_directory_urls: false
 markdown_extensions:
   - attr_list
