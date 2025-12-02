@@ -1,6 +1,6 @@
 # ICAEW Digital Archive Handbook
 
-**Last Updated:** November 26, 2024
+**Last Updated:** 2nd December, 2024
 
 ## Introduction
 
