@@ -1,6 +1,6 @@
-# icaew-digital-archive-handbook
+# ICAEW Digital Archive Handbook
 
-A private repository for the ICAEW Digital Archive Handbook.
+A repository for the ICAEW Digital Archive Handbook.
 
 This ICAEW Digital Archive Handbook is produced using:
 
