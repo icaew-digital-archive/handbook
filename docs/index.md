@@ -1,7 +1,5 @@
 # ICAEW Digital Archive Handbook
 
-**Last Updated:** 2nd December, 2024
-
 ## Introduction
 
 > **Purpose:** The ICAEW Digital Archive Handbook serves as the central resource for all digital preservation and web archiving activities at ICAEW. This comprehensive guide provides detailed information about our digital preservation platforms, processes, and best practices.
