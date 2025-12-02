@@ -92,6 +92,8 @@ When contributing to the handbook, follow these steps to manage your changes:
    git fetch origin && git merge origin/main && git push
    ```
 
+> **Note:** While you can push directly to `main` (which is simpler and faster), this approach loses the identity of individual users making edits in the Git history. Using branches and pull requests provides better traceability and allows for code review before changes are merged.
+
 ### Local Development
 To edit and preview changes in real-time:
 ```bash
@@ -111,17 +113,37 @@ This creates a static website in the `/site/` directory. **Note:** The `/site/` 
 ---
 
 ### Deployment
-The contents of `/site/` should be copied to:
-```
-G:\Apps\Passport\ICAEW Digital Archive Handbook
-```
 
-**Deployment steps:**
-1. Build the static site: `mkdocs build`
-2. Copy the entire contents of the `/site/` directory to the deployment location
-3. Ensure all files are copied, including assets, JavaScript, and CSS files
+The handbook supports two deployment methods:
 
----
+#### Automatic Deployment to GitHub Pages
+
+The handbook is automatically deployed to GitHub Pages using GitHub Actions. The deployment workflow is defined in `.github/workflows/deploy-docs.yml`.
+
+**How it works:**
+
+1. **Trigger**: The workflow automatically runs when:
+   - Changes are pushed to the `main` branch
+   - The workflow is manually triggered via GitHub Actions UI (`workflow_dispatch`)
+
+2. **Build Process**:
+   - Checks out the repository with full Git history (`fetch-depth: 0`) to ensure accurate revision dates
+   - Sets up Python 3.11 environment
+   - Installs dependencies from `requirements.txt` (or falls back to individual package installation)
+   - Builds the MkDocs site using `mkdocs build`
+   - Uploads the generated site as an artifact
+
+3. **Deployment Process**:
+   - Deploys the built site to GitHub Pages
+   - The site becomes available at the repository's GitHub Pages URL
+
+> **Note:** The `fetch-depth: 0` setting is crucial for the `git-revision-date-localized` plugin to work correctly, as it requires access to the full Git commit history to determine accurate last-modified dates.
+
+**Viewing deployment status:**
+- Check the "Actions" tab in the GitHub repository to see workflow runs
+- Successful deployments will show a green checkmark
+- Failed deployments will show an error with details
+
 
 ## Documentation Structure
 
