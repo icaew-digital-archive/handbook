@@ -58,5 +58,7 @@ plugins:
     - search
     - git-revision-date-localized:
         type: date
+        fallback_to_build_date: false
+        enable_git_follow: true
 extra_css:
   - assets/css/custom.css
